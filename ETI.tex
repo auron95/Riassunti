@@ -39,7 +39,7 @@
 %TEOREMI NON IN CORSIVO
 \theoremstyle{definition}
 \newtheorem{myex}[mytheorem]{Esercizio}
-
+\newtheorem{mycor}[mytheorem]{Corollario}
 %Note
 \theoremstyle{remark}
 \newtheorem*{myobs}{Osservazione}
@@ -192,7 +192,7 @@ Se $(A,\prec)$ è un buon ordine, i suoi segmenti iniziali propri sono in corris
 
 Convenzionalmente, si chiama \myname{funzione} una relazione funzionale tra insiemi, mentre per ricordare che dominio e/o codominio potrebbero non essere insiemi si usa il termine \myname{funzione classe}.
 
-\begin{myax}[Assioma di rimpiazzamento]
+\begin{myax}[Assiomi di rimpiazzamento (forma forte)]
  Se $X$ è un insieme, e $f: X \rightarrow Y$ è una funzione classe, allora $\im f$ è un insieme.
 \end{myax}
 
@@ -324,14 +324,6 @@ L'intersezione di una classe non vuota di ordinali è un ordinale.
 
 
 
-
-
-
-%Ogni buon ordine è isomorfo a un ordinale;
-
-
-
-
 \subsection{Induzione e ricorsione transfinite}
 
 \begin{mytheorem}[Induzione transfinita]
@@ -383,7 +375,7 @@ Con questo si può dimostrare la seguente importante proposizione.
 per ogni $\alpha, \beta$ ordinali e per ogni $\lambda$ ordinale limite.
 \end{mydef}
 
-Si dimostrano (per lo più per induzione) i seguenti fatti (dimostràteli!):
+Si dimostrano (per lo più per induzione) i seguenti fatti (dimostrateli!):
 \begin{itemize}
  \item $0+\alpha=\alpha$;
  \item $\alpha \le \beta \Rightarrow \alpha+\gamma \le \beta + \gamma$;
@@ -509,21 +501,14 @@ I seguenti enunciati sono equivalenti all'assioma di scelta:
  Ogni insieme $X$ ammette un buon ordine. 
 \end{myprop}
 \begin{myprop}[Lemma di Zorn]
- Sia $(S,\preceq)$ un insieme parzialmente ordinato non vuoto e tale che ogni suo sottoinsieme totalmente ordinato (detto \myname{catena}) ammette un maggiorante
- (cioè dato $X \subseteq S$ totalmente ordinato esiste $s\in S$ tale che $x\preceq s$ per ogni $x\in X$). Allora esiste in $S$ un elemento massimale
+ Sia $(S,\preceq)$ un insieme parzialmente ordinato non vuoto e tale che ogni suo sottoinsieme totalmente ordinato (detto \myname{catena}) ammetta un maggiorante
+ (cioè dato $X \subseteq S$ totalmente ordinato esiste $s\in S$ tale che $x\preceq s$ per ogni $x\in X$). Gli insiemi siffatti si dicono \myname{induttivi}. Allora esiste in $S$ un elemento massimale
  (cioè un elemento $\bar s$ tale che $s \preceq \bar s$ per ogni $s\in S$).
 \end{myprop}
-\begin{myprop}[Confrontabilità delle cardinalità]
- Dati $A$ e $B$ insiemi, esiste una funzione iniettiva da $A$ in $B$ o una da $B$ in $A$.
-\end{myprop}
-\begin{myprop}
- Per ogni insieme infinito $A$ esiste una funzione iniettiva da $A \times A$ in $A$
-\end{myprop}
 
-\begin{proof}Dimostreremo solo l'equivalenza tra assioma di scelta, Zorn e Zermelo.
-
+\begin{proof}\
 \begin{itemize}
- \item Assioma di scelta $\Rightarrow$ Lemma di Zorn.
+ \item Assioma di scelta $\Rightarrow$ Lemma di Zorn (prima dimostrazione).
  
  L'idea è più o meno la stessa alla base della dimostrazione di ricorsione transfinita: fisso una funzione di scelta, considero le catene ``coerenti'' con la funzione di scelta, dimostro che sono contenute una nell'altra e le unisco tutte.
  
@@ -535,7 +520,7 @@ I seguenti enunciati sono equivalenti all'assioma di scelta:
  
  Quindi l'unione $U$ di tutte le \myname{f-catene} di $S$ è una \myname{f-catena}. Se $U$ ammettesse un maggiorante stretto, potrei aggiungere usando $f$ un elemento ad $U$, ottenendo una \myname{f-catena} non sottoinsieme di $U$, assurdo. Quindi prendo il maggiorante $u$ di $U$ che esiste per ipotesi, e questo è anche un elemento massimale.
  
- \item Assioma di scelta $\Rightarrow$ Lemma di Zorn.
+ \item Assioma di scelta $\Rightarrow$ Lemma di Zorn (seconda dimostrazione).
  
  Supponiamo per assurdo che $S$ non abbia massimale. Notiamo innanzitutto che ogni catena ha maggiorante stretto: infatti ha un maggiorante $M$, e se non esistesse $N>M$ allora $M$ sarebbe massimale.
 	
@@ -565,14 +550,23 @@ I seguenti enunciati sono equivalenti all'assioma di scelta:
 \end{itemize}
 \end{proof}
 
+Sono equivalenti ad assioma di scelta (ma non lo dimostreremo) anche le seguenti proprietà:
+
+\begin{myprop}[Confrontabilità delle cardinalità]
+ Dati $A$ e $B$ insiemi, esiste una funzione iniettiva da $A$ in $B$ o una da $B$ in $A$.
+\end{myprop}
 
 
-\section{Cardinali}
+\begin{myprop}
+ Per ogni $A$ e $B$ insiemi, se esiste una funzione suriettiva da $B$ in $A$ allora ne esiste una iniettiva da $A$ in $B$.
+\end{myprop}
+
+\section{Cardinalità}
 
 \begin{myprop}
  Esiste una funzione iniettiva da $A$ in $B$ se e solo se ne esiste una suriettiva da $B$ in $A$.
 \end{myprop}
-$(\Rightarrow)$ si dimostra facilmente senza usare assioma di scelta. $(\Leftarrow)$ si dimostra facilmente usando assioma di scelta.
+La $(\Rightarrow)$ si dimostra facilmente senza usare assioma di scelta; $(\Leftarrow)$ invece è equivalente ad assioma di scelta.
 
 \begin{mydef}[Cardinalità]
  Due insiemi $X$ e $Y$ si dicono equipotenti se esiste $f$ bigettiva da $X$ a $Y$, e si scrive $\abs X=\abs Y$. Inoltre si scrive $\abs X \le \abs Y$ se esiste una funzione iniettiva da $X$ a $Y$.
@@ -583,8 +577,8 @@ Si verifica facilmente (senza usare assioma di scelta) che valgono le seguenti p
 \begin{itemize}
  \item $\abs X=\abs X$
  \item $\abs X=\abs Y \Leftrightarrow \abs Y=\abs X$
- \item $(\abs X=\abs Y \quad \abs Y=\abs Z) \Rightarrow \abs X=\abs Z$
- \item $(\abs X \le \abs Y \quad \abs Y \le \abs Z)\Rightarrow \abs X \le \abs Z$
+ \item $(\abs X=\abs Y \land \abs Y=\abs Z) \Rightarrow \abs X=\abs Z$
+ \item $(\abs X \le \abs Y \land \abs Y \le \abs Z)\Rightarrow \abs X \le \abs Z$
 \end{itemize}
 
 Inoltre usando il lemma di Zorn si dimostra che
@@ -593,29 +587,86 @@ Inoltre usando il lemma di Zorn si dimostra che
  Dati $A$ e $B$ insiemi, vale $\abs A\le\abs B \vee \abs B\le\abs A$
 \end{myprop}
 
-Inoltre senza usare assioma di scelta si dimostra il seguente
+Infine senza usare assioma di scelta si dimostra il seguente
 
 \begin{mytheorem}[Cantor-Bernstein]
  Dati $A$ e $B$ insiemi tali che $\abs A\le\abs B$ e $\abs B\le\abs A$, vale $\abs A=\abs B$.
 \end{mytheorem}
 \begin{proof}
- 
+ Siano $f:A\rightarrow B$ e $g:B\rightarrow A$ iniettive.
+ Vogliamo costruire una funzione $h:A\rightarrow B$ invertibile.
+ Preso un elemento in $A\setminus g(B)$, possiamo considerare la sua ``prole'' ottenuta applicando ad esso prima la funzione $f$, poi la funzione $g$, poi di nuovo la funzione $f$, e così via un numero finito di volte: diciamo che gli elementi così ottenuti, che stanno un po' in $A$ ed un po' in $B$, hanno come \myname{primo progenitore} un elemento di $A$. Analogamente definiamo gli elementi che hanno come \myname{primo progenitore} un elemento di $B$. Notare che non è possibile che un elemento abbia primo progenitore sia in $A$ che in $B$; è invece possibile che un elemento non abbia primo progenitore.
+ Dividiamo dunque $A$ e $B$ ciascuno in tre parti: $A_A$ gli elementi di $A$ che hanno primo progenitore in $A$, $A_B$ quelli che lo hanno in $B$, $A_{\infty}$ quelli che non hanno primo progenitore (ed analoga suddivisione per $B$). 
+ Si ha che $f$ è invertibile da $A_A$ in $B_A$, $g$ è invertibile da $B_B$ in $A_B$, entrambe $f$ e $g$ sono invertibili tra $A_{\infty}$ e $B_{\infty}$. Quindi definiamo la funzione $h:A\rightarrow B$ come: $h=f$ sugli elementi di $A_A$ e di $A_{\infty}$, $h=g^{-1}$ sugli elementi di $A_B$.
 \end{proof}
 
-%Equipotenza, Cantor-B, 
 
-Dove andrà? Chi lo sa
+
+\section{Cardinali}
+
 \begin{mydef}
- Dato un insieme $A$, si definisce la funzione di Hartogs \[H(A)=\{\alpha \in ON:|\alpha|\le|A|\}\]
+ Si dice \myname{cardinale} un insieme $\kappa$ tale che $\kappa$ è un ordinale e $\abs\alpha < \abs\kappa$ per ogni $\alpha\in\kappa$.
 \end{mydef}
 
-Si può dimostrare che $H(A)$ è un insieme, è un ordinale, $|H(A)|>|A|$ e $H(A)$ è il più piccolo ordinale con cardinalità strettamente maggiore di $|A|$.
-Ad esempio $\omega_1=H(\omega)$ è il più piccolo ordinale non numerabile.
 
 
-%Definizione di cardinale. Definizione di $\kappa^+$.
+\begin{mydef}
+ Dato un insieme $A$, si definisce la funzione di Hartogs \[H(A)=\{\alpha \in ON:\abs\alpha\le\abs A\}\]
+\end{mydef}
 
-%Disuguaglianze faciline e leggi sui cardinali infiniti
+Si ha che, per ogni insieme $A$,
+\begin{myprop}\
+\begin{itemize}
+ \item $H(A)$ è un insieme;
+ \item $H(A)$ è un cardinale;
+ \item $\abs{H(A)}>\abs A$ e $H(A)$ è il più piccolo ordinale con cardinalità strettamente maggiore di quella di $A$.
+\end{itemize}
+\end{myprop}
+Ad esempio $\omega_1=H(\omega)$ è il più piccolo ordinale non numerabile. 
+\begin{proof}
+ Considero l'insieme $B$ di tutte le coppie $(X,\prec)$ dove $X$ è un sottoinsieme di $A$ ben ordinato da $\prec$ (perchè $B$ è un insieme?). Per \ref{prop:isomord} ogni coppia $(X,\prec)$ in $B$ è isomorfa ad esattamente un ordinale, quindi possiamo considerare la funzione $f$ che associa ad ogni $(X,\prec)$ l'ordinale corrispondente. Per l'assioma di rimpiazzamento, l'immagine $f(B)$ di tale funzione è un insieme. Si verifica (vedi esercizio \ref{ex:Hart}) che tale insieme è proprio $H(A)$. Le altre proprietà asserite sono di facile verifica.
+\end{proof}
+
+Da ora in poi identifico $\abs A$ con l'unico cardinale equipotente ad $A$. L'unicità è ovvia, l'esistenza è equivalente al teorema di Zermelo.
+
+\begin{mydef}[Somma e prodotto tra cardinali]
+ Dati $\kappa$ e $\mu$ cardinali, si definisce
+ \begin{itemize}
+  \item $\kappa + \mu = \abs{\kappa \sqcup \mu};$
+  \item $\kappa \cdot \mu = \abs{\kappa \times \mu};$
+  \item $\kappa^\mu = \abs {\{f: \mu \rightarrow \kappa\}}$;
+  \item $\kappa^+=H(\kappa)$.
+ \end{itemize}
+
+\end{mydef}
+
+\begin{myprop}\label{prop:cardsum}
+ Per ogni insieme infinito $A$ vale $\abs A + \abs A = \abs A$.
+\end{myprop}
+
+\begin{proof}
+ Si applica Zorn sulle coppie $(X,f)$ dove $X\subseteq A$ e $f:X \sqcup X\rightarrow X$ è bigettiva, parzialmente ordinate dall'inclusione. 
+\end{proof}
+
+
+
+\begin{myprop}\label{prop:cardprod}
+ Per ogni insieme infinito $A$ vale $\abs A \cdot \abs A = \abs A$.
+\end{myprop}
+
+\begin{proof}
+ Dimostro usando Zorn che $A\times A$ è equipotente ad $A$. Prendo l'insieme $\mathcal A$ delle coppie $(X,f)$ dove $X\subseteq A$ e $f:X\times X\rightarrow X$ è bigettiva, parzialmente ordinato dall'inclusione tra funzioni. Questo insieme è chiaramente induttivo (posso maggiorare le catene con l'unione). Abbiamo quindi un massimale $(M,f_M)$, quindi $\abs M \cdot \abs M=\abs M$.
+ 
+ Supponiamo ora esista $M'\subseteq A\setminus M$ con $\abs M=\abs{M'}$. Allora \[\abs{(M\cup M')\times(M\cup M')\setminus M \times M} = \abs {M'}\cdot \abs{M'} + 2 \cdot \abs{M}\cdot \abs{M'} = \abs {M'}\] per il Lemma \ref{prop:cardsum}. Quindi posso costruire una funzione bigettiva da $(M\cup M')\times(M\cup M')\setminus M \times M$ a $M'$, che unita con $f_M$ da $M\times M$ a $M$ dà origine a una funzione bigettiva da $(M\cup M')\times(M\cup M')$ a $M \cup M'$, contraddicendo la massimalità. Quindi $\abs {A\setminus M}< \abs M$, ovvero $\abs M= \abs A$. Ma allora $\abs A = \abs M = \abs{M\times M} = \abs {A \times A}$.
+\end{proof}
+
+\begin{mycor}
+ Dalle proposizioni \ref{prop:cardsum} e \ref{prop:cardprod} otteniamo facilmente che $\kappa + \mu = \kappa \cdot \mu = \max\{\kappa, \mu\}$ per ogni $\kappa,\mu$ cardinali infiniti.
+\end{mycor}
+
+%Definizione di $\kappa^+$.
+%Disuguaglianze faciline e leggi sui cardinali infiniti.
+
 \begin{myprop}
  Per ogni $\alpha,\beta$ ordinali infiniti, vale 
  \[ \left|\alpha+\beta\right|=\left|\alpha\cdot\beta\right|=\left|\alpha^\beta\right|=\max\{|\alpha|,|\beta|\}\]
@@ -768,4 +819,13 @@ Valgono i seguenti fatti:
 \end{myex}
 
 %Fatti facili che vengono anche smanettando con i reali
+\subsection{Cardinalità e cardinali}
+\begin{myex}
+ Dimostrare, senza usare assioma di scelta, che per ogni insieme $A$ esiste un buon ordine che lo renda isomorfo a ogni ordinale $\alpha$ con $\abs\alpha=\abs A$.
+\end{myex}
+\begin{myex}\label{ex:Hart}
+ Dimostrare che $H(A)$ è un insieme, dove $H$ è la funzione di Hartogs.
+\end{myex}
+ 
+
 \end{document}
