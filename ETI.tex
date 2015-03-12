@@ -18,6 +18,7 @@
 
 \DeclareMathOperator{\cof}{cof}
 \DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\Fun}{Fun}
 
 \newcommand{\trash}{76}
 \newcommand{\myname}[1]{\emph{#1}}
@@ -38,7 +39,7 @@
 
 %TEOREMI NON IN CORSIVO
 \theoremstyle{definition}
-\newtheorem{myex}[mytheorem]{Esercizio}
+\newtheorem{myex}{Esercizio}
 \newtheorem{mycor}[mytheorem]{Corollario}
 %Note
 \theoremstyle{remark}
@@ -51,7 +52,7 @@
 %\setlength{\parskip}{\baselineskip}%
 \setlength{\parindent}{0pt}%
 
-\title{Riassunto del corso \\ Elementi di Teoria degli Insiemi}
+\title{Elementi di Teoria degli Insiemi}
 \author{Dario Ascari \and Matteo Migliorini}
 \date{}
 
@@ -561,7 +562,7 @@ Sono equivalenti ad assioma di scelta (ma non lo dimostreremo) anche le seguenti
  Per ogni $A$ e $B$ insiemi, se esiste una funzione suriettiva da $B$ in $A$ allora ne esiste una iniettiva da $A$ in $B$.
 \end{myprop}
 
-\section{Cardinalità}
+\section{Cardinalità e cardinali}
 
 \begin{myprop}
  Esiste una funzione iniettiva da $A$ in $B$ se e solo se ne esiste una suriettiva da $B$ in $A$.
@@ -602,7 +603,7 @@ Infine senza usare assioma di scelta si dimostra il seguente
 
 
 
-\section{Cardinali}
+\subsection{Cardinali}
 
 \begin{mydef}
  Si dice \myname{cardinale} un insieme $\kappa$ tale che $\kappa$ è un ordinale e $\abs\alpha < \abs\kappa$ per ogni $\alpha\in\kappa$.
@@ -693,20 +694,41 @@ Da ora in poi identifico $\abs A$ con l'unico cardinale equipotente ad $A$. L'un
  dove la seconda è intesa come prodotto cartesiano tra insiemi.
 \end{mydef}
 
-%Fatti ovvi tipo somme di costanti
+\`E facile dimostrare i seguenti fatti.
+\begin{myprop}\
+\begin{itemize}
+ \item $\sum _{i<\nu} \kappa =\kappa\cdot \nu$
+ \item $\prod_{i<\nu} \kappa =\kappa^\nu$
+ \item $\prod_{i<\nu}\alpha^{\beta_i}=\alpha^{\sum_{i<\nu}\beta_i}$
+ \item $\sum_{i<\nu}\sum_{j<\mu} \alpha_{ij}=\sum_{j<\mu}\sum_{i<\nu} \alpha_{ij} $
+ \item $\prod_{i<\nu}\prod_{j<\mu} \alpha_{ij}=\prod_{j<\mu}\prod_{i<\nu} \alpha_{ij}$
+\end{itemize}
+\end{myprop}
 
-%Double counting
-\begin{myprop}
+Inoltre, quando serve calcolare somme e prodotti di cardinali non costanti, si possono utilizzare le seguenti formule.
+
+\begin{myprop}[Formula per la somma di cardinali]
  Sia $\mu$ un cardinale, e siano $\{\kappa_i:i<\mu\}$ cardinali non nulli. Allora \[\sum_{i< \mu} \kappa_i = \mu\cdot \sup \kappa_i\]
 \end{myprop}
-\begin{myprop}
+\begin{myprop}[Formula per il prodotto di cardinali]
  Sia $\mu$ un cardinale, e sia $\{\kappa_i:i<\mu\}$ una $\mu$-successione crescente. Allora \[\prod_{i<\mu}\kappa_i=(\sup \kappa_i)^{\mu}\]
 \end{myprop}
 
+\begin{proof}
+ Innanzitutto è possibile suddividere i $\mu$ cardinali di cui sto facendo il prodotto in $\mu$ famiglie di $\mu$ elementi, dato che $\mu= \mu\cdot \mu$. Inoltre l'insieme degli indici di ciascuna famiglia è illimitato in $\mu$, perchè se fosse limitato allora apparterrebbe a un ordinale minore di $\mu$ di cardinalità almeno $\mu$, in contraddizione con la definizione di cardinale; quindi per monotonia anche i cardinali di ogni famiglia sono illimitati in $\sup \kappa_i$.
+ 
+ Siano quindi $F_\alpha$ queste famiglie, con $\alpha<\mu$.
+ Allora abbiamo
+ \[\prod_{i<\mu}\kappa_i = \prod_{\alpha<\mu}\left(\prod_{\gamma\in F_\alpha}\gamma\right)\ge \prod_{\alpha<\mu}\left(\sup F_\alpha \right)=\left(\sup\kappa_i\right)^\mu \ge \prod_{i<\mu}\kappa_i \]
+ da cui la tesi.
+\end{proof}
+
 \begin{mytheorem}[Teorema di K\"onig]
-  Siano $\alpha_i<\beta_i$ cardinali, con $i\in I$. Allora \[\sum_{i\in I} \alpha_i < \prod_{i\in I} \beta_i\].
+  Siano $\alpha_i<\beta_i$ cardinali, con $i\in I$. Allora \[\sum_{i\in I} \alpha_i < \prod_{i\in I} \beta_i\]
 \end{mytheorem}
 
+\begin{proof} Supponiamo che esista una funzione $f$ suriettiva da $\sum_{i\in I} \alpha_i$ a $\prod_{i\in I} \beta_i$. Supponiamo per semplicità gli $\alpha_i$ disgiunti. Sia $\sigma_i: \alpha_i\rightarrow \beta_i$ una funzione che associa a $\gamma \in \alpha_i$ la componente lungo $\beta_i$ di $f (\gamma)$. Ora chiaramente ciascuna $\sigma_i$ non è suriettiva per motivi di cardinalità, quindi posso prendere $x_i \in \beta_i$ con $x_i \nin \sigma_i(\alpha_i)$. Ma allora l'elemento del prodotto cartesiano la cui componente $i$-esima è $x_i$ non è nell'immagine di $f$, assurdo.
+\end{proof}
 %Cantor 
 
 \subsection{Cofinalità di un ordinale}
@@ -725,8 +747,9 @@ Possiamo caratterizzare la cofinalità anche in quest'altro modo:
  La cofinalità di $\kappa$ è il minimo cardinale $\mu$ tale che esiste una $\mu$-successione $\kappa_i<\kappa$ tale che $\kappa =\sum_{i\in \mu} \kappa_i$.
 \end{myprop}
 
+Possiamo inoltre calcolare la cofinalità di un cardinale distinguendo il caso successore e limite.
 \begin{myprop}
- Per ogni $\kappa$ cardinale infinito, vale $\cof\kappa^+ = \kappa^+$. In particolare, \[\cof\aleph_{\alpha+1}=\aleph_{\alpha+1}\]
+ Per ogni $\kappa$ cardinale infinito, vale $\cof\kappa^+ = \kappa^+$. Equivalentemente \[\cof\aleph_{\alpha+1}=\aleph_{\alpha+1}\]
 \end{myprop}
 \begin{proof}
  Se così non fosse, avrei un sottoinsieme di cardinalità $\kappa$ illimitato in $\kappa^+$. Allora posso scrivere $\kappa^+$ come unione di $\kappa$ insiemi di cardinalità $\kappa$, assurdo perchè $\kappa\cdot\kappa=\kappa$.
@@ -746,15 +769,41 @@ Possiamo caratterizzare la cofinalità anche in quest'altro modo:
  Per ogni $\kappa,\nu$ cardinali con $\kappa$ infinito vale ${\left(\kappa^+\right)}^\nu=\kappa^+\cdot \kappa^\nu$. Quindi
  \[\aleph_{\alpha+1}^\nu=\aleph_{\alpha}^\nu\cdot \aleph_{\alpha+1}\]
 \end{myprop}
+\begin{proof}
+ Basta dimostrare ${\left(\kappa^+\right)}^\nu \le\kappa^+\cdot \kappa^\nu$, in quanto l'altro verso è ovvio. 
+ 
+ Se $2^\nu \ge \kappa^+$ allora basta maggiorare $\kappa^+$ con $2^\nu$ per ottenere la tesi.
+ 
+ Altrimenti se $\kappa^+>2^\nu$ si ha $ \cof\kappa^+ =\kappa^+>2^\nu>\nu $, quindi ogni funzione da $\nu$ in $\kappa^+$ è limitata. Quindi otteniamo
+ 
+ \[{\left(\kappa^+\right)}^\nu = \abs{\Fun(\nu,\kappa^+)} = \bigcup_{\alpha\in \kappa^+} \abs{\Fun(\nu,\alpha)} \le \sum_{\alpha<\kappa^+} \alpha^\nu \le \kappa^+\cdot \kappa^\nu\]
+ 
+ da cui la tesi.
+\end{proof}
 
 \begin{myprop}
  Per ogni $\kappa,\nu$ cardinali, con $\kappa$ cardinale limite e $\nu \ge \cof \kappa$, vale \[\kappa^\nu={\left(\sup_{\gamma<\kappa}\gamma^\nu\right)}^{\cof\kappa}\]
 \end{myprop}
 
+\begin{proof}
+ Sia $\{\alpha_i\}_{i<\cof\kappa}$ una successione crescente illimitata in $\kappa$. Allora, per la formula del prodotto vale
+ 
+ \[\prod_{i<\cof\kappa} \alpha_i^\nu = \left(\sup_{i<\cof\kappa}\alpha_i^\nu\right)^{\cof\kappa}={\left(\sup_{\gamma<\kappa}\gamma^\nu\right)}^{\cof\kappa}\]
+ 
+ Ma vale anche 
+ \[\prod_{i<\cof\kappa} \alpha_i^\nu=\left(\prod_{i<\cof\kappa} \alpha_i\right)^\nu=\left(\left(\sup_{i<\cof\kappa}\alpha_i\right)^{\cof\kappa}\right)^\nu=\kappa^\nu\]
+ 
+ Uguagliando le due espressioni ottengo la tesi.
+\end{proof}
+
 \begin{myprop}
- Per ogni $\kappa,\nu$ cardinali con $\nu < \cof \kappa$ vale $\kappa^\nu=\kappa \cdot \sup_{\gamma<\kappa}\gamma^\nu$
+ Per ogni $\kappa,\nu$ cardinali con $\nu < \cof \kappa$ vale \[\kappa^\nu=\kappa \cdot \sup_{\gamma<\kappa}\gamma^\nu\]
 \end{myprop}
-%
+\begin{proof} La dimostrazione si fa stimando con le funzioni limitate come in Hausdorff.
+ 
+\end{proof}
+
+
 Quindi se devo calcolare $\kappa^\nu$ distinguo i casi a seconda che $\kappa$ sia successore, nel qual caso uso il teorema di Hausdorff (eventualmente ripetutamente, finchè non mi ritrovo con un cardinale limite), oppure limite, nel qual caso distinguo ulteriormente due casi a seconda che l'esponente $\nu$ sia $<\cof \kappa$ o $\ge \cof \kappa$.
 
 Inoltre valgono i seguenti fatti: 
@@ -762,8 +811,7 @@ Inoltre valgono i seguenti fatti:
 \begin{itemize}
 \item Per ogni $\kappa$ cardinale infinto vale $\kappa^{\cof\kappa}>\kappa$;
 \item Sempre per $\kappa$ infinito $\cof 2^\kappa>\kappa$;
-\item $\prod_{n<\omega}\aleph_n=\aleph_\omega^{\aleph_0}$
-\item $\aleph_\omega^{\aleph_1}=2^{\aleph_1}\cdot \aleph_\omega^{\aleph_0}$
+
 \item $|\{X\subseteq \kappa: |X|=\nu\}|=\kappa^\nu$
 \end{itemize}
 
@@ -826,6 +874,14 @@ Valgono i seguenti fatti:
 \begin{myex}\label{ex:Hart}
  Dimostrare che $H(A)$ è un insieme, dove $H$ è la funzione di Hartogs.
 \end{myex}
- 
+\begin{myex}
+ Dimostrare le seguenti identità tra cardinali:
+ \begin{itemize}
+  \item $\prod_{n<\omega}\aleph_n=\aleph_\omega^{\aleph_0}$
+  \item $\aleph_\omega^{\aleph_1}=2^{\aleph_1}\cdot \aleph_\omega^{\aleph_0}$
+ \end{itemize}
+\end{myex}
+
+
 
 \end{document}
