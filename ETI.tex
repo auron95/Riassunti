@@ -223,7 +223,7 @@ Un insieme $A$ si dice $S$-saturo se $\emptyset \in A$ e $A$ è chiuso per succe
 
 Si definisce quindi l'insieme dei numeri naturali $\mathbb N = \bigcap_{X\in \mathcal S} X$. 
 
-Intuitivamente con questa definizione ogni numero naturale $n$ viene identificato come l'insieme dei naturali più piccoli di lui.
+Intuitivamente con questa definizione ogni numero naturale $n$ viene identificato come l'insieme dei naturali più piccoli di lui, e la relazione d'ordine tra i naturali non è nient'altro che l'appartenenza: vedremo tra poco come tutto ciò si generalizza agli ordinali.
 
 \begin{mytheorem}[Induzione]
  Se una proprietà $P(X)$ è tale che $P(0)$ e per ogni $X$ vale $P(X)\Rightarrow P(S(X))$, allora $P(n)\;\forall n\in \mathbb N$
@@ -480,11 +480,27 @@ $\alpha^\beta$ &   & L & L & L \\
 
 Per gli esponenziali vale $\alpha^\beta$ successore se e solo se $\alpha$ è successore e $\beta$ è finito.
 
-\subsection{Punti fissi}
+\subsection{Funzioni crescenti e punti fissi}
 
+\begin{mydef}
+ Una funzione definita da un ordinale o da $ON$ si dice \myname{continua} se per ogni ordinale limite $\lambda$ nel dominio vale $f(\lambda)=\bigcup_{\gamma\in\lambda}f(\gamma)$.
+\end{mydef}
 
+\begin{myprop}
+ Data una funzione $f:\alpha \rightarrow ON$ strettamente crescente,per ogni $\beta\in\alpha$ vale $f(\beta)\ge\beta$.
+\end{myprop}
+\begin{proof}
+ Prendiamo per assurdo il minimo $\bar\beta\in\alpha$ tale che $f(\bar\beta)<\bar\beta$: vale $f(f(\bar\beta))<f(\bar\beta)$, quindi $\bar\beta$ non era il minimo a soddisfare quella proprietà...
+\end{proof}
 
+\begin{mytheorem}
+ Data una funzione $f:ON \rightarrow ON$ crescente e continua, ammette punti fissi (ovvero dei $\gamma$ tali che $f(\gamma)=\gamma$). Inoltre se è strettamente crescente ammette punti fissi grandi a piacere.
+\end{mytheorem}
+\begin{proof}
+ L'idea è che dato un qualunque $\beta\in ON$ si può costruire per ricorsione un punto fisso $\beta_\omega$ considerando $\beta_0:=\beta$, $\beta_{n+1}:=f(\beta_n)$ e $\beta_\omega:=\bigcup_{i\in\omega}\beta_i$.
+\end{proof}
 
+Notare che, quando conosceremo il concetto di cofinalità, si potrà ripetere il ragionamento per funzioni che vanno da un qualunque ordinale di cofinalità più che numerabile in se stesso (vedi esercizio \ref{ex:puntifissi}).
 
 
 \section{Assioma di scelta}
@@ -815,7 +831,8 @@ Inoltre valgono i seguenti fatti:
 \item $|\{X\subseteq \kappa: |X|=\nu\}|=\kappa^\nu$
 \end{itemize}
 
-\section{Gerarchia di von Neumann}
+\section{Bonus}
+\subsection{Gerarchia di von Neumann}
 Si definiscono ricorsivamente
 \begin{itemize}
    \item $V_0 = \emptyset$
@@ -831,8 +848,30 @@ Valgono i seguenti fatti:
   \item $\alpha \subseteq V_\alpha$
   \item $\alpha \notin V_\alpha$
 \end{itemize}
-%Palese che mancano i beth
-%E pure la chiusura transitiva
+
+\subsection{Beth}
+Si definiscono per ricorsione transfinita i cardinali
+\begin{itemize}
+ \item $\beth_0:=\aleph_0$
+ \item $\beth_{\alpha+1}:=2^{\beth_\alpha}$
+ \item $\beth_\lambda:=\bigcup_{\gamma\in\lambda}\beth_\gamma$ se $\lambda$ è un ordinale limite.
+\end{itemize}
+
+\subsection{Chiusura transitiva}
+Dato un insieme $A$, ci chiediamo quale sia il più ``piccolo'' insieme transitivo che lo contiene; definiamo
+\begin{itemize}
+ \item $A_0:=A$
+ \item $A_{n+1}:=\bigcup_{B\in A_n}B$
+ \item $A_\omega:=\bigcup_{i\in\omega}A_i$
+\end{itemize}
+Si ha che $A_\omega$ è il più ``piccolo'' insieme transitivo che contiene $A$ nel senso che
+\begin{myprop}
+ $A_\omega$ è transitivo e contiene $A$. Inoltre, se $X$ è transitivo e contiene $A$, allora $X$ contiene $A_\omega$.
+\end{myprop}
+
+\subsection{Cardinalità dei boreliani}
+
+
 
 \section{Esercizi}
 \subsection{Classi e insiemi}
@@ -851,12 +890,14 @@ Valgono i seguenti fatti:
  Dati $A$ e $B$ insiemi, la classe delle funzioni $f: A\rightarrow B$ è un insieme.
 \end{myex}
 
-\subsection{Numeri naturali}
 \begin{myex}\label{ex:classisature}
  Ricordando che $\mathbb N$ è l'intersezione di tutti gli \emph{insiemi} $S$-saturi, dimostrare che una classe $S$-satura contiene $\mathbb N$.
 \end{myex}
 
 
+
+%Fatti facili che vengono anche smanettando con i reali
+\subsection{Ordinali}
 
 \begin{myex} Dimostrare che i seguenti fatti sono equivalenti:
 \begin{itemize}
@@ -866,7 +907,11 @@ Valgono i seguenti fatti:
 \end{itemize}
 \end{myex}
 
-%Fatti facili che vengono anche smanettando con i reali
+\begin{myex}\label{ex:puntifissi}
+ Dimostrare che, se $\gamma$ è un ordinale successore, ogni funzione crescente e continua $f:\omega_1\gamma\rightarrow\omega_1\gamma$ ammette punti fissi.
+\end{myex}
+
+
 \subsection{Cardinalità e cardinali}
 \begin{myex}
  Dimostrare, senza usare assioma di scelta, che per ogni insieme $A$ esiste un buon ordine che lo renda isomorfo a ogni ordinale $\alpha$ con $\abs\alpha=\abs A$.
@@ -882,6 +927,14 @@ Valgono i seguenti fatti:
  \end{itemize}
 \end{myex}
 
+\subsection{Bonus}
 
+\begin{myex}
+ Dimostrare che $\abs{V_{\omega+\alpha}}=\beth_\alpha$.
+\end{myex}
+
+\begin{myex}
+ Dimostrare che esistono infiniti cardinali $\kappa$ tali che $\beth_\kappa=\kappa$.
+\end{myex}
 
 \end{document}
