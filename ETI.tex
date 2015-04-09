@@ -193,9 +193,10 @@ Se $(A,\prec)$ è un buon ordine, i suoi segmenti iniziali propri sono in corris
 
 Convenzionalmente, si chiama \myname{funzione} una relazione funzionale tra insiemi, mentre per ricordare che dominio e/o codominio potrebbero non essere insiemi si usa il termine \myname{funzione classe}.
 
-\begin{myax}[Assiomi di rimpiazzamento (forma forte)]
- Se $X$ è un insieme, e $f: X \rightarrow Y$ è una funzione classe, allora $\im f$ è un insieme.
+\begin{myax}[Schema di assiomi di rimpiazzamento]
+Data una proprietà $P(C,D)$, se $P$ è funzionale (cioè per ogni $C$ esiste un unico $D$ tale che $P(C,D)$) allora dato un qualunque insieme $A$ esiste un unico insieme $B$ che contiene tutte e sole le immagini degli elementi di $A$ secondo $P$.
 \end{myax}
+In pratica, data una funzione definita da una formula da un insieme ad una classe, anche $\im f$ è un insieme.
 
 Inoltre, anche se in seguito non verrà usato, si può assumere il seguente
 \begin{myax}[Assioma di buona fondazione]
@@ -344,7 +345,7 @@ In particolare, sulla classe $ON$ degli ordinali basta verificare che valga:
 \end{itemize}
 
 \begin{mytheorem}[Ricorsione transfinita]
- Dato un buon ordine $(A,\prec)$, si può definire una funzione $f:A \rightarrow V$ ($V$ è una classe qualunque) dando il valore in un generico punto $x$ in funzione di $x$ e di tutti i valori assunti dalla funzione negli $y\prec x$. In particolare si può definire una funzione da un ordinale (o anche da ON, nel qual caso è una funzione classe) in $V$ specificando il valore assunto in $\alpha$ in funzione di $\alpha$ e dei valori assunti in tutti i $\delta \in \alpha$.
+ Dato un buon ordine $(A,\prec)$, si può definire una funzione $f:A \rightarrow V$ ($V$ è una classe qualunque) dando il valore in un generico punto $x$ in funzione di $x$ e di tutti i valori assunti dalla funzione negli $y\prec x$. In particolare si può definire una funzione da un ordinale in $V$ specificando il valore assunto in $\alpha$ in funzione di $\alpha$ e dei valori assunti in tutti i $\delta \in \alpha$.
 \end{mytheorem}
 \begin{proof}
  L'idea è costruirsi delle funzioni parziali, che partano dai segmenti iniziali di $A$, dimostrare che sono ``coerenti'' tra di loro (cioè contenute l'una nell'altra) e unirle tutte per ottenere $f$.
@@ -869,9 +870,43 @@ Si ha che $A_\omega$ è il più ``piccolo'' insieme transitivo che contiene $A$ 
  $A_\omega$ è transitivo e contiene $A$. Inoltre, se $X$ è transitivo e contiene $A$, allora $X$ contiene $A_\omega$.
 \end{myprop}
 
-\subsection{Cardinalità dei boreliani}
+\subsection{$\sigma$-algebra dei boreliani}
 
+\begin{mydef}
+Una $\sigma$-algebra su un insieme $X$ è una famiglia $\mathcal F$ di sottoinsiemi di $X$ tale che:
+\begin{itemize}
+ \item $\emptyset\in\mathcal F$;
+ \item $\mathcal F$ è chiusa per passaggio al complementare;
+ \item $\mathcal F$ è chiusa per unione numerabile.
+\end{itemize}
+\end{mydef}
 
+\begin{mydef}
+La $\sigma$-algebra dei boreliani di $\mathbb R$ è la più piccola tra (nel senso che è l'intersezione di) tutte le $\sigma$-algebre su $\mathbb R$ che contengono tutti gli aperti.
+\end{mydef}
+
+Ci chiediamo quale sia la cardinalità della $\sigma$-algebra dei boreliani.
+
+\begin{mydef}
+Definiamo per ricorsione transfinita:
+\begin{itemize}
+ \item $B_0:=\{A : A$ è un aperto di $\mathbb R\}$;
+ \item $B_{\alpha+1}:=B_\alpha\cap\{A : A^c\in B_\alpha\}\cup\{A : A$ è un'unione numerabile di elementi di $B_\alpha\}\cup\{A : A$ è un'intersezione numerabile di elementi di $B_\alpha\}$;
+ \item $B_\lambda:=\bigcup\limits_{\gamma<\lambda}B_\gamma$.
+\end{itemize}
+\end{mydef}
+Allora la $\sigma$-algebra dei boreliani è $B_{\omega_1}$: infatti è facile dimostrare per induzione transfinita che se $\alpha<\omega_1$ allora $B_\alpha$ è sottoinsieme dei boreliani, da cui si ha che $B_{\omega_1}=\bigcup\limits_{\gamma<\omega_1}B_\gamma$ è sottoinsieme dei boreliani. Inoltre è altrettanto facile verificare che $B_{\omega_1}$ è una sigma algebra che contiene tutti gli aperti di $\mathbb R$. Quindi $B_{\omega_1}$ contiene i boreliani. Quindi i boreliani sono $B_{\omega_1}$.
+La cardinalità di $B_0$ è $\mathfrak c$; si dimostra facilmente per induzione transfinita che se $\alpha<\omega_1$ allora la cardinalità  di $B_\alpha$ è sempre $\mathfrak c$. Infine, la cardinalità di $B_{\omega_1}$ è $c$ perchè $B_{\omega_1}$ è un'unione di $\omega_1$ insiemi con cardinalità del continuo, e $\omega_1\le \mathfrak c$.
+Quindi i boreliani di $\mathbb R$ hanno cardinalità $\mathfrak c$.
+
+\subsection{Lebesgue-misurabili di $\mathbb R$}
+
+La famiglia dei sottoinsiemi misurabili secondo Lebesgue di $\mathbb R$ ha cardinalità $2^c$: una disuguaglianza è ovvia; l'altra segue dalle seguenti due osservazioni:
+\begin{itemize}
+ \item un sottoinsieme di un insieme con misura secondo Lebesgue nulla è ancora Lebesgue-misurabile, ed ha misura nulla;
+ \item l'insieme di Cantor ha cardinalità del continuo e misura di Lebesgue nulla.
+\end{itemize}
+Quindi ognuno dei $2^c$ sottoinsiemi dell'insieme di Cantor è Lebesgue-misurabile.
 
 \section{Esercizi}
 \subsection{Classi e insiemi}
@@ -885,6 +920,24 @@ Si ha che $A_\omega$ è il più ``piccolo'' insieme transitivo che contiene $A$ 
  La classe di tutti i campi non è un insieme.
 \end{myex}
 
+\subsection{Modello in cui valgano gli assiomi}
+
+Ci chiediamo se esista dentro ZF un insieme che possa essere preso come classe di tutti gli insiemi, e dentro il quale valgano gli assiomi. Questo ci porta alla domanda: che caratteristiche deve avere un insieme $X$ per soddisfare gli assiomi? (Nota: imporremo delle condizioni in generale più forti dello stretto necessario)
+
+\begin{itemize}
+ \item (Assioma di estensionalità) Vogliamo che ogni oggetto che stia in un insieme stia anche nella classe di tutti gli oggetti, cioè che l'insieme $X$ sia transitivo. In questo modo due insiemi sono uguali se e solo se hanno gli stessi elementi (dove elementi va inteso come oggetti nella classe $X$, cioè posso parlare solo di oggetti che appartengono ad $X$).
+\end{itemize}
+Ora poniamo $X=V_\alpha$ (che è transitivo) e ci chiediamo che condizioni servano su $\alpha$.
+\begin{itemize}
+ \item (Assioma di comprensione) Gratis dalle proprietà della gerarchia di von Neumann.
+ \item (Assioma della coppia) \'E sufficiente imporre che $\alpha$ sia un ordinale limite.
+ \item (Assioma dell'unione) Ogni $\alpha$ va bene, la verifica è lasciata per esercizio al lettore.
+ \item (Assioma di potenza) \'E sufficiente imporre $\alpha$ limite.
+ \item (Assioma dell'infinito) \'E sufficiente imporre $\alpha>\omega$.
+ \item (Assioma di rimpiazzamento) Posto $\alpha$ limite, serve che $\forall Y\in V_\alpha$ e per ogni $\langle x_i | i\in Y\rangle$ con $x_i \in V_\alpha$ valga $\bigcup x_i\in V_\alpha$. Essendo $\alpha$ limite, per ogni $i$ esiste $\gamma_i$ tale che $x_i\in V_{\gamma_i}$: affinchè valga ciò che vogliamo è sufficiente che i $\gamma_i$ siano limitati in $\alpha$, cioè che $\forall Y\in V_\alpha \quad \cof\alpha>\abs{Y}$. Inoltre se $Y\in V_\alpha$ esiste $\beta<\alpha$ tale che $Y\subseteq V_\beta$ da cui $\abs{Y}\le\abs{V_\beta}=\beth_{\beta-\omega}$. Se $\beta$ è abbastanza grosso (tipo almeno $\omega^2$) $\beta-\omega=\beta$. Infine se fosse $\cof\alpha<\alpha$ ci sarebbe una successione di $\gamma_i$ indicizzata con $V_{\cof\alpha}$ illimitata in $\alpha$, e l'unione dei $V_{\gamma_i}$ non apparterrebbe a $V_\alpha$.
+
+Quindi imponiamo $\alpha=\cof\alpha$ e $\forall\beta<\alpha\quad\beth_\beta<\alpha$.
+\end{itemize}
 
 \begin{myex}
  Dati $A$ e $B$ insiemi, la classe delle funzioni $f: A\rightarrow B$ è un insieme.
