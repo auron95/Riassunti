@@ -65,8 +65,13 @@
 \cleardoublepage
 
 \section*{Introduzione}
-Questo file è un riassunto di parte del corso del professor Di Nasso presso l'Università di Pisa, nell'anno accademico 2013-2014. NON è quindi un riassunto completo, soprattutto manca la parte sulla costruzione di $\mathbb R$. Spesso parte delle dimostrazioni è appositamente lasciata al lettore, soprattutto
+Questo file è un riassunto di parte del corso di Elementi di Teoria degli Insiemi del professor Di Nasso presso l'Università di Pisa, nell'anno accademico 2013-2014. NON è quindi un riassunto completo, ad esempio manca la parte sulla costruzione di $\mathbb R$ (ma non solo). Spesso parte delle dimostrazioni è lasciata al lettore, specialmente i dettagli più semplici da sistemare (e si consiglia di farlo per esercizio); a volte viene fornita solo l'idea della dimostrazione.
 
+Inoltre potrebbero esserci delle imprecisioni nel file, in particolare non siamo sicuri di quando sia lecito definire funzioni classe. 
+
+Per ulteriori esercizi si può attingere ai compiti passati del professore (da cui sono stati presi molti esercizi nell'omonima sezione).
+
+Speriamo che questo riassunto possa essere un utile supporto alla preparazione dell'esame.
 \cleardoublepage
 
 \tableofcontents
@@ -86,7 +91,7 @@ Una \myname{classe} è una collezione di oggetti.
  Data una proprietà ben definita $P(x)$, esiste la classe $\{x: P(x)\}$
 \end{myax}
 
-Una classe puo essere di due tipi:
+Una classe può essere di due tipi:
 
 \begin{itemize}
  \item un \myname{insieme}, se è anche un oggetto;
@@ -115,7 +120,7 @@ Noi adesso possiamo dimostrare che alcune classi sono classi proprie (ad esempio
 \begin{myax}[Assioma dell'unione]
  Se $X$ è un insieme di insiemi, allora $\bigcup_{A\in X} A$ è un insieme.
 \end{myax}
-\begin{myax}[Assioma di Bagonzo]
+\begin{myax}%[Assioma di Bagonzo]
  Ogni oggetto è un insieme.
 \end{myax}
 \begin{myax}[Assioma di potenza]
@@ -233,7 +238,6 @@ Intuitivamente con questa definizione ogni numero naturale $n$ viene identificat
  La classe $\{x: P(x)\}$ è $S$-satura, quindi si può dimostrare che contiene $\mathbb N$ (cfr Esercizio \ref{ex:classisature}).
 \end{proof}
 
-
 \section{Ordinali}
 
 \begin{mydef}
@@ -253,7 +257,7 @@ Iniziamo a dimostrare alcuni fatti base sugli ordinali. Innanzitutto per ogni $\
 Se $\alpha$ è un ordinale, allora ogni $x\in \alpha$ è un ordinale.
 \end{myprop}
 \begin{proof}
- Utilizzando la transitività di $\alpha$, si ottiene che $z\in y \in x \in \alpha\Rightarrow z,y,x\in \alpha$. A questo punto poichè in $\alpha$ l'appartenenza è un ordine totale, in particolare vale la proprietà transitiva e quindi $z\in x$: quindi $x$ è transitivo. Inoltre $x$ è un sottoinsieme di $\alpha$ che è un buon ordine, quindi anche $x$ è bene ordinato.
+ Utilizzando la transitività di $\alpha$, si ottiene che $z\in y \in x \in \alpha\Rightarrow z,y,x\in \alpha$. A questo punto poiché in $\alpha$ l'appartenenza è un ordine totale, in particolare vale la proprietà transitiva e quindi $z\in x$: quindi $x$ è transitivo. Inoltre $x$ è un sottoinsieme di $\alpha$ che è un buon ordine, quindi anche $x$ è bene ordinato.
 \end{proof}
 
 \begin{myprop}
@@ -269,9 +273,9 @@ Sono fatti equivalenti, per ogni $\alpha$ e $ \beta$ ordinali:
  
  $2. \Rightarrow 3.$ è banale (basta scrivere la definizione di segmento iniziale per accorgersene).
  
- $3. \Rightarrow 1.$ Sia $\gamma = \min\{x\in\beta: a\in x \; \forall a\in \alpha \}$: l'insieme considerato è non vuoto (perchè $\alpha$ è segmento iniziale proprio di $\beta$) ed il minimo esiste per il buon ordinamento. 
+ $3. \Rightarrow 1.$ Sia $\gamma = \min\{x\in\beta: a\in x \; \forall a\in \alpha \}$: l'insieme considerato è non vuoto (perché $\alpha$ è segmento iniziale proprio di $\beta$) ed il minimo esiste per il buon ordinamento. 
  
- Vogliamo ora mostrare che $\alpha = \gamma$. $\alpha \subseteq \gamma$ è ovvio, dalla definzione di $\gamma$. Supponiamo esista $\delta\in\gamma$ tale che $\delta \nin \alpha$. Allora per ogni $a \in \alpha$ vale $a \in \delta$ (perchè $\alpha$ è un segmento iniziale). Ma $\delta \in \gamma$, quindi $\gamma$ non era il minimo, assurdo.
+ Vogliamo ora mostrare che $\alpha = \gamma$. $\alpha \subseteq \gamma$ è ovvio, dalla definizione di $\gamma$. Supponiamo esista $\delta\in\gamma$ tale che $\delta \nin \alpha$. Allora per ogni $a \in \alpha$ vale $a \in \delta$ (perché $\alpha$ è un segmento iniziale). Ma $\delta \in \gamma$, quindi $\gamma$ non era il minimo, assurdo.
 \end{proof}
 
 
@@ -279,7 +283,7 @@ Sono fatti equivalenti, per ogni $\alpha$ e $ \beta$ ordinali:
 L'intersezione di una classe non vuota di ordinali è un ordinale.
 \end{myprop}
 \begin{proof}
- Sia $X=\bigcap_{i\in I}A_i$, e siano $x,y$ tali che $x\in y \in X$. Allora per ogni $i$ vale $x\in y \in A_i \Rightarrow x\in A_i$. Poichè $x$ sta in tutti gli $A_i$, allora sta nell'intersezione. 
+ Sia $X=\bigcap_{i\in I}A_i$, e siano $x,y$ tali che $x\in y \in X$. Allora per ogni $i$ vale $x\in y \in A_i \Rightarrow x\in A_i$. Poiché $x$ sta in tutti gli $A_i$, allora sta nell'intersezione. 
  
  Il buon ordinamento segue da $X\subset A_i$.
 \end{proof}
@@ -296,7 +300,7 @@ L'intersezione di una classe non vuota di ordinali è un ordinale.
 \begin{proof}
  La transitività è banale, e il fatto che $\in$ sia un ordine totale deriva dalla tricotomia.
  
- Per dimostrare che $\in$ è un buon ordine, prendiamo un sottoinsieme $Y \subseteq M$ non vuoto, e mostriamo che ha minimo. Consideriamo $\bar\gamma \in X$ tale che $\bar\gamma \cap Y \ne \emptyset$ (perchè esiste un tale $\bar\gamma$?). Sia $m=\min (\bar\gamma\cap Y)$, che esiste perchè $\bar\gamma$ è un buon ordine. Vogliamo mostrare che $m=\min Y$.
+ Per dimostrare che $\in$ è un buon ordine, prendiamo un sottoinsieme $Y \subseteq M$ non vuoto, e mostriamo che ha minimo. Consideriamo $\bar\gamma \in X$ tale che $\bar\gamma \cap Y \ne \emptyset$ (perché esiste un tale $\bar\gamma$?). Sia $m=\min (\bar\gamma\cap Y)$, che esiste perché $\bar\gamma$ è un buon ordine. Vogliamo mostrare che $m=\min Y$.
  
  Se esistesse $y\in Y$ tale che $y\in m$, allora $y\in m \in \bar\gamma$, quindi dalla transitività di $\bar\gamma$ otteniamo $y \in \bar\gamma\cap Y$, contraddicendo la minimalità di $m$.
 \end{proof}
@@ -361,7 +365,7 @@ In particolare, sulla classe $ON$ degli ordinali basta verificare che valga:
 Con questo si può dimostrare la seguente importante proposizione.
 
 \begin{myprop}\label{prop:isomord}
- Ogni buon ordine è isomorfo ad esattemente un ordinale.
+ Ogni buon ordine è isomorfo ad esattamente un ordinale.
 \end{myprop}
 \begin{proof}
  Dato $(A,\prec)$ definisco per ricorsione transfinita $f:A\rightarrow C$ ($C$ qui indica la classe di tutti gli insiemi) usando come legge di ricorsione $f(a):=\{f(x): x \prec a\}$: è facile verificare per induzione transfinita che $f(a)$ è un ordinale $\forall a\in A$. Quindi $\im f$ è un ordinale. Il fatto che $(A,\prec)$ non sia isomorfo a più di un ordinale deriva dal fatto che due ordinali distinti non sono fra loro isomorfi.
@@ -532,7 +536,7 @@ I seguenti enunciati sono equivalenti all'assioma di scelta:
  
  Dato $(S,\preceq)$ parzialmente ordinato, per assioma di scelta esiste una una funzione di scelta $f: \mathcal P (S)\setminus{\emptyset} \rightarrow S$ che associa ad ogni sottoinsieme di $S$ un suo elemento. Diciamo ora che $X\subseteq A$ è una \myname{f-catena} se è una catena bene ordinata e $\; \forall x\in X \quad x=f(\{s\in S: s\succ y \quad \forall y\in X_x\})$
  
- Di fatto sto imponendo che per ogni elemento $x$ della catena, questo sia stato scelto dalla funzione $f$ tra tutti gli elememti papabili dopo aver fissato gli tutti quelli precedenti (cioè quelli di $X_x$).
+ Di fatto sto imponendo che per ogni elemento $x$ della catena, questo sia stato scelto dalla funzione $f$ tra tutti gli elementi papabili dopo aver fissato gli tutti quelli precedenti (cioè quelli di $X_x$).
  
  Date due \myname{f-catene} $X$ e $Y$, ho che $X\subseteq Y \vee Y\subseteq X$. Infatti, essendo buoni ordini, devono essere uno isomorfo ad un segmento iniziale dell'altro (vedi \ref{prop:isomord}): diciamo che $X$ è isomorfo ad un segmento iniziale proprio di $Y$ tramite un isomorfismo $\phi$: sia per assurdo $\bar x\in X$ il minimo tale che $\phi(\bar x)\not = \bar x$; ma allora $\forall x\in X_{\bar x} \quad \phi(x)=x \;$ e $\; X_{\bar x}=Y_{\phi(\bar x)}$. Quindi $\quad\bar x=f(\{s\in S:s\succ x \quad \forall x\in X_{\bar x}\})=f(\{s\in S:s\succ y \quad \forall y\in Y_{\phi(\bar x)}\})=\phi(\bar x)$, assurdo.
  
@@ -551,9 +555,9 @@ I seguenti enunciati sono equivalenti all'assioma di scelta:
  \end{array}
  \right.	
  \]
- La funzione è ben definita, perchè se gli ordinali minori di $\alpha$ hanno per immagine una catena, allora posso trovarne un maggiorante stretto.
+ La funzione è ben definita, perché se gli ordinali minori di $\alpha$ hanno per immagine una catena, allora posso trovarne un maggiorante stretto.
 	
- Sia ora per assurdo $m$ il minimo ordinale tale che $g(m)=\trash$. Se $m=\beta+1$ è successore, vuol dire che $\{g(\gamma):\gamma\le\beta\}$ non formano una catena, ma $\{g(\gamma):\gamma<\beta\}$ sì (perchè $g(\beta)\ne \trash$), e inoltre $g(\beta)$ è confrontabile con tutti i precedenti per definizione, assurdo. Se $m=\lambda$ è limite, allora esistono $\delta_1<\delta_2<\lambda$ con $g(\delta_1),g(\delta_2)$ non confrontabili, ma allora $g(\delta_2+1)=\trash$, contraddicendo la minimalità di $\lambda$, ancora assurdo.
+ Sia ora per assurdo $m$ il minimo ordinale tale che $g(m)=\trash$. Se $m=\beta+1$ è successore, vuol dire che $\{g(\gamma):\gamma\le\beta\}$ non formano una catena, ma $\{g(\gamma):\gamma<\beta\}$ sì (perché $g(\beta)\ne \trash$), e inoltre $g(\beta)$ è confrontabile con tutti i precedenti per definizione, assurdo. Se $m=\lambda$ è limite, allora esistono $\delta_1<\delta_2<\lambda$ con $g(\delta_1),g(\delta_2)$ non confrontabili, ma allora $g(\delta_2+1)=\trash$, contraddicendo la minimalità di $\lambda$, ancora assurdo.
 
  Quindi $f(\alpha)\ne\trash$ per ogni $\alpha$, e per come è definita è crescente (quindi iniettiva): posso quindi invertirla rispetto all'immagine, e ottengo una funzione suriettiva da un insieme alla classe degli ordinali, che contraddice assioma di rimpiazzamento.
 
@@ -825,12 +829,12 @@ Possiamo inoltre calcolare la cofinalità di un cardinale distinguendo il caso s
 \end{proof}
 
 
-Quindi se devo calcolare $\kappa^\nu$ distinguo i casi a seconda che $\kappa$ sia successore, nel qual caso uso il teorema di Hausdorff (eventualmente ripetutamente, finchè non mi ritrovo con un cardinale limite), oppure limite, nel qual caso distinguo ulteriormente due casi a seconda che l'esponente $\nu$ sia $<\cof \kappa$ o $\ge \cof \kappa$.
+Quindi se devo calcolare $\kappa^\nu$ distinguo i casi a seconda che $\kappa$ sia successore, nel qual caso uso il teorema di Hausdorff (eventualmente ripetutamente, finché non mi ritrovo con un cardinale limite), oppure limite, nel qual caso distinguo ulteriormente due casi a seconda che l'esponente $\nu$ sia $<\cof \kappa$ o $\ge \cof \kappa$.
 
 Inoltre valgono i seguenti fatti: 
 
 \begin{itemize}
-\item Per ogni $\kappa$ cardinale infinto vale $\kappa^{\cof\kappa}>\kappa$;
+\item Per ogni $\kappa$ cardinale infinito vale $\kappa^{\cof\kappa}>\kappa$;
 \item Sempre per $\kappa$ infinito $\cof 2^\kappa>\kappa$;
 
 \item $|\{X\subseteq \kappa: |X|=\nu\}|=\kappa^\nu$
@@ -926,7 +930,7 @@ Ora poniamo $X=V_\alpha$ (che è transitivo) e ci chiediamo che condizioni serva
  \item (Assioma dell'unione) Ogni $\alpha$ va bene, la verifica è lasciata per esercizio al lettore.
  \item (Assioma di potenza) \'E sufficiente imporre $\alpha$ limite.
  \item (Assioma dell'infinito) \'E sufficiente imporre $\alpha>\omega$.
- \item (Assioma di rimpiazzamento) Posto $\alpha$ limite, serve che $\forall Y\in V_\alpha$ e per ogni $\langle x_i | i\in Y\rangle$ con $x_i \in V_\alpha$ valga $\bigcup x_i\in V_\alpha$. Essendo $\alpha$ limite, per ogni $i$ esiste $\gamma_i$ tale che $x_i\in V_{\gamma_i}$: affinchè valga ciò che vogliamo è sufficiente che i $\gamma_i$ siano limitati in $\alpha$, cioè che $\forall Y\in V_\alpha \quad \cof\alpha>\abs{Y}$. Inoltre se $Y\in V_\alpha$ esiste $\beta<\alpha$ tale che $Y\subseteq V_\beta$ da cui $\abs{Y}\le\abs{V_\beta}=\beth_{\beta-\omega}$. Se $\beta$ è abbastanza grosso (tipo almeno $\omega^2$) $\beta-\omega=\beta$. Infine se fosse $\cof\alpha<\alpha$ ci sarebbe una successione di $\gamma_i$ indicizzata con $V_{\cof\alpha}$ illimitata in $\alpha$, e l'unione dei $V_{\gamma_i}$ non apparterrebbe a $V_\alpha$.
+ \item (Assioma di rimpiazzamento) Posto $\alpha$ limite, serve che $\forall Y\in V_\alpha$ e per ogni $\langle x_i | i\in Y\rangle$ con $x_i \in V_\alpha$ valga $\bigcup x_i\in V_\alpha$. Essendo $\alpha$ limite, per ogni $i$ esiste $\gamma_i$ tale che $x_i\in V_{\gamma_i}$: affinché valga ciò che vogliamo è sufficiente che i $\gamma_i$ siano limitati in $\alpha$, cioè che $\forall Y\in V_\alpha \quad \cof\alpha>\abs{Y}$. Inoltre se $Y\in V_\alpha$ esiste $\beta<\alpha$ tale che $Y\subseteq V_\beta$ da cui $\abs{Y}\le\abs{V_\beta}=\beth_{\beta-\omega}$. Se $\beta$ è abbastanza grosso (tipo almeno $\omega^2$) $\beta-\omega=\beta$. Infine se fosse $\cof\alpha<\alpha$ ci sarebbe una successione di $\gamma_i$ indicizzata con $V_{\cof\alpha}$ illimitata in $\alpha$, e l'unione dei $V_{\gamma_i}$ non apparterrebbe a $V_\alpha$.
 
 Quindi imponiamo $\alpha=\cof\alpha$ e $\forall\beta<\alpha\quad\beth_\beta<\alpha$.
 \end{itemize}
