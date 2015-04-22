@@ -20,7 +20,7 @@
 \DeclareMathOperator{\im}{Im}
 \DeclareMathOperator{\Fun}{Fun}
 
-\newcommand{\trash}{76}
+\newcommand{\trash}{*}
 \newcommand{\myname}[1]{\emph{#1}}
 \newcommand{\nin}{\not\in}
 \newcommand{\parti}[1]{\mathcal{P}(#1)}
@@ -64,8 +64,8 @@
 
 \cleardoublepage
 
-%\section*{Nota}
-%Questo file è pensato per essere una sintesi dei concetti e delle idee necessarie per affrontare l'esame di Elementi di Teoria degli Insiemi: sono per questo riportate tutte le definizioni, teoremi e fatti che è utile sapere. Tuttavia questo esso non deve essere inteso come un documento utile per ripassare, ma come uno stru
+\section*{Introduzione}
+Questo file è un riassunto di parte del corso del professor Di Nasso presso l'Università di Pisa, nell'anno accademico 2013-2014. NON è quindi un riassunto completo, soprattutto manca la parte sulla costruzione di $\mathbb R$. Spesso parte delle dimostrazioni è appositamente lasciata al lettore, soprattutto
 
 \cleardoublepage
 
@@ -227,7 +227,7 @@ Si definisce quindi l'insieme dei numeri naturali $\mathbb N = \bigcap_{X\in \ma
 Intuitivamente con questa definizione ogni numero naturale $n$ viene identificato come l'insieme dei naturali più piccoli di lui, e la relazione d'ordine tra i naturali non è nient'altro che l'appartenenza: vedremo tra poco come tutto ciò si generalizza agli ordinali.
 
 \begin{mytheorem}[Induzione]
- Se una proprietà $P(X)$ è tale che $P(0)$ e per ogni $X$ vale $P(X)\Rightarrow P(S(X))$, allora $P(n)\;\forall n\in \mathbb N$
+ Se una proprietà $P(X)$ è tale che $P(0)$ e per ogni $X$ vale $P(X)\Rightarrow P(S(X))$, allora $P(n)\;\forall n\in \mathbb N$.
 \end{mytheorem}
 \begin{proof}
  La classe $\{x: P(x)\}$ è $S$-satura, quindi si può dimostrare che contiene $\mathbb N$ (cfr Esercizio \ref{ex:classisature}).
@@ -307,7 +307,7 @@ L'intersezione di una classe non vuota di ordinali è un ordinale.
 
 
 \begin{myobs}
- Si dimostra per induzione che i naturali sono ordinali, e lo è anche la loro unione (che è un insieme per l'assioma dell'infinito e quello dell'unione), che chiameremo $\omega$.
+ Si dimostra per induzione che i naturali sono ordinali, e che se $x\in n\in\mathbb N$ allora $x\in\mathbb N$. Quindi anche $\mathbb N$ è un ordinale (che è un insieme per l'assioma dell'infinito e quello dell'unione), che chiameremo $\omega$. 
 \end{myobs}
 
 \begin{mylemma}\label{prop:fcresc}
@@ -746,7 +746,11 @@ Inoltre, quando serve calcolare somme e prodotti di cardinali non costanti, si p
 
 \begin{proof} Supponiamo che esista una funzione $f$ suriettiva da $\sum_{i\in I} \alpha_i$ a $\prod_{i\in I} \beta_i$. Supponiamo per semplicità gli $\alpha_i$ disgiunti. Sia $\sigma_i: \alpha_i\rightarrow \beta_i$ una funzione che associa a $\gamma \in \alpha_i$ la componente lungo $\beta_i$ di $f (\gamma)$. Ora chiaramente ciascuna $\sigma_i$ non è suriettiva per motivi di cardinalità, quindi posso prendere $x_i \in \beta_i$ con $x_i \nin \sigma_i(\alpha_i)$. Ma allora l'elemento del prodotto cartesiano la cui componente $i$-esima è $x_i$ non è nell'immagine di $f$, assurdo.
 \end{proof}
-%Cantor 
+Come semplice corollario, si ottiene il seguente
+\begin{mytheorem}[Teorema di Cantor]
+ Sia $\kappa$ un cardinale. Allora $2^\kappa>\kappa$.
+\end{mytheorem}
+
 
 \subsection{Cofinalità di un ordinale}
 
@@ -908,18 +912,6 @@ La famiglia dei sottoinsiemi misurabili secondo Lebesgue di $\mathbb R$ ha cardi
 \end{itemize}
 Quindi ognuno dei $2^c$ sottoinsiemi dell'insieme di Cantor è Lebesgue-misurabile.
 
-\section{Esercizi}
-\subsection{Classi e insiemi}
-\begin{myex}
- Dire che cos'è $\bigcup_{X\in \emptyset} X$ e $\bigcap_{X\in \emptyset} X$, e dire se sono classi proprie o insiemi.
-\end{myex}
-\begin{myex}
- La classe di tutti gli insiemi non è un insieme.
-\end{myex}
-\begin{myex}
- La classe di tutti i campi non è un insieme.
-\end{myex}
-
 \subsection{Modello in cui valgano gli assiomi}
 
 Ci chiediamo se esista dentro ZF un insieme che possa essere preso come classe di tutti gli insiemi, e dentro il quale valgano gli assiomi. Questo ci porta alla domanda: che caratteristiche deve avere un insieme $X$ per soddisfare gli assiomi? (Nota: imporremo delle condizioni in generale più forti dello stretto necessario)
@@ -938,6 +930,21 @@ Ora poniamo $X=V_\alpha$ (che è transitivo) e ci chiediamo che condizioni serva
 
 Quindi imponiamo $\alpha=\cof\alpha$ e $\forall\beta<\alpha\quad\beth_\beta<\alpha$.
 \end{itemize}
+
+\section{Esercizi}
+
+\subsection{Classi e insiemi}
+\begin{myex}
+ Dire che cos'è $\bigcup_{X\in \emptyset} X$ e $\bigcap_{X\in \emptyset} X$, e dire se sono classi proprie o insiemi.
+\end{myex}
+\begin{myex}
+ La classe di tutti gli insiemi non è un insieme.
+\end{myex}
+\begin{myex}
+ La classe di tutti i campi non è un insieme.
+\end{myex}
+
+
 
 \begin{myex}
  Dati $A$ e $B$ insiemi, la classe delle funzioni $f: A\rightarrow B$ è un insieme.
@@ -978,6 +985,18 @@ Quindi imponiamo $\alpha=\cof\alpha$ e $\forall\beta<\alpha\quad\beth_\beta<\alp
   \item $\prod_{n<\omega}\aleph_n=\aleph_\omega^{\aleph_0}$
   \item $\aleph_\omega^{\aleph_1}=2^{\aleph_1}\cdot \aleph_\omega^{\aleph_0}$
  \end{itemize}
+\end{myex}
+\begin{myex}
+ Sia $\kappa, \nu$ cardinali, e $A$ un insieme di cardinalità $\kappa$. Calcolare \[\abs{\{X\subseteq A: \abs X = \nu\}}\]
+\end{myex}
+\begin{myex}
+ Calcolare, in relazione a $\abs{Y^X}$,
+ \begin{itemize}
+  \item $\abs{\{f:X\rightarrow Y \textrm{ iniettiva}\}}$
+  \item $\abs{\{f:X\rightarrow Y \textrm{ suriettiva}\}}$
+  \item $\abs{\{f:X\rightarrow Y \textrm{ bigettiva}\}}$
+ \end{itemize}
+
 \end{myex}
 
 \subsection{Bonus}
