@@ -6,7 +6,7 @@
 \newcommand{\herm}[2]{\left(#1 | #2\right)}
 \newcommand{\id}{I}
 \newcommand{\class}[1]{\mathbb C[#1]^#1}
-\DeclareMathOperator{\Reg}{Reg}
+\DeclareMathOperator{\Reg}{R}
 
 \let\conj\overline
 \title{Riassunto di Elementi di Teoria delle Rappresentazioni}
@@ -102,7 +102,7 @@
 
     \end{myexample}
     
-  \section{Operazioni tra rappresentazioni}
+  \subsection{Operazioni tra rappresentazioni}
     Vediamo quali operazioni si possono definire tra le rappresentazioni.
     
     \begin{mydef}[Somma di rappresentazioni]
@@ -196,7 +196,7 @@
 
     TODO: prodotto in forma matricale
   
-  \section{Rappresentazioni irriducibili e Schur}
+  \subsection{Rappresentazioni irriducibili e Schur}
     Data una rappresentazione, vorremmo spezzarla in somma di rappresentazioni più semplici. Se abbiamo una sottorappresentazione, allora possiamo effettivamente scriverla come somma di rappresentazioni, sfruttando che esiste un supplementare invariante (vedi Teorema \ref{Th:SupplInv}). Non è però sempre possibile trovare una sottorappresentazione.
     \begin{mydef}
       Una rappresentazione che non ammette sottorappresentazioni non banali si dice irriducibile.
@@ -346,8 +346,8 @@
      TODO: Serve la rappresentazione su Hom
     \end{proof}
     
-    \begin{myprop}
-     Sia $\rho$ una rappresentazione decomposta in irriducibili. Allora il numero di addendi isomorfi a $\sigma$, con $\sigma$ irriducibile, è pari a $\herm\rho\sigma$.
+    \begin{myprop}\label{pr:IrrCount}
+     Sia $\rho$ una rappresentazione decomposta in irriducibili. Allora il numero di addendi isomorfi a $\sigma$, con $\sigma$ irriducibile, è pari a $\herm{\chi_\rho}{\chi_\sigma}$.
     \end{myprop}
 
     In particolare, da questo deriva che due rappresentazioni con lo stesso carattere sono isomorfe.
@@ -356,28 +356,65 @@
      Una rappresentazione $\sigma$ è irriducibile se e solo se $\herm\sigma\sigma=1$.
     \end{mytheorem}
 
-   \subsection{Rappresentazione regolare}
-    Abbiamo definito da qualche parte la rappresentazione regolare. La matrice associata a $\Reg_g$ è una matrice di permutazione, e gli elementi sulla diagonale sono $1$ se $g=e$, $0$ altrimenti. Ne deriva che 
+   \subsection{Carattere della rappresentazione regolare}
+    Sia $G$ un gruppo e sia $\Reg$ la sua rappresentazione regolare. Vogliamo indagare come si decompone $\Reg$ in somma di irriducibili. Sia quindi
     \[
-     \chi_R(g) = \abs G \cdot \delta_{ge}
+     \Reg = \sum_i n_i \rho_i
     \]
+    con $n_i \in \mathbb N$. Sia inoltre $\chi_R$ il carattere di $\Reg$ e $\chi_i$ il carattere dei $\rho_i$.
+      
+    \begin{myprop}
+     Il carattere della rappresentazione regolare è
+      \[
+      \chi_R(g) = \abs G \cdot \delta_{ge}
+      \]
+     dove $\delta_{ij}$ è la \myname{delta di Kronecker}.
+    \end{myprop}
     
+    \begin{proof}
+      Sappiamo che la matrice associata a $\Reg_g$ è una matrice di permutazione, e gli elementi sulla diagonale sono $1$ se $g=e$, $0$ altrimenti. Visto che il carattere è la somma degli elementi sulla diagonale, segue la tesi.
+    \end{proof}
+    
+    Sorprendentemente, siamo in grado di determinare esplicitamente gli $n_i$.
     \begin{myprop}
-     Ogni rappresentazione irriducibile $\rho$ di $G$ è contenuta $\deg\rho$ volte in $\Reg$.
+     Ogni rappresentazione irriducibile $\rho_i$ di $G$ è contenuta $n_i$ volte in $\Reg$.
     \end{myprop}
+    
+    \begin{proof}
+     Basta applicare la Proposizione \ref{pr:IrrCount}:
+     \[
+      \herm{\chi_R}{\chi_i} = \sum_{g\in G} \chi_R(g)\conj{\chi_i(g)} = \chi_R(e)\conj{\chi_i(e)} = n_i
+     \]
 
+    \end{proof}
+
+
+    Questo lemma ha importantissime conseguenze, la cui più evidente è la seguente:
     \begin{myprop}
-     Se $n_i$ è il grado della $n$-esima rappresentazione, allora vale $\sum_i n_i^2 = \abs G$ e, se $s\ne e$, $\sum_i n_i \chi(s)=0$
-     
+     Con le notazioni precedenti vale $\sum_i n_i^2 = \abs G$ e, se $g\ne e$, $\sum_i n_i \chi_i(g)=0$
     \end{myprop}
+    \begin{proof}
+     Per definizione vale $\sum n_i \chi_i(g) = \chi_R(g)$. Prendendo $g=e$ ottengo la prima proposizione, per $g\ne e$ ottengo invece la seconda.
+    \end{proof}
 
     \begin{mytheorem}
      I caratteri delle rappresentazioni irriducibili di $G$ formano una base ortonormale delle funzioni classe $\class G$.
     \end{mytheorem}
     
+    \begin{proof}
+     C'è un po' da faticare.
+    \end{proof}
+
+    
     \begin{mytheorem}
      Le rappresentazioni irriducibili di $G$ sono tante quante le classi di coniugio.
     \end{mytheorem}
+
+    \begin{proof}
+     Visto che sulle funzioni di classe ho la base canonica costruita sulle classi di coniugio, ma ho anche la base formata dalle rappresentazioni irriducibili, come basi di uno spazio vettroriale devono avere la stessa cardinalità.
+    \end{proof}
+
+    \section{Tabella dei caratteri}
     
     \begin{myprop}[Ortogonalità delle colonne]
      Se $\chi_i$ sono le rappresentazioni irriducibili di $G$, e $g,h\in G$ non coniugati, e $c(g)$ la cardinalità della classe di coniugio di $g$, allora 
