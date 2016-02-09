@@ -1,0 +1,423 @@
+\documentclass[a4paper,10pt,oneside]{math_article}
+
+\newcommand{\Cyc}{\mathbb Z}
+\renewcommand{\phi}{\varphi}
+%\renewcommand{\Phi}{\varPhi}
+\newcommand{\herm}[2]{\left(#1 | #2\right)}
+\newcommand{\id}{I}
+\newcommand{\class}[1]{\mathbb C[#1]^#1}
+\DeclareMathOperator{\Reg}{Reg}
+
+\let\conj\overline
+\title{Riassunto di Elementi di Teoria delle Rappresentazioni}
+ \author{Matteo Migliorini}
+ 
+\date{}
+ 
+ 
+\begin{document}
+ 
+ 
+ \maketitle
+ 
+ \cleardoublepage	
+ \tableofcontents
+ \cleardoublepage
+ 
+  \section{Rappresentazioni}
+    \begin{mydef}
+      Sia $G$ un gruppo finito, e sia $V$ un $\mathbb C$-spazio vettoriale. Si dice \myname{rappresentazione} di $G$ su $V$ un'azione lineare di $G$ su $V$, ovvero un omomorfismo da $G$ in $GL(V)$.
+    \end{mydef}
+    
+    Le rappresentazioni si possono indicare equivalentemente come delle applicazioni $G \times V \rightarrow V$ con $(g,v)\mapsto gv$, con $gv$ lineare, oppure come mappe $g \mapsto \rho(g)$, dove $\rho(g) \in GL(V)$. In generale mi piace di più il secondo modo. A volte userò anche la notazione $g \mapsto \rho_g$, per evitare quintali di parentesi.
+    
+    \begin{mydef}
+     Si definisce \myname{grado} di una rappresentazione $\rho$
+     \[\deg \rho := \dim V_\rho\]
+    \end{mydef}
+
+    
+    Sia ora $R_g$ la \myname{matrice associata} all'applicazione lineare $\rho_g$. Allora $R_g$ è quadrata, di ordine $\deg \rho$, invertibile ($\det R_g \ne 0$) e vale $R_g R_h=R_{gh}$. Inoltre, se $r_{ij}(g)$ sono i coefficienti di $R_g$, allora vale
+    \[
+     r_{ik}(gh)=\sum_j r_{ij}(g)r_{jk}(h)
+    \]
+
+    
+    \begin{mydef}
+      Date $\rho,\sigma$ due rappresentazioni di $G$ su $V_\rho,V_\sigma$ rispettivamente, si dice \myname{omomorfismo di rappresentazioni} un omomorfismo $\phi$ di spazi vettoriali $V_\rho \rightarrow V_\sigma$ tale che $\rho(g) \circ \phi = \phi \circ \sigma(g)$. 
+      In altre parole, deve far commutare il seguente diagramma
+      \[
+       \begin{diagram}
+	V_\rho         & \rTo^{\phi}  & V_\sigma\\
+	\dTo<{\rho(g)} &           	 & \dTo>{\rho(g)}\\
+	V_\rho         & \rTo^{\phi}  & V_\sigma
+       \end{diagram}
+      \]
+       
+    Analogamente, si definisce \myname{endomorfismo} di $\rho$ un omomorfismo da $\rho$ in $\rho$, e \myname{isomorfismo di rappresentazioni} un omomorfismo che è un isomorfismo di spazi vettoriali.
+    \end{mydef}
+    
+    Dette $R_g$ e $S_g$ le matrici associate alle applicazioni lineari $\rho_g$ e $\sigma_g$ rispettivamente, se le due rappresentazioni sono isomorfe, allora esiste una matrice $T$ invertibile tale che
+    \[
+     R_g = T\inv S_g T \qquad \forall g\in G
+    \]
+    Quindi le matrici analoghe sono coniugate attraverso un'unica matrice invertibile.
+        
+    \begin{myexample}
+     TODO
+     \begin{itemize}
+      \item Banale
+      \item Regolare
+      \item Permutazione su X
+     \end{itemize}
+    \end{myexample}
+
+    
+%     Introduciamo ora il concetto di carattere, che verrà usato meglio più avanti.
+%     
+%     \begin{mydef}
+%      Si dice \myname{carattere} di una rappresentazione $\rho$ l'applicazione $\chi_\rho: G \rightarrow C^*$ definita da 
+%      \[
+%       \chi_\rho(g)=\Tr \rho(g)
+%      \]
+%     \end{mydef}
+    
+%     Notiamo immediatamente che nel caso $\deg\rho=1$ il carattere identifica esattamente la rappresentazione. Possiamo quindi limitare lo studio al carattere. Vedremo più tardi l'importanza dei caratteri in dimensione maggiore.
+  
+    \begin{myexample}[Rappresentazioni di $\Cyc_n$]
+      Ho esattamente $n$ possibilità per $\chi_\rho$. Infatti, se $g$ genera $\Cyc_n$, posso scegliere $\chi_\rho(g)=\zeta^i$ per $i=0,1\dots n-1$, dove $\zeta$ è una radice primitiva dell'unità.
+     
+      Posso ora scrivere
+      \[
+       V=\bigoplus_{\lambda=\zeta^i}V_\lambda
+      \]
+      dove i $V_\lambda$ sono gli autospazi dell'applicazione $\rho_(g)$ relativi all'autovalore $\lambda$.
+      
+      Se $\rho$ è una rappresentazione in $V$, e $\sigma$ in W, allora $\phi$ è un omomorfismo da $\rho$ in $\sigma$ se e solo se $\phi(V_\lambda)\subseteq \phi(W_\lambda)$ per ogni $\lambda$.
+      
+      \begin{proof}
+       Boh.
+      \end{proof}
+
+
+    \end{myexample}
+    
+  \section{Operazioni tra rappresentazioni}
+    Vediamo quali operazioni si possono definire tra le rappresentazioni.
+    
+    \begin{mydef}[Somma di rappresentazioni]
+     Siano $\rho, \sigma$ due rappresentazioni di $G$ in $V_\rho,V_\sigma$ rispettivamente. Si definisce la \myname{somma di rappresentazioni} $\rho+\sigma$ come la rappresentazione di $G$ in $V_\rho\oplus V_\sigma$ tale che 
+     \[
+      (\rho+\sigma)_g(u+v)=\rho_g(u)+\sigma_g(v)\qquad \forall u\in V_\rho, v\in V_\sigma
+     \]
+    \end{mydef}
+    
+    Matricialmente $(\rho+\sigma)_g$ si rappresenta come
+    \[
+     \left[\begin{array}{c|c}
+	    \rho_g & 0 \\
+	    \hline
+	    0 & \sigma_g
+           \end{array}
+     \right]
+    \]
+    dove ovviamente si intende che la base ha i primi vettori in $V_\rho$, i secondi in $V_\sigma$.
+    
+    Inoltre per come è definito il grado vale $\deg(\rho+\sigma)=\deg\rho+\deg\sigma$.
+    
+    \begin{mydef}
+     Un sottospazio $W$ di $V_\rho$ si dice $G$-invariante se per ogni $g\in G$ vale $\rho_g(W)\subseteq W$.
+    \end{mydef}
+
+    \begin{mydef}
+     Si dice \myname{sottorappresentazione} di $\rho$ la restrizione dei $\rho_g$ a un sottospazio vettoriale $G$-invariante.
+    \end{mydef}
+    
+    \begin{myexample}
+      Data la rappresentazione regolare $\Reg$, allora il sottospazio generato da $\sum_{g\in G} e_g$ è $G$-invariante, e la sottorappresentazione indotta è quella banale.
+    \end{myexample}
+    
+    \begin{mytheorem}\label{Th:SupplInv}
+     Sia $\rho$ una rappresentazione su $V$, e sia $W$ un sottospazio $G$-invariante. Allora esiste un supplementare $W_0$ anch'esso $G$-invariante.
+    \end{mytheorem}
+    
+    \begin{proof}
+     Sia $\pi$ una qualsiasi proiezione di $V$ su $W$, e sia $\pi_0$ la proiezione pesata data da
+     \[
+      \pi_0=\frac1{\abs G} \sum_{g\in G} \rho_g \circ \pi \circ \rho_g\inv
+     \]
+     Dato che $\pi$ lascia fisso $W$ allora anche $\pi_0$ lo lascia fisso (sto usando che $\rho_g$ stabilizza $W$). Inoltre $\pi_0(V) \subseteq W$. Quindi anch'essa è una proiezione con $\Ker \pi_0=W_0$ . Inoltre $\pi_0$ commuta con i $\rho_g$, come si vede calcolando $\rho_g \circ \pi_0 \circ \rho_g\inv$.
+     
+     Quindi se $w\in W_0$, allora $\pi_0 (\rho_g(w))=\rho_g(\pi_0(w))=0$, quindi $W_0$ è $G$-invariante.
+    \end{proof}
+    \begin{myobs}
+     Se su $V$ fosse definito un prodotto hermitiano, allora il prodotto hermitiano dato da $\sum_{g\in G}\herm {\rho_g(x)}{\rho_g(y)}$ è invariante per $G$, quindi si può facilmente verificare che $W^\perp$ è $G$-invariante, abbiamo così una dimostrazione alternativa del teorema \ref{Th:SupplInv}.
+     
+     Inoltre, dato che rispetto al prodotto hermitiano $G$ è invariante, significa che i $\rho_g$ sono ortogonali rispetto a una base ortonormale, e quindi sono matrici unitarie e in particolare \emph{diagonalizzabili}.
+    \end{myobs}
+
+    Ogniqualvolta abbiamo una sottorappresentazione, siamo quindi in grado di spezzarla in somma di due sottorappresentazioni.
+    
+    Ora invece, data una rappresentazione su $V$, vediamo come costruirne una sul duale $V^*$.
+    \begin{mydef}
+     Sia $\rho$ una rappresentazione di $G$ su $V$. Dato $f\in V^*$ e $v\in V$, sia ora $\scalar fv$ la dualità (è solo un modo figo per chiamare l'applicazione $\scalar fv \mapsto f(v)$). Definiamo la \myname{rappresentazione duale} $\rho^*$ come l'unica rappresentazione tale che:
+     \[
+      \scalar{\rho^*_g(f)}{\rho_g (v)}=\scalar fv
+     \]
+    \end{mydef}
+    
+    In altre parole, $\rho^*_g$ è l'applicazione \myname{trasposta} di $\rho_g\inv$.
+
+    Il fatto che io usi l'inverso è perché l'applicazione trasposta inverte l'ordine delle composizioni, mentre noi vogliamo un isomorfismo: quindi mettendo l'inverso l'ordine torna magicamente a essere quello giusto.
+    
+    Oltre alla somma, abbiamo anche un prodotto tra rappresentazioni. Esso è definito come segue. 
+    
+    \begin{mydef}[Prodotto tensore]
+     Dati due spazi vettoriali sul medesimo campo $V$ e $W$, si dice \myname{prodotto tensore} uno spazio $Z$ con una mappa $(v,w) \mapsto v\cdot w$ da $V\times W$ in $Z$ che sia bilineare e tale che se $(v_i)_{i\in I}$ e $(w_j)_{j\in J}$ sono una base di $V$ e $W$, allora $(v_i\cdot w_j)_{(i,j)\in I\times J}$ è una base di $Z$.
+    \end{mydef}
+    
+    Si può dimostrare che il prodotto tensore esiste ed è unico a meno di isomorfismi, e ha dimensione $\dim V \cdot \dim W$.
+     
+    Definiamo inoltre il prodotto tensore di applicazioni lineari come 
+    \[
+     (f \otimes g)(v\otimes w)=f(v)\otimes g(w) 
+    \]
+    
+    Ora siamo pronti a dare la definizione di prodotto di rappresentazioni.
+
+    \begin{mydef}[Prodotto di rappresentazioni]
+      Siano $\rho,\sigma$ due rappresentazioni su $V_\rho,V_\sigma$. Si definisce il prodotto $\rho\sigma$ come la rappresentazione su $V_\rho \otimes V_\sigma$ che soddisfa
+      \[
+       (\rho\sigma)_g = \rho_g \otimes \sigma_g
+      \]
+
+     
+    \end{mydef}
+
+    TODO: prodotto in forma matricale
+  
+  \section{Rappresentazioni irriducibili e Schur}
+    Data una rappresentazione, vorremmo spezzarla in somma di rappresentazioni più semplici. Se abbiamo una sottorappresentazione, allora possiamo effettivamente scriverla come somma di rappresentazioni, sfruttando che esiste un supplementare invariante (vedi Teorema \ref{Th:SupplInv}). Non è però sempre possibile trovare una sottorappresentazione.
+    \begin{mydef}
+      Una rappresentazione che non ammette sottorappresentazioni non banali si dice irriducibile.
+    \end{mydef}
+    
+    Banalmente, tutte le rappresentazioni di grado 1 sono irriducibili, ma non sono le uniche.
+    
+    
+    Possiamo quindi decomporre una rappresentazione fino a quando gli addendi non sono tutti irriducibili.
+    
+    Ci piacerebbe affermare che la decomposizione in irriducibili è unica (dove unica è inteso come al solito a meno dell'ordine). Tuttavia non è così banale dimostrarlo. Per farlo ci serve che se possiamo immergere una rappresentazione irriducibile in una somma, allora possiamo immergerla in almeno uno dei fattori. (Sì, vogliamo in un qualche senso che irriducibile $\Rightarrow$ primo)
+    
+    Ci viene in aiuto il Lemma di Schur.
+    
+    \begin{mytheorem}[Lemma di Schur]
+     Siano $\rho,\sigma$ due rappresentazioni irriducibili, e sia $\Phi$ un omomorfismo. Allora o $\Phi \equiv 0$ oppure $\Phi$ è un isomorfismo ed è la moltiplicazione per uno scalare.
+    \end{mytheorem}
+    \begin{proof}
+     Notiamo che $\Ker \Phi$ è banale oppure è tutto $V_\rho$, dato che $\rho$ è irriducibile. Nel secondo caso quindi $\Phi\equiv 0$, altrimenti si vede che analogamente $\Im \Phi$ è tutto $V_\sigma$. Quindi $\Phi$ è un isomorfismo.
+     
+     Sia ora $\lambda$ un autovalore di $\Phi$: allora $\Phi-\lambda\id$ ha $\Ker$ non banale e quindi è identicamente nulla.
+    \end{proof}
+    
+    Un facile corollario è il seguente.
+    \begin{mycor}
+     Data $f: V_\rho \rightarrow V_\sigma$ lineare, sia $\bar f = \frac 1{\abs G} \sum_{g\in G} \sigma_g\inv f \rho_g$. Allora
+     \begin{itemize}
+      \item Se $\rho \not \isom \sigma$ allora $\bar f\equiv 0$;
+      \item Se $\rho \isom \sigma$, allora $\bar f = \frac{\Tr(f)}{\deg \rho}\id$.
+     \end{itemize}
+    \end{mycor}
+    \begin{proof}
+     Deriva tutto dal lemma di Schur. Il fatto che lo scalare si $\frac{\Tr f}{\deg \rho}$ viene dal fatto che $\Tr \bar f = \Tr f$ (basta fare il conto) e che $\Tr \bar f = \lambda \deg \rho$.
+    \end{proof}
+
+
+    Adesso possiamo concludere il claim precedente.
+    \begin{myprop}
+     Ogni rappresentazione si può scrivere in maniera unica come somma di rappresentazioni irriducibili.
+    \end{myprop}
+    \begin{proof}
+     Siano $\rho = \rho_1 + \rho_2 + \dots + \rho_n = \sigma_1 + \dots +\sigma_m$ due decomposizioni in irriducibili della stessa rappresentazione. Prendiamo $\sigma_1$ e la immergiamo in modo canonico in $\rho$. A questo punto, restringendosi ai $\rho_i$, abbiamo degli omomorfismi da $\sigma_1$ in $\rho_i$, che non possono essere tutti banali. Quindi per il lemma di Schur $\sigma_1\isom \rho_i$ per qualche $i$. La conclusione per induzione è immediata. 
+    \end{proof}
+  
+  \begin{myex}
+   Consideriamo un $n$-agono regolare, con un numero complesso scritto su ogni vertice. A ogni passo sositiuisco ogni vertice con la media degli adiacenti. Come si comporta il problema asintoticamente?
+   
+   Consideriamo lo spazio vettoriale $\mathbb C^n$ dei numeri presenti sui vertici, e consideriamo la rappresentazione regolare di $\Cyc_n$ su $\mathbb C^n$ (che agisce sui vettori della base per rotazione). Sia inoltre $T$ l'applicazione lineare che manda ogni vertice nella media degli adiacenti.
+   
+   Visto che $T$ commuta con tutti i $\rho_g$, allora $T$ è anche un \myname{endomorfismo di rappresentazione}. DA FINIRE
+  \end{myex}
+
+  
+  \section{Caratteri}
+    
+    \begin{mydef}
+     Si dice \myname{carattere} di una rappresentazione $\rho$ l'applicazione $\chi_\rho: G \rightarrow C^*$ definita da 
+     \[
+      \chi_\rho(g)=\Tr \rho(g)
+     \]
+    \end{mydef}
+    
+    \begin{Achtung}
+      Il carattere \underline{NON} è un'omomporfismo da $G$ in $C^*$! Lo è se e solo se $\deg \rho = 1$. 
+    \end{Achtung}
+
+    \begin{myprop}
+      Il carattere soddisfa le seguenti:
+      \begin{enumerate}
+       \item $\chi_\rho(e)=\deg\rho$
+       \item $\chi_\rho(g\inv)=\conj{\chi_\rho(g)}$
+       \item $\chi_\rho(hgh\inv)=\chi_\rho(g)$
+      \end{enumerate}
+
+    \end{myprop}
+    \begin{proof}
+     La 1 è ovvia, visto che $\rho_e= \id_n$, dove $n=\deg \rho$.
+     
+     La 2 viene dal fatto che, essendo $\rho_g$ diagonalizzabile con autovalori di norma $1$, e dato che la traccia è la somma degli autovalori, allora
+     \[
+      \Tr\rho_g\inv = \sum_i \lambda_i\inv = \sum_i \conj{\lambda_i} = \conj{\sum_i \lambda_i} = \conj{\Tr\rho_g} 
+     \]
+     da cui quello che volevamo.
+     
+     La 3 invece deriva dal fatto che se $g$ e $g'$ sono coniugati, allora anche $\rho_g$ e $\rho_{g'}$ lo sono, e la traccia è invariante per coniugio. Ogni funzione che soddisfa la 3 si chiama \myname{funzione di classe}.
+    \end{proof}
+    
+    Ci chiediamo se il carattere identifica le rappresentazioni, ossia se rappresentazioni diverse hanno caratteri diversi.
+    Intanto però il carattere distingue il grado di una rappresentazione, che è dato da $\deg \rho = \chi_\rho(e)$.
+ 
+    \begin{mylemma}
+    I caratteri godono delle seguenti proprietà:
+      \begin{itemize}
+      \item $\chi_{\rho+\sigma}=\chi_\rho+\chi_\sigma$     
+      \item $\chi_{\rho\otimes\sigma}=\chi_\rho\cdot\chi_\sigma$
+      \item $\chi_{\rho^*} = \conj{\chi_\rho}$
+      \end{itemize}
+    \end{mylemma}
+    \begin{proof}
+     Per la rappresentazione duale vale 
+     \[
+      \chi_{\rho^*}(s)=\Tr (\trasp\rho_{s\inv})=\Tr (\rho_s\inv)
+     \]
+     Dato che la traccia è la somma degli inversi degli autovalori, e questi hanno modulo 1, allora otteniamo $\conj{\chi_\rho}$. 
+
+    \end{proof}
+
+    
+    \subsection{Prodotto hermitiano}
+    Introduciamo un prodotto interno su $\mathbb C^{(G)}$ (le funzioni da $G$ in $C$), dato da 
+    \[
+     \herm fg = \frac 1{\abs G} \sum_{s\in G} f(s)\conj{g(s)}
+    \]
+    
+    Grazie a questo prodotto possiamo effettuare delle proiezioni.
+    
+    \begin{myexample}
+     Consideriamo $\rho$ una G-rappresentazione, e sia $\id$ la rappresentazione banale di grado 1 (irriducibile). Allora 
+     \[
+      \herm \rho\id = \frac 1{\abs G}\sum_{g\in G} \chi_\rho(g) = \dim V_\rho^G
+     \]    
+    \end{myexample}
+    \begin{proof}
+     Sappiamo che per definizione
+     \[
+      \herm \rho\id = \frac 1{\abs G}\sum_{g\in G} \chi_\rho(g) = \frac 1{\abs G}\sum_{g\in G} \Tr(\rho(g)) 
+     \]
+     Per la linearità otteniamo $\Tr\left(\frac 1{\abs G}\sum_{g\in G}\rho(g)\right)$. Sia quindi $T=\frac 1{\abs G}\sum_{g\in G}\rho(g)$.
+     
+     Sia $v \in V^G_\rho$, allora $T(v)=v$. Inoltre per ogni $v$ vale che $T(v) \in V^G_\rho$ (TODO fare il conto). Quindi abbiamo la tesi.
+     
+    \end{proof}
+   \subsection{Relazioni di ortogonalità}
+    \begin{mytheorem}[Teorema di ortogonalità dei caratteri]
+     Siano $\rho,\sigma$ due rappresentazioni irriducibili. Allora
+     \[
+      \herm {\chi_\rho} {\chi_\sigma} = \begin{cases}
+                           1 \mbox{ se } \rho \isom \sigma \\
+                           0 \mbox{ se } \rho \not\isom \sigma
+                          \end{cases}
+     \]
+    \end{mytheorem}
+    \begin{proof}
+     \[
+      \herm {\chi_\rho}{\chi_\sigma}=\herm{\chi_\rho\conj{\chi_\sigma}}\id = \herm{\chi_{\Hom(V_\rho,V_\sigma)}}\id
+     \]
+     TODO: Serve la rappresentazione su Hom
+    \end{proof}
+    
+    \begin{myprop}
+     Sia $\rho$ una rappresentazione decomposta in irriducibili. Allora il numero di addendi isomorfi a $\sigma$, con $\sigma$ irriducibile, è pari a $\herm\rho\sigma$.
+    \end{myprop}
+
+    In particolare, da questo deriva che due rappresentazioni con lo stesso carattere sono isomorfe.
+    
+    \begin{mytheorem}[Criterio di irriducibilità]
+     Una rappresentazione $\sigma$ è irriducibile se e solo se $\herm\sigma\sigma=1$.
+    \end{mytheorem}
+
+   \subsection{Rappresentazione regolare}
+    Abbiamo definito da qualche parte la rappresentazione regolare. La matrice associata a $\Reg_g$ è una matrice di permutazione, e gli elementi sulla diagonale sono $1$ se $g=e$, $0$ altrimenti. Ne deriva che 
+    \[
+     \chi_R(g) = \abs G \cdot \delta_{ge}
+    \]
+    
+    \begin{myprop}
+     Ogni rappresentazione irriducibile $\rho$ di $G$ è contenuta $\deg\rho$ volte in $\Reg$.
+    \end{myprop}
+
+    \begin{myprop}
+     Se $n_i$ è il grado della $n$-esima rappresentazione, allora vale $\sum_i n_i^2 = \abs G$ e, se $s\ne e$, $\sum_i n_i \chi(s)=0$
+     
+    \end{myprop}
+
+    \begin{mytheorem}
+     I caratteri delle rappresentazioni irriducibili di $G$ formano una base ortonormale delle funzioni classe $\class G$.
+    \end{mytheorem}
+    
+    \begin{mytheorem}
+     Le rappresentazioni irriducibili di $G$ sono tante quante le classi di coniugio.
+    \end{mytheorem}
+    
+    \begin{myprop}[Ortogonalità delle colonne]
+     Se $\chi_i$ sono le rappresentazioni irriducibili di $G$, e $g,h\in G$ non coniugati, e $c(g)$ la cardinalità della classe di coniugio di $g$, allora 
+     \begin{align*}
+	\sum_i \abs{\chi_i(g)}^2 = \frac {\abs G}{c(g)}\\
+	\sum_i \chi_i(g)\conj{\chi_i(h)} = 0
+     \end{align*}
+    \end{myprop}
+
+
+
+\iffalse 
+  \section{Forma hermitiana, ortogonalità, rappresentazioni irriducibili}
+    Sia $h_0$ un prodotto interno (forma hermitiana definita positiva) in $V\times V$, e definiamo 
+    \[
+      h(v,w)=\frac1{\abs G}\sum_{g\in G}h_0\left(\rho_g(v),\rho_g(w)\right) 
+    \]
+    In questo modo in $\rho_g$ sono tutte applicazioni lineari unitarie.
+    
+    \begin{myexample}
+     Data una rappresentazione $\rho$ su $V$, indichiamo con $V^G$ il sottospazio dei punti lasciati fissi da tutti i $\rho_g$. In particolare $V^G$ è $G$-invariante e quindi ho ottenuto una sottorappresentazione (banale). 
+    \end{myexample}
+    \begin{myexample}
+     Sia $\lambda$ un omomorfismo da $G$ in $C^*$. Possiamo definire, generalizzando la nozione di autospazio vista ad Algebra lineare, l'autospazio relativo a $\lambda$ come il sottospazio di $V_\rho$ costituito dai vettori $v$ che soddisfano 
+     \[
+      \rho_g(v)=\lambda(g)\cdot v
+     \]
+
+     Notiamo che se $\lambda \equiv 1$, allora $V_\lambda=V^G$. Inoltre, se pensiamo a $\lambda$ come una rappresentazione di grado 1, allora 
+     \[	
+      \restr\rho{V_\lambda}= \overbrace{\lambda + \lambda + \lambda + \dots + \lambda}^{\mbox{\tiny come somme di rappresentazioni!}}=\dim V_\lambda \cdot \lambda
+     \]     
+    \end{myexample}
+\fi
+
+ 
+  \section{Tavola dei caratteri}
+ 
+  \section{Coefficienti matriciali}
+ 
+ 
+ 
+\end{document}
