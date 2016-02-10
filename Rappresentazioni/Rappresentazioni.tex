@@ -6,6 +6,7 @@
 \newcommand{\herm}[2]{\left(#1 | #2\right)}
 \newcommand{\id}{I}
 \newcommand{\class}[1]{\mathbb C[#1]^#1}
+\newcommand{\tensor}{\otimes}
 \DeclareMathOperator{\Reg}{R}
 
 \let\conj\overline
@@ -196,6 +197,20 @@
     \end{mydef}
 
     TODO: prodotto in forma matricale
+    
+    \begin{mydef}
+     Sia $\rho$ una rappresentazione su $V$. Prendiamo lo spazio $V\otimes V$, e consideriamo l'automorfismo $\theta$ tale che 
+     \[
+      \theta(e_i \tensor e_j) = e_j \tensor e_i
+     \]
+     
+     $V\otimes V$ si decompone quindi nella somma del quadrato simmetrico $S^2V$ dei vettori fissati da $\theta$, e nel quadrato alternante $\Lambda^2V$ dei vettori tali che $\theta(z) = -z$. Poichè essi sono $G$-invarianti (tramite la rappresentazione $\sigma^2$) allora essi definiscono due sottorappresentazioni.
+    \end{mydef}
+    \begin{myexample}
+     Sia $V=\mathbb C^n$. Possiamo pensare $V\otimes V$ come $\mathcal M_n(\mathbb C)$, dove $v \tensor w = v\trasp w$. In questo caso, i quadrati simmetrici e alternanti coincidono con le matrici simmetriche e antisimmetriche rispettivamente.
+    \end{myexample}
+
+
   
   \subsection{Rappresentazioni irriducibili e Schur}
     Data una rappresentazione, vorremmo spezzarla in somma di rappresentazioni più semplici. Se abbiamo una sottorappresentazione, allora possiamo effettivamente scriverla come somma di rappresentazioni, sfruttando che esiste un supplementare invariante (vedi Teorema \ref{Th:SupplInv}). Non è però sempre possibile trovare una sottorappresentazione.
@@ -330,6 +345,40 @@
      Sia $v \in V^G_\rho$, allora $T(v)=v$. Inoltre per ogni $v$ vale che $T(v) \in V^G_\rho$ (TODO fare il conto). Quindi abbiamo la tesi.
      
     \end{proof}
+    
+    Costruiamo ora un modo alternativo per esprimere questo prodotto hermitiano. Ci serve la costruzione della rappresentazione sugli omomorfismi.
+    
+    \begin{mydef}
+     Siano $\rho, \sigma$ due rappresentazioni di $G$ su $V_\rho,V_\sigma$. Allora costruiamo una rappresentazione $\tau$ su $\Hom(V_\rho,V_\sigma)$ (come spazio vettoriale) definita da 
+     \[
+      \tau_g (\phi) = \sigma_g \circ \phi \circ \rho_g\inv
+     \]
+    \end{mydef}
+    
+    \begin{myprop}
+     Esiste un isomorfismo canonico tra $\Hom (V_\rho,V_\sigma)$ e $V_\rho^* \tensor V_\sigma$. 
+    \end{myprop}
+    
+    \begin{proof}
+     \`E una verifica.
+    \end{proof}
+    
+    Noi abbiamo costruito una rappresentazione su $\Hom(V_\rho,V_\sigma)$, ma non tutti sono omomorfismi di rappresentazioni: lo sono infatti solo quelli fissati da $G$ (TODO dimostrazione. Si vede abbastanza comunque dalla definizione). Dato che $\chi_\tau = \conj{\chi_\rho}\chi_\sigma$ per le proprietà del prodotto tensore e della rappresentazione duale, allora vale per il lemma precedente
+    \[
+     \dim \Hom(\rho,\sigma) = \dim \Hom(V_\rho,V_\sigma)^G = \herm {\chi_\tau}\id = \herm{\chi_\sigma}{\chi_\rho}
+    \]
+    
+    Notiamo che visto che è un numero intero, allora posso scambiare i due fattori nel prodotto hermitiano, e ottengo
+    \[
+     \herm{\chi_\rho}{\chi_\sigma} = \dim \Hom(\rho,\sigma)
+    \]
+
+
+    
+    
+
+
+
    \subsection{Relazioni di ortogonalità}
     \begin{mytheorem}[Teorema di ortogonalità dei caratteri]
      Siano $\rho,\sigma$ due rappresentazioni irriducibili. Allora
@@ -342,9 +391,9 @@
     \end{mytheorem}
     \begin{proof}
      \[
-      \herm {\chi_\rho}{\chi_\sigma}=\herm{\chi_\rho\conj{\chi_\sigma}}\id = \herm{\chi_{\Hom(V_\rho,V_\sigma)}}\id
+      \herm {\chi_\rho}{\chi_\sigma}=\dim \Hom(\rho,\sigma)
      \]
-     TODO: Serve la rappresentazione su Hom
+     e quindi con il lemma di Schur ho la tesi.
     \end{proof}
     
     \begin{myprop}\label{pr:IrrCount}
@@ -376,6 +425,8 @@
       Sappiamo che la matrice associata a $\Reg_g$ è una matrice di permutazione, e gli elementi sulla diagonale sono $1$ se $g=e$, $0$ altrimenti. Visto che il carattere è la somma degli elementi sulla diagonale, segue la tesi.
     \end{proof}
     
+ 
+    
     Sorprendentemente, siamo in grado di determinare esplicitamente gli $n_i$.
     \begin{myprop}
      Ogni rappresentazione irriducibile $\rho_i$ di $G$ è contenuta $n_i$ volte in $\Reg$.
@@ -384,13 +435,33 @@
     \begin{proof}
      Basta applicare la Proposizione \ref{pr:IrrCount}:
      \[
-      \herm{\chi_R}{\chi_i} = \sum_{g\in G} \chi_R(g)\conj{\chi_i(g)} = \chi_R(e)\conj{\chi_i(e)} = n_i
+      \herm{\chi_R}{\chi_i} = \frac1{\abs G}\sum_{g\in G} \chi_R(g)\conj{\chi_i(g)} = \frac1{\abs G}\chi_R(e)\conj{\chi_i(e)} = n_i
      \]
 
     \end{proof}
 
-
-    Questo lemma ha importantissime conseguenze, la cui più evidente è la seguente:
+    Vediamo anche una dimostrazione alternativa, che si basa sul seguente lemma:
+    \begin{mylemma}
+      Sia $G$ un gruppo, e sia $\rho$ una rappresentazione, e $\Reg$ la sua rappresentazione regolare. Allora, fissato $v\in V_\rho$, esiste un unico omomorfismo di rappresentazioni $\phi: \Reg \rightarrow \rho$ tale che $\phi(e_1)=v$.
+    \end{mylemma}
+    \begin{proof}
+      Se $\phi$ è un omomorfismo di rappresentazione, allora deve valere 
+      \[
+      \phi(e_g)=\phi \circ \Reg_g (e_1) = \rho_g \circ \phi (e_1) = \rho_g(v)
+      \]
+      e quindi se esiste è unica. \`E facile verificare che questo omomorfismo rispetta le ipotesi.
+    \end{proof}
+    
+    La dimostazione diventa ora immediata:
+    \begin{proof}
+     Per quanto visto nel lemma, vale $\dim \Hom(R,\rho_i) = \dim V_{\rho_i}$. Quindi
+     \[
+      \herm{\chi_R}{\chi_i}= \dim \Hom(R,\rho_i) = \dim V_{\rho_i} = n_i
+     \]
+     e ottengo la tesi.
+    \end{proof}
+    
+    Questo teorema ha importantissime conseguenze, la cui più evidente è la seguente:
     \begin{myprop}
      Con le notazioni precedenti vale $\sum_i n_i^2 = \abs G$ e, se $g\ne e$, $\sum_i n_i \chi_i(g)=0$
     \end{myprop}
@@ -479,12 +550,26 @@
 \fi
 
  
-  \section{Rappresentazioni di sottogruppi, prodotti diretti...}
+  \section{Rappresentazioni di gruppi particolari}
+  \subsection{Gruppi abeliani}
+   Le rappresentazioni dei gruppi abeliani sono particolarmente semplici. Vale infatti la seguente proposizione:
+   \begin{myprop}
+    Sia $G$ un gruppo, e siano $\rho_i$ le sue rappresentazioni irriducibili. Allora G è abeliano se e solo se tutte le $\rho_i$ hanno grado 1.
+   \end{myprop}
+    
+   \begin{proof}
+    Supponiamo che $G$ sia abeliano. Allora ho $\abs G$ classi di coniugio e pertanto altrettante rappresentazioni irriducibili. Dato che $\sum_i n_i^2 = \abs G$ segue $n_i = 1$.
+    
+    Viceversa, supponiamo che $G$ sia un gruppo le cui rappresentazioni irriducibili hanno grado 1. Consideriamo una rappresentazione $\rho$ fedele di $G$ (ad esempio quella regolare), quindi possiamo decomporla in irriducibili di grado 1. Questo significa che esiste una base in cui tutte le $\rho_g$ sono diagonali, e pertanto commutano. Dunque $\rho_g\rho_h = \rho_h\rho_g \Rightarrow \rho_{gh} = \rho_{hg}$ e per l'iniettività di $\rho$ ho finito.
+   \end{proof}
+
   
   
  
   \section{Coefficienti matriciali}
  
- 
+  \section{Cose che non hanno ancora un posto}
+  \subsection{Dimostrazione alternativa di $\sum n_i^2 = \abs G$}
+
  
 \end{document}
