@@ -24,6 +24,14 @@
  \tableofcontents
  \cleardoublepage
  
+  \section*{Introduzione}
+   Questo file è un riassunto del corso dei proff. Angelo Vistoli e Gandini. Tuttavia tenete presente che tutte le cose di Algebra 1 o inferiori verranno date per note (magari verranno \TeX ate in seguito, ma non sperateci troppo).
+   
+   Inoltre la struttura degli argomenti è ripresa dal Serre, e integrata con gli appunti del corso (per i quali ringraziamo Balbo).
+
+   \subsection*{DISCLAIMER}
+    Il file non è ancora completo, usatelo a vostro rischio e pericolo.
+ 
   \section{Rappresentazioni}
     \begin{mydef}
       Sia $G$ un gruppo finito, e sia $V$ un $\mathbb C$-spazio vettoriale. Si dice \myname{rappresentazione} di $G$ su $V$ un'azione lineare di $G$ su $V$, ovvero un omomorfismo da $G$ in $GL(V)$.
@@ -57,32 +65,25 @@
     Analogamente, si definisce \myname{endomorfismo} di $\rho$ un omomorfismo da $\rho$ in $\rho$, e \myname{isomorfismo di rappresentazioni} un omomorfismo che è un isomorfismo di spazi vettoriali.
     \end{mydef}
     
+    Come al solito, identificheremo le rappresentazioni isomorfe, senza scrivere tutte le volte \emph{a meno di isomorfismo}.
+    
     Dette $R_g$ e $S_g$ le matrici associate alle applicazioni lineari $\rho_g$ e $\sigma_g$ rispettivamente, se le due rappresentazioni sono isomorfe, allora esiste una matrice $T$ invertibile tale che
     \[
      R_g = T\inv S_g T \qquad \forall g\in G
     \]
     Quindi le matrici analoghe sono coniugate attraverso un'unica matrice invertibile.
         
-    \begin{myexample}
-     TODO
-     \begin{itemize}
-      \item Banale
-      \item Regolare
-      \item Permutazione su X
-     \end{itemize}
+    \begin{myexample}[Rappresentazione banale]
+     Dato un qualsiasi gruppo $G$ e un qualsiasi spazio vettoriale $V$, una sua rappresentazione possibile è quella banale $g \mapsto \id$.
     \end{myexample}
-
-    
-%     Introduciamo ora il concetto di carattere, che verrà usato meglio più avanti.
-%     
-%     \begin{mydef}
-%      Si dice \myname{carattere} di una rappresentazione $\rho$ l'applicazione $\chi_\rho: G \rightarrow C^*$ definita da 
-%      \[
-%       \chi_\rho(g)=\Tr \rho(g)
-%      \]
-%     \end{mydef}
-    
-%     Notiamo immediatamente che nel caso $\deg\rho=1$ il carattere identifica esattamente la rappresentazione. Possiamo quindi limitare lo studio al carattere. Vedremo più tardi l'importanza dei caratteri in dimensione maggiore.
+    \begin{myexample}[Rappresentazione regolare]
+     Sia $G$ un gruppo finito, e sia $V$ uno spazio vettoriale con base indicizzata da $G$ (ci starebbe una digressione sulla definizione di base). La rappresentazione regolare $\Reg$ è quella rappresentazione che associa a ogni elemento del gruppo l'azione di \emph{moltiplicazione a sinistra} sulla base, ossia $\rho_g: e_h \mapsto e_{gh}$.
+     
+     Vedremo l'importanza di questa rappresentazione.
+     \end{myexample}
+     \begin{myexample}[Rappresentazione per permutazione di un insieme]
+      Più in generale, se ho un'azione di $G$ su un insieme $X$, posso considerare $V$ con $X\rightarrow V$ una base, e costruire la rappresentazione che permuta la base tramite l'azione su $X$. Anch'essa è una rappresentazione.
+    \end{myexample}
   
     \begin{myexample}[Rappresentazioni di $\Cyc_n$]
       Ho esattamente $n$ possibilità per $\chi_\rho$. Infatti, se $g$ genera $\Cyc_n$, posso scegliere $\chi_\rho(g)=\zeta^i$ per $i=0,1\dots n-1$, dove $\zeta$ è una radice primitiva dell'unità.
@@ -96,7 +97,7 @@
       Se $\rho$ è una rappresentazione in $V$, e $\sigma$ in W, allora $\phi$ è un omomorfismo da $\rho$ in $\sigma$ se e solo se $\phi(V_\lambda)\subseteq \phi(W_\lambda)$ per ogni $\lambda$.
       
       \begin{proof}
-       Boh.
+       Perchè sia un omomorfismo di rappresentazione, chiaramente gli autospazi di $V$ devono andare negli autospazi di $W$. Inoltre, visto che posso scegliere una base di autovettori (le immagini di una rappresentazione di un gruppo finito sono diagonalizzabili), mi basta che soddisfi le proprietà su una base.
       \end{proof}
 
 
@@ -416,6 +417,18 @@
 
     \section{Tabella dei caratteri}
     
+    Dato un gruppo $G$, possiamo costruire la sua \myname{tabella dei caratteri} fatta come segue:
+    \begin{itemize}
+     \item Su ogni colonna mettiamo una classe di coniugio del gruppo;
+     \item su ogni riga mettiamo una rappresentazione irriducibile del gruppo;
+     \item all'incrocio tra la rappresentazione $\rho$ e la classe di coniugio $C$ inseriamo il valore di $\chi_\rho(g)$ con $g\in C$ (sto usando il fatto che il carattere è invariante di coniugio).
+    \end{itemize}
+
+    Per quanto abbiamo visto la tabella è \emph{quadrata} (ho tante classi di coniugio quante rappresentazioni irriducibili).
+    
+    Per le relazioni di ortogonalità dei caratteri, sappiamo che le righe sono tutte \emph{ortonormali} (dove bisogna sempre ricordarsi di fare la media pesata sulla cardinalità della classe di coniugio quando si effettua il prodotto hermitiano).
+    
+    Inoltre vale anche la seguente:
     \begin{myprop}[Ortogonalità delle colonne]
      Se $\chi_i$ sono le rappresentazioni irriducibili di $G$, e $g,h\in G$ non coniugati, e $c(g)$ la cardinalità della classe di coniugio di $g$, allora 
      \begin{align*}
@@ -424,6 +437,21 @@
      \end{align*}
     \end{myprop}
 
+    \begin{myexample} [Tabella dei caratteri di $Q_8$]
+     \[
+      \begin{array}{|c|ccccc|}
+      \hline
+       Q_8    & \{1\} & \{-1\} & \{\pm i\} & \{\pm j\} & \{\pm k\} \\ \hline
+       Id     &   1   &    1   &     1     &     1     &     1     \\ 
+       \rho_i &   1   &    1   &     1     &    -1     &    -1     \\
+       \rho_j &   1   &    1   &    -1     &     1     &    -1     \\
+       \rho_k &   1   &    1   &    -1     &    -1     &     1     \\
+       \rho_2 &   2   &   -2   &     0     &     0     &     0     \\ \hline
+      \end{array}
+     \]
+     
+     
+    \end{myexample}
 
 
 \iffalse 
@@ -451,7 +479,9 @@
 \fi
 
  
-  \section{Tavola dei caratteri}
+  \section{Rappresentazioni di sottogruppi, prodotti diretti...}
+  
+  
  
   \section{Coefficienti matriciali}
  
