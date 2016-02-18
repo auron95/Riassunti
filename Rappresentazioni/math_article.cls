@@ -46,6 +46,8 @@
 \DeclareMathOperator{\Tr}{Tr}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\sgn}{sgn}
 %TEOREMI IN CORSIVO
 \newtheoremstyle{dotless}{}{}{\itshape}{}{\bfseries}{}{ }{}
 \theoremstyle{plain}
