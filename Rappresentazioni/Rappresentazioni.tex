@@ -40,17 +40,20 @@
     
     Le rappresentazioni si possono indicare equivalentemente come delle applicazioni $G \times V \rightarrow V$ con $(g,v)\mapsto gv$, con $gv$ lineare, oppure come mappe $g \mapsto \rho(g)$, dove $\rho(g) \in GL(V)$. In generale mi piace di più il secondo modo. A volte userò anche la notazione $g \mapsto \rho_g$, per evitare quintali di parentesi.
     
+    In alternativa, si possono vedere le rappresentazioni come $\bC[G]$-moduli, dove $\bC[G]$ è l'anello delle combinazioni $\bC$-lineari di elementi di $G$.
+    
     \begin{mydef}
      Si definisce \myname{grado} di una rappresentazione $\rho$
      \[\deg \rho := \dim V_\rho\]
     \end{mydef}
 
     
-    Sia ora $R_g$ la \myname{matrice associata} all'applicazione lineare $\rho_g$. Allora $R_g$ è quadrata, di ordine $\deg \rho$, invertibile ($\det R_g \ne 0$) e vale $R_g R_h=R_{gh}$. Inoltre, se $r_{ij}(g)$ sono i coefficienti di $R_g$, allora vale
+    Sia ora $[\rho_g]_\cB$ la \myname{matrice associata} all'applicazione lineare $\rho_g$ in base $\cB$. Allora $[\rho_g]$ è quadrata, di ordine $\deg \rho$, invertibile ($\det [\rho_g]\ne 0$) e vale $[\rho_g] [\rho_h]=[\rho_{gh}]$. Inoltre, se $[\rho_g]_i^j$ è il coefficiente di $[\rho_g]$ di riga $i$ e colonna $j$, allora vale
     \[
-     r_{ik}(gh)=\sum_j r_{ij}(g)r_{jk}(h)
+     [\rho_{gh}]_i^k=\sum_j [\rho_g]_i^j [\rho_h]_j^k
     \]
 
+    Dato che per gruppi finiti $[\rho_g]^n$ deve fare l'identità per $n=\abs G$, allora il suo polinomio minimo divide $x^n-1$, e visto che non ha fattori ripetuti $[\rho_g]$ è diagonalizzabile, con solo radici $n$-esime dell'unità sulla diagonale. 
     
     \begin{mydef}
       Date $\rho,\sigma$ due rappresentazioni di $G$ su $V_\rho,V_\sigma$ rispettivamente, si dice \myname{omomorfismo di rappresentazioni} un omomorfismo $\phi$ di spazi vettoriali $V_\rho \rightarrow V_\sigma$ tale che $\rho(g) \circ \phi = \phi \circ \sigma(g)$. 
@@ -65,6 +68,8 @@
        
     Analogamente, si definisce \myname{endomorfismo} di $\rho$ un omomorfismo da $\rho$ in $\rho$, e \myname{isomorfismo di rappresentazioni} un omomorfismo che è un isomorfismo di spazi vettoriali.
     \end{mydef}
+    
+    Pensate come $\bC[G]$-moduli, allora gli omomorfismi di rappresentazioni coincidono con i morfismi di $\bC[G]$-moduli.
     
     Come al solito, identificheremo le rappresentazioni isomorfe, senza scrivere tutte le volte \emph{a meno di isomorfismo}.
     
@@ -84,6 +89,8 @@
      \[
      \Reg_g(f): x \mapsto  f ( g\inv x) 
      \]
+     
+     Questa rappresentazione è particolarmente importante perché coincide con $\bC[G]$ visto come $\bC[G]$-modulo, che è sostanzialmente la prima definizione.
      
      Vedremo l'importanza di questa rappresentazione.
      \end{myexample}
@@ -137,7 +144,7 @@
     \end{mydef}
 
     \begin{mydef}
-     Si dice \myname{sottorappresentazione} di $\rho$ la restrizione dei $\rho_g$ a un sottospazio vettoriale $G$-invariante.
+     Si dice \myname{sottorappresentazione} di $\rho$ la restrizione dei $\rho_g$ a un sottospazio vettoriale $G$-invariante. Nel linguaggio dei moduli si parla di sottomodulo.
     \end{mydef}
     
     \begin{myexample}
