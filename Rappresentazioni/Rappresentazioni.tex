@@ -89,10 +89,24 @@
       
       Un $\bC[G]$-modulo lo possiamo quindi pensare moralmente come un $\bC$-spazio vettoriale dove oltre a una moltiplicazione per uno scalare complesso posso anche moltiplicare per un elemento del gruppo $G$ (sarà tutto più chiaro -- forse -- quando introdiceremo il concetto di rappresentazione).
 
+    \subsection{Prodotto tensore}
+      \begin{mydef}[Prodotto tensore]
+       Siano $V, W$ due $\bK$-spazi vettoriali. Si dice \emph{prodotto tensore} di $V$ e $W$, e si indica come $V\tensor W$, uno spazio vettoriale con una funzione $\tensor: V \times W \rar V\tensor W$ tale che per ogni applicazione bilineare $f: V\times W \rar Z$ esiste un unica applicazione lineare $\phi: V\tensor W \rar Z$ che fa commutare il seguente diagramma:
+	\[
+	  \begin{diagram}
+	  V\times W & \rTo^\tensor  & V\tensor W \\
+	    & \rdTo_f & \dTo>{\phi}   \\
+	    &         & Z
+	  \end{diagram}
+	\]
+      \end{mydef}
+      
+      Bisognerebbe dimostrare che sta roba esiste, ma adesso non ho sbatty.
 
+      
+    
     
     \begin{itemize}
-     \item Prodotto tensore
      \item Potenza esterna e simmetrica
     \end{itemize}
 
