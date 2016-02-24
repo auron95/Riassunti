@@ -7,6 +7,7 @@
 \newcommand{\id}{I}
 \newcommand{\class}[1]{\mathbb C[#1]^#1}
 \newcommand{\tensor}{\otimes}
+\renewcommand{\bar}{\overline}
 \DeclareMathOperator{\Reg}{R}
 
 \let\conj\overline
@@ -32,7 +33,34 @@
 
    \subsection*{DISCLAIMER}
     Il file non è ancora completo, usatelo a vostro rischio e pericolo.
- 
+  \section{Precorso}
+    \begin{itemize}
+     \item Base di uno spazio vettoriale in modo categorico
+     \item $\bC[G]$-moduli
+     \item Prodotto tensore
+     \item Potenza esterna e simmetrica
+    \end{itemize}
+
+    
+    \begin{mydef}[Prodotto tensore]
+     Dati due spazi vettoriali sul medesimo campo $V$ e $W$, si dice \myname{prodotto tensore} uno spazio $Z$ con una mappa $(v,w) \mapsto v\cdot w$ da $V\times W$ in $Z$ che sia bilineare e tale che se $(v_i)_{i\in I}$ e $(w_j)_{j\in J}$ sono una base di $V$ e $W$, allora $(v_i\cdot w_j)_{(i,j)\in I\times J}$ è una base di $Z$.
+    \end{mydef}
+  
+    Definiamo inoltre il prodotto tensore di applicazioni lineari come 
+    \[
+     (f \otimes g)(v\otimes w)=f(v)\otimes g(w) 
+    \]
+    
+      \[
+       \begin{diagram}
+	V\times W      & \rTo^{f\times g} & V'\times W'\\
+	\dTo           &           	  & \dTo \\
+	V \tensor W     & \rTo^{f\tensor g}& V'\tensor W'
+       \end{diagram}
+      \]
+   
+    TODO: prodotto in forma matricale
+
   \section{Rappresentazioni}
     \begin{mydef}
       Sia $G$ un gruppo finito, e sia $V$ un $\mathbb C$-spazio vettoriale. Si dice \myname{rappresentazione} di $G$ su $V$ un'azione lineare di $G$ su $V$, ovvero un omomorfismo da $G$ in $GL(V)$.
@@ -61,7 +89,7 @@
       \[
        \begin{diagram}
 	V_\rho         & \rTo^{\phi}  & V_\sigma\\
-	\dTo<{\rho(g)} &           	 & \dTo>{\rho(g)}\\
+	\dTo<{\rho(g)} &           	 & \dTo>{\sigma(g)}\\
 	V_\rho         & \rTo^{\phi}  & V_\sigma
        \end{diagram}
       \]
@@ -150,28 +178,7 @@
     \begin{myexample}
       Data la rappresentazione regolare $\Reg$, allora il sottospazio generato da $\sum_{g\in G} e_g$ è $G$-invariante, e la sottorappresentazione indotta è quella banale.
     \end{myexample}
-    
-    \begin{mytheorem}\label{Th:SupplInv}
-     Sia $\rho$ una rappresentazione su $V$, e sia $W$ un sottospazio $G$-invariante. Allora esiste un supplementare $W_0$ anch'esso $G$-invariante.
-    \end{mytheorem}
-    
-    \begin{proof}
-     Sia $\pi$ una qualsiasi proiezione di $V$ su $W$, e sia $\pi_0$ la proiezione pesata data da
-     \[
-      \pi_0=\frac1{\abs G} \sum_{g\in G} \rho_g \circ \pi \circ \rho_g\inv
-     \]
-     Dato che $\pi$ lascia fisso $W$ allora anche $\pi_0$ lo lascia fisso (sto usando che $\rho_g$ stabilizza $W$). Inoltre $\pi_0(V) \subseteq W$. Quindi anch'essa è una proiezione con $\Ker \pi_0=W_0$ . Inoltre $\pi_0$ commuta con i $\rho_g$, come si vede calcolando $\rho_g \circ \pi_0 \circ \rho_g\inv$.
-     
-     Quindi se $w\in W_0$, allora $\pi_0 (\rho_g(w))=\rho_g(\pi_0(w))=0$, quindi $W_0$ è $G$-invariante.
-    \end{proof}
-    \begin{myobs}
-     Se su $V$ fosse definito un prodotto hermitiano, allora il prodotto hermitiano dato da $\sum_{g\in G}\herm {\rho_g(x)}{\rho_g(y)}$ è invariante per $G$, quindi si può facilmente verificare che $W^\perp$ è $G$-invariante, abbiamo così una dimostrazione alternativa del teorema \ref{Th:SupplInv}.
-     
-     Inoltre, dato che rispetto al prodotto hermitiano $G$ è invariante, significa che i $\rho_g$ sono ortogonali rispetto a una base ortonormale, e quindi sono matrici unitarie e in particolare \emph{diagonalizzabili}.
-    \end{myobs}
-
-    Ogniqualvolta abbiamo una sottorappresentazione, siamo quindi in grado di spezzarla in somma di due sottorappresentazioni.
-    
+       
     Ora invece, data una rappresentazione su $V$, vediamo come costruirne una sul duale $V^*$.
     \begin{mydef}
      Sia $\rho$ una rappresentazione di $G$ su $V$. Dato $f\in V^*$ e $v\in V$, sia ora $\scalar fv$ la dualità (è solo un modo figo per chiamare l'applicazione $\scalar fv \mapsto f(v)$). Definiamo la \myname{rappresentazione duale} $\rho^*$ come l'unica rappresentazione tale che:
@@ -186,17 +193,11 @@
     
     Oltre alla somma, abbiamo anche un prodotto tra rappresentazioni. Esso è definito come segue. 
     
-    \begin{mydef}[Prodotto tensore]
-     Dati due spazi vettoriali sul medesimo campo $V$ e $W$, si dice \myname{prodotto tensore} uno spazio $Z$ con una mappa $(v,w) \mapsto v\cdot w$ da $V\times W$ in $Z$ che sia bilineare e tale che se $(v_i)_{i\in I}$ e $(w_j)_{j\in J}$ sono una base di $V$ e $W$, allora $(v_i\cdot w_j)_{(i,j)\in I\times J}$ è una base di $Z$.
+    \begin{mydef}
+     Si dice prodotto tra due $G$-rappresentazioni $\rho, \sigma$ la $G$-rappresentazione su $V_\rho \tensor V_\sigma$  
     \end{mydef}
-    
-    Si può dimostrare che il prodotto tensore esiste ed è unico a meno di isomorfismi, e ha dimensione $\dim V \cdot \dim W$.
-     
-    Definiamo inoltre il prodotto tensore di applicazioni lineari come 
-    \[
-     (f \otimes g)(v\otimes w)=f(v)\otimes g(w) 
-    \]
-    
+
+
     Ora siamo pronti a dare la definizione di prodotto di rappresentazioni.
 
     \begin{mydef}[Prodotto di rappresentazioni]
@@ -204,21 +205,42 @@
       \[
        (\rho\sigma)_g = \rho_g \otimes \sigma_g
       \]
-
-     
     \end{mydef}
 
-    TODO: prodotto in forma matricale
 
   
   \subsection{Rappresentazioni irriducibili e Schur}
-    Data una rappresentazione, vorremmo spezzarla in somma di rappresentazioni più semplici. Se abbiamo una sottorappresentazione, allora possiamo effettivamente scriverla come somma di rappresentazioni, sfruttando che esiste un supplementare invariante (vedi Teorema \ref{Th:SupplInv}). Non è però sempre possibile trovare una sottorappresentazione.
+  
+  Iniziamo con un risultato prelimnare.
+  
+    \begin{mytheorem}\label{Th:SupplInv}
+     Sia $\rho$ una rappresentazione su $V$, e sia $W$ un sottospazio $G$-invariante. Allora esiste un supplementare $W_0$ anch'esso $G$-invariante.
+    \end{mytheorem}
+    
+    \begin{proof}
+     Sia $\pi$ una qualsiasi proiezione di $V$ su $W$, e sia $\pi_0$ la proiezione pesata data da
+     \[
+      \pi_0=\frac1{\abs G} \sum_{g\in G} \rho_g \circ \pi \circ \rho_g\inv
+     \]
+     Dato che $\pi$ lascia fisso $W$ allora anche $\pi_0$ lo lascia fisso (sto usando che $\rho_g$ stabilizza $W$). Inoltre $\pi_0(V) \subseteq W$. Quindi anch'essa è una proiezione con $\Ker \pi_0=W_0$ . Inoltre $\pi_0$ commuta con i $\rho_g$, come si vede calcolando $\rho_g \circ \pi_0 \circ \rho_g\inv$.
+     
+     Quindi se $w\in W_0$, allora $\pi_0 (\rho_g(w))=\rho_g(\pi_0(w))=0$, quindi $W_0$ è $G$-invariante ed è facile verificare che è anche un supplementare.
+    \end{proof}
+    \begin{myobs}
+     Se su $V$ fosse definito un prodotto hermitiano, allora il prodotto hermitiano dato da $\sum_{g\in G}\herm {\rho_g(x)}{\rho_g(y)}$ è invariante per $G$, quindi si può facilmente verificare che $W^\perp$ è $G$-invariante, abbiamo così una dimostrazione alternativa del teorema \ref{Th:SupplInv}.
+     
+     Inoltre, dato che rispetto al prodotto hermitiano $G$ è invariante, significa che i $\rho_g$ sono ortogonali rispetto a una base ortonormale, e quindi sono matrici unitarie.
+    \end{myobs}
+
+    Ogniqualvolta abbiamo una sottorappresentazione di $\rho$, siamo quindi in grado di spezzare $\rho$ in somma di due sottorappresentazioni più piccole. 
+ 
+    Data una rappresentazione, possiamo reiterare il procediemnto finché non è più possibile trovare sottorappresentazioni non banali.
+    
     \begin{mydef}
       Una rappresentazione che non ammette sottorappresentazioni non banali si dice irriducibile.
     \end{mydef}
     
-    Banalmente, tutte le rappresentazioni di grado 1 sono irriducibili, ma non sono le uniche.
-    
+    Banalmente, tutte le rappresentazioni di grado 1 sono irriducibili, ma in generale non sono le uniche.
     
     Possiamo quindi decomporre una rappresentazione fino a quando gli addendi non sono tutti irriducibili.
     
@@ -227,24 +249,30 @@
     Ci viene in aiuto il Lemma di Schur.
     
     \begin{mytheorem}[Lemma di Schur]
-     Siano $\rho,\sigma$ due rappresentazioni irriducibili, e sia $\Phi$ un omomorfismo. Allora o $\Phi \equiv 0$ oppure $\Phi$ è un isomorfismo ed è la moltiplicazione per uno scalare.
+     Siano $\rho,\sigma$ due rappresentazioni irriducibili, e sia $\Phi$ un omomorfismo. Allora o $\Phi \equiv 0$ oppure $\Phi$ è un isomorfismo.
     \end{mytheorem}
     \begin{proof}
      Notiamo che $\Ker \Phi$ è banale oppure è tutto $V_\rho$, dato che $\rho$ è irriducibile. Nel secondo caso quindi $\Phi\equiv 0$, altrimenti si vede che analogamente $\Im \Phi$ è tutto $V_\sigma$. Quindi $\Phi$ è un isomorfismo.
-     
-     Sia ora $\lambda$ un autovalore di $\Phi$: allora $\Phi-\lambda\id$ ha $\Ker$ non banale e quindi è identicamente nulla.
     \end{proof}
     
-    Un facile corollario è il seguente.
+    Ora due facili corollari.
+    
     \begin{mycor}
-     Data $f: V_\rho \rightarrow V_\sigma$ lineare, sia $\bar f = \frac 1{\abs G} \sum_{g\in G} \sigma_g\inv f \rho_g$. Allora
+     Sia $\rho$ irriducibile, e sia $\Phi: \rho \rar \rho$ un endomorfismo di rappresentazione. Allora $\Phi$ è una moltiplicazione per uno scalare. 
+    \end{mycor}
+    \begin{proof}
+      Sia $\lambda$ un autovalore di $\Phi$: allora $\Phi-\lambda\id$ ha $\Ker$ non banale e quindi è identicamente nulla.
+    \end{proof}
+
+    \begin{mycor}
+     Date $\rho,\sigma$ irriducibili, e $\Phi: V_\rho \rightarrow V_\sigma$ lineare, sia $\bar \Phi = \frac 1{\abs G} \sum_{g\in G} \sigma_g\inv \Phi \rho_g$. Allora
      \begin{itemize}
-      \item Se $\rho \not \isom \sigma$ allora $\bar f\equiv 0$;
-      \item Se $\rho \isom \sigma$, allora $\bar f = \frac{\Tr(f)}{\deg \rho}\id$.
+      \item Se $\rho \not \isom \sigma$ allora $\bar \Phi\equiv 0$;
+      \item Se $\rho = \sigma$, allora $\bar \Phi = \frac{\Tr(\Phi)}{\deg \rho}\id$.
      \end{itemize}
     \end{mycor}
     \begin{proof}
-     Deriva tutto dal lemma di Schur. Il fatto che lo scalare si $\frac{\Tr f}{\deg \rho}$ viene dal fatto che $\Tr \bar f = \Tr f$ (basta fare il conto) e che $\Tr \bar f = \lambda \deg \rho$.
+     Deriva tutto dal lemma di Schur. Il fatto che lo scalare si $\frac{\Tr \Phi}{\deg \rho}$ viene dal fatto che $\Tr \bar \Phi = \Tr \Phi$ (basta fare il conto) e che $\Tr \bar \Phi = \lambda \deg \rho$.
     \end{proof}
 
 
@@ -260,15 +288,15 @@
      Data una rappresentazione $\rho$, si dice componente isotopica una sottorappresentazione della forma $n_i\rho_i$, con $n_i$ massimo possibile e $\rho_i$ irriducibile.
     \end{mydef}
 
-  
-  \begin{myex}
-   Consideriamo un $n$-agono regolare, con un numero complesso scritto su ogni vertice. A ogni passo sositiuisco ogni vertice con la media degli adiacenti. Come si comporta il problema asintoticamente?
-   
-   Consideriamo lo spazio vettoriale $\mathbb C^n$ dei numeri presenti sui vertici, e consideriamo la rappresentazione regolare di $\Cyc_n$ su $\mathbb C^n$ (che agisce sui vettori della base per rotazione). Sia inoltre $T$ l'applicazione lineare che manda ogni vertice nella media degli adiacenti.
-   
-   Visto che $T$ commuta con tutti i $\rho_g$, allora $T$ è anche un \myname{endomorfismo di rappresentazione}. DA FINIRE
-  \end{myex}
+    Le componenti isotopiche sono importanti perché sono caratteristiche.
+    
+    \begin{myprop}
+     Sia $\rho$ una rappresentazione, e sia $\sigma$ una sua componente isotopica. Sia inoltre $\phi$ un automorfismo di $\rho$. Allora $\phi(\sigma)=\sigma$.
+    \end{myprop}
 
+    \begin{proof}
+     Considero $\phi(\sigma)$. Poiché sulle altre rappresentazioni irriducubili deve essere l'applicazione nulla per il lemma di Schur, allora per questioni di dimensione deve essere mandata in $\sigma$.
+    \end{proof}
   
   \section{Caratteri}
     
@@ -280,7 +308,7 @@
     \end{mydef}
     
     \begin{Achtung}
-      Il carattere \underline{NON} è un'omomporfismo da $G$ in $C^*$! Lo è se e solo se $\deg \rho = 1$. 
+      Il carattere \underline{NON} è un'omomorfismo da $G$ in $C^*$! Lo è se e solo se $\deg \rho = 1$. 
     \end{Achtung}
 
     \begin{myprop}
@@ -333,12 +361,12 @@
     
     Grazie a questo prodotto possiamo effettuare delle proiezioni.
     
-    \begin{myexample}
+    \begin{mylemma}
      Consideriamo $\rho$ una G-rappresentazione, e sia $\id$ la rappresentazione banale di grado 1 (irriducibile). Allora 
      \[
       \herm \rho\id = \frac 1{\abs G}\sum_{g\in G} \chi_\rho(g) = \dim V_\rho^G
      \]    
-    \end{myexample}
+    \end{mylemma}
     \begin{proof}
      Sappiamo che per definizione
      \[
@@ -346,7 +374,7 @@
      \]
      Per la linearità otteniamo $\Tr\left(\frac 1{\abs G}\sum_{g\in G}\rho(g)\right)$. Sia quindi $T=\frac 1{\abs G}\sum_{g\in G}\rho(g)$.
      
-     Sia $v \in V^G_\rho$, allora $T(v)=v$. Inoltre per ogni $v$ vale che $T(v) \in V^G_\rho$ (TODO fare il conto). Quindi abbiamo la tesi.
+     Sia $v \in V^G_\rho$, allora $T(v)=v$. Inoltre per ogni $v$ vale che $T(v) \in V^G_\rho$ (si vede dal conto). Quindi abbiamo la tesi.
      
     \end{proof}
     
@@ -359,6 +387,16 @@
      \]
     \end{mydef}
     
+    Per definizione, la rappresentazione su $\Hom(V_rho,V_sigma)$ fa commutare il seguente diagramma:
+      \[
+       \begin{diagram}
+	V_\rho         & \rTo^{\phi}  & V_\sigma\\
+	\dTo<{\rho(g)} &           	 & \dTo>{\rho(g)}\\
+	V_\rho         & \rTo^{\tau_g(\phi)}  & V_\sigma
+       \end{diagram}
+      \]
+    
+    
     \begin{myprop}
      Esiste un isomorfismo canonico tra $\Hom (V_\rho,V_\sigma)$ e $V_\rho^* \tensor V_\sigma$ (se $V_\rho, V_\sigma$ hanno dimensione finita, altrimenti è falso).
     \end{myprop}
@@ -367,7 +405,7 @@
      \`E una verifica.
     \end{proof}
     
-    Noi abbiamo costruito una rappresentazione su $\Hom(V_\rho,V_\sigma)$, ma non tutti sono omomorfismi di rappresentazioni: lo sono infatti solo quelli fissati da $G$ (TODO dimostrazione. Si vede abbastanza comunque dalla definizione). Dato che $\chi_\tau = \conj{\chi_\rho}\chi_\sigma$ per le proprietà del prodotto tensore e della rappresentazione duale, allora vale per il lemma precedente
+    Noi abbiamo costruito una rappresentazione su $\Hom(V_\rho,V_\sigma)$, ma non tutti sono omomorfismi di rappresentazioni: lo sono infatti solo quelli fissati da $G$ (basta guardare il diagramma). Dato che $\chi_\tau = \conj{\chi_\rho}\chi_\sigma$ per le proprietà del prodotto tensore e della rappresentazione duale, allora vale per il lemma precedente
     \[
      \dim \Hom(\rho,\sigma) = \dim \Hom(V_\rho,V_\sigma)^G = \herm {\chi_\tau}\id = \herm{\chi_\sigma}{\chi_\rho}
     \]
@@ -741,5 +779,13 @@
   \section{Cose che non hanno ancora un posto}
    \subsection{Rappresentazione regolare con azione di $G\times G$}
    Sia $\mathbb C[G]$ 
- 
+  \section{Esercizi}
+  \begin{myex}
+   Consideriamo un $n$-agono regolare, con un numero complesso scritto su ogni vertice. A ogni passo sositiuisco ogni vertice con la media degli adiacenti. Come si comporta il problema asintoticamente?
+   
+   Consideriamo lo spazio vettoriale $\mathbb C^n$ dei numeri presenti sui vertici, e consideriamo la rappresentazione regolare di $\Cyc_n$ su $\mathbb C^n$ (che agisce sui vettori della base per rotazione). Sia inoltre $T$ l'applicazione lineare che manda ogni vertice nella media degli adiacenti.
+   
+   Visto che $T$ commuta con tutti i $\rho_g$, allora $T$ è anche un \myname{endomorfismo di rappresentazione}. DA FINIRE
+  \end{myex}
+
 \end{document}
