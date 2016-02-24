@@ -29,18 +29,74 @@
   \section*{Introduzione}
    Questo file è un riassunto del corso dei proff. Angelo Vistoli e Gandini. Tuttavia tenete presente che tutte le cose di Algebra 1 o inferiori verranno date per note (magari verranno \TeX ate in seguito, ma non sperateci troppo).
    
-   Inoltre la struttura degli argomenti è ripresa dal Serre, e integrata con gli appunti del corso (per i quali ringraziamo Balbo).
+   Inoltre la struttura degli argomenti è ripresa dal Serre, e integrata con gli appunti del corso (per i quali ringraziamo Balbo e Clara).
 
    \subsection*{DISCLAIMER}
     Il file non è ancora completo, usatelo a vostro rischio e pericolo.
   \section{Precorso}
+    \subsection{Base di uno spazio vettoriale}
+      Oltre alla definizione solita data in algebra lineare, esiste una definizione più astratta di base di uno spazio vettoriale.
+      \begin{mydef}
+       Sia $V$ uno spazio vettoriale. Si dice \emph{base} di $V$ un insieme di indici $I$ con un'applicazione $e: I \rar V$ se per ogni $W$ spazio vettroriale e per ogni $f: I \rar W$, esiste un unica $\phi: V \rar W$ lineare tale che il seguente diagramma commuta
+       \[
+        \begin{diagram}
+         I & \rTo^e  & V \\
+           & \rdTo_f & \dTo>{\phi}   \\
+           &         & W
+        \end{diagram}
+       \]
+      \end{mydef}
+
+      \begin{myprop}
+       Sono fatti equivalenti:
+       \begin{enumerate}
+        \item $e: I \rar V$ è una base;
+        \item Ogni $v \in V$ si scrive come $\sum_i a_ie_i$ con $a: I\rar V$ a supporto finito. 
+       \end{enumerate}
+      \end{myprop}
+      \begin{proof}
+        Dimostriamo le due implicazioni.
+        \begin{itemize}
+         \item $2\Rar 1$
+	  
+	  Se una tale $\phi$ esiste, allora deve essere $\phi(v)=\phi(\sum_i a_i e_i) = \sum a_i \phi(e_i) = \sum a_i f_i$. D'altra parte questa $\phi$ funziona.
+	 
+         \item $1 \Rar 2$
+         
+	  Considero $W = \{\sum_i a_ie_i : a:I\rar \bC \mbox{ a supporto finito}\}$. $W$ è un sottospazio di $V$ e vale ovviamente che $\im e \subseteq W$. Sia ora $\pi$ una proiezione sul quoziente $V/W$, e sia $f: I \rar V/W$ l'applicazione nulla.
+	    \[
+	      \begin{diagram}
+	      I & \rTo^e  & V \\
+		& \rdTo_f & \dTo>{\pi}   \\
+		&         & V/W
+	      \end{diagram}
+	    \]
+	  Il diagramma sopra commuta, dato che $\im e \subseteq W$. Ma commuta anche se al posto di $\pi$ metto l'applicazione nulla. Quindi per l'unicità data dalla definizione di base $V/W$ deve essere banale, cioè $V=W$.
+        \end{itemize}
+      \end{proof}
+     
+    \subsection{Moduli}
+      \begin{mydef}
+       Sia $A$ un anello commutativo con identità. Si dice $A$-modulo un gruppo abeliano additivo $(M,+)$ con un operazione $\cdot: A\times M \rar M$ distributiva da entrambe le parti, associativa e tale che $1_A \cdot x = x$.
+      \end{mydef}
+      
+      Un modulo non è altro che la generalizzazione di uno spazio vettroriale, dove gli scalari non sono più un campo ma bensì un anello.
+      
+      In questo corso la nozione di modulo sarà data solo su anelli della seguente forma.
+      \begin{mydef}
+       Sia $G$ un gruppo. Si indica con $\bC[G]$ l'anello formato dalle combinazioni lineari formali a coefficienti complessi degli elementi di $G$, ossia gli elementi della forma $\sum_i a_ig_i$ dove la somma è deifinita in modo ovvio e il prodotto coincide con quello del gruppo, esteso in modo che sia distributivo. 
+      \end{mydef}
+      
+      Un $\bC[G]$-modulo lo possiamo quindi pensare moralmente come un $\bC$-spazio vettoriale dove oltre a una moltiplicazione per uno scalare complesso posso anche moltiplicare per un elemento del gruppo $G$ (sarà tutto più chiaro -- forse -- quando introdiceremo il concetto di rappresentazione).
+
+
+    
     \begin{itemize}
-     \item Base di uno spazio vettoriale in modo categorico
-     \item $\bC[G]$-moduli
      \item Prodotto tensore
      \item Potenza esterna e simmetrica
     \end{itemize}
 
+    
     
     \begin{mydef}[Prodotto tensore]
      Dati due spazi vettoriali sul medesimo campo $V$ e $W$, si dice \myname{prodotto tensore} uno spazio $Z$ con una mappa $(v,w) \mapsto v\cdot w$ da $V\times W$ in $Z$ che sia bilineare e tale che se $(v_i)_{i\in I}$ e $(w_j)_{j\in J}$ sono una base di $V$ e $W$, allora $(v_i\cdot w_j)_{(i,j)\in I\times J}$ è una base di $Z$.

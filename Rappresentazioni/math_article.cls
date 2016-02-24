@@ -10,7 +10,7 @@
 \usepackage[italian]{babel}
 \usepackage{hyphenat}
 \usepackage[linktoc=all]{hyperref}
-\usepackage{diagrams}
+\usepackage[nohug,small]{diagrams}
 \usepackage{titlesec}
   
 \newcommand{\sectionbreak}{\clearpage}
@@ -188,7 +188,7 @@
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\Span}{Span}
 \DeclareMathOperator{\sgn}{sgn}
-
+\DeclareMathOperator{\im}{Im}
 
 
 %TEOREMI IN CORSIVO
