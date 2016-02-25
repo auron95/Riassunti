@@ -1,0 +1,235 @@
+\section{Caratteri}
+
+\begin{mydef}
+  Si dice \myname{carattere} di una rappresentazione $\rho$ l'applicazione $\chi_\rho: G \rightarrow C^*$ definita da 
+  \[
+  \chi_\rho(g)=\Tr \rho(g)
+  \]
+\end{mydef}
+
+\begin{Achtung}
+  Il carattere \underline{NON} è un'omomorfismo da $G$ in $C^*$! Lo è se e solo se $\deg \rho = 1$. 
+\end{Achtung}
+
+\begin{myprop}
+  Il carattere soddisfa le seguenti:
+  \begin{enumerate}
+    \item $\chi_\rho(e)=\deg\rho$
+    \item $\chi_\rho(g\inv)=\conj{\chi_\rho(g)}$
+    \item $\chi_\rho(hgh\inv)=\chi_\rho(g)$
+  \end{enumerate}
+
+\end{myprop}
+\begin{proof}
+  La 1 è ovvia, visto che $\rho_e= \id_n$, dove $n=\deg \rho$.
+  
+  La 2 viene dal fatto che, essendo $\rho_g$ diagonalizzabile con autovalori di norma $1$, e dato che la traccia è la somma degli autovalori, allora
+  \[
+  \Tr\rho_g\inv = \sum_i \lambda_i\inv = \sum_i \conj{\lambda_i} = \conj{\sum_i \lambda_i} = \conj{\Tr\rho_g} 
+  \]
+  da cui quello che volevamo.
+  
+  La 3 invece deriva dal fatto che se $g$ e $g'$ sono coniugati, allora anche $\rho_g$ e $\rho_{g'}$ lo sono, e la traccia è invariante per coniugio. Ogni funzione che soddisfa la 3 si chiama \myname{funzione di classe}.
+\end{proof}
+
+Ci chiediamo se il carattere identifica le rappresentazioni, ossia se rappresentazioni diverse hanno caratteri diversi.
+Intanto però il carattere distingue il grado di una rappresentazione, che è dato da $\deg \rho = \chi_\rho(e)$.
+
+\begin{mylemma}
+I caratteri godono delle seguenti proprietà:
+  \begin{itemize}
+  \item $\chi_{\rho+\sigma}=\chi_\rho+\chi_\sigma$     
+  \item $\chi_{\rho\otimes\sigma}=\chi_\rho\cdot\chi_\sigma$
+  \item $\chi_{\rho^*} = \conj{\chi_\rho}$
+  \end{itemize}
+\end{mylemma}
+\begin{proof}
+  Per la rappresentazione duale vale 
+  \[
+  \chi_{\rho^*}(s)=\Tr (\trasp\rho_{s\inv})=\Tr (\rho_s\inv)
+  \]
+  Dato che la traccia è la somma degli inversi degli autovalori, e questi hanno modulo 1, allora otteniamo $\conj{\chi_\rho}$. 
+
+\end{proof}
+
+
+\subsection{Prodotto hermitiano}
+Introduciamo un prodotto interno su $\mathbb C^{(G)}$ (le funzioni da $G$ in $C$), dato da 
+\[
+  \herm fg = \frac 1{\abs G} \sum_{s\in G} f(s)\conj{g(s)}
+\]
+
+Grazie a questo prodotto possiamo effettuare delle proiezioni.
+
+\begin{mylemma}
+  Consideriamo $\rho$ una G-rappresentazione, e sia $\id$ la rappresentazione banale di grado 1 (irriducibile). Allora 
+  \[
+  \herm \rho\id = \frac 1{\abs G}\sum_{g\in G} \chi_\rho(g) = \dim V_\rho^G
+  \]    
+\end{mylemma}
+\begin{proof}
+  Sappiamo che per definizione
+  \[
+  \herm \rho\id = \frac 1{\abs G}\sum_{g\in G} \chi_\rho(g) = \frac 1{\abs G}\sum_{g\in G} \Tr(\rho(g)) 
+  \]
+  Per la linearità otteniamo $\Tr\left(\frac 1{\abs G}\sum_{g\in G}\rho(g)\right)$. Sia quindi $T=\frac 1{\abs G}\sum_{g\in G}\rho(g)$.
+  
+  Sia $v \in V^G_\rho$, allora $T(v)=v$. Inoltre per ogni $v$ vale che $T(v) \in V^G_\rho$ (si vede dal conto). Quindi abbiamo la tesi.
+  
+\end{proof}
+
+Costruiamo ora un modo alternativo per esprimere questo prodotto hermitiano. Ci serve la costruzione della rappresentazione sugli omomorfismi.
+
+\begin{mydef}
+  Siano $\rho, \sigma$ due rappresentazioni di $G$ su $V_\rho,V_\sigma$. Allora costruiamo una rappresentazione $\tau$ su $\Hom(V_\rho,V_\sigma)$ (come spazio vettoriale) definita da 
+  \[
+  \tau_g (\phi) = \sigma_g \circ \phi \circ \rho_g\inv
+  \]
+\end{mydef}
+
+Per definizione, la rappresentazione su $\Hom(V_rho,V_sigma)$ fa commutare il seguente diagramma:
+  \[
+    \begin{diagram}
+    V_\rho         & \rTo^{\phi}  & V_\sigma\\
+    \dTo<{\rho(g)} &           	 & \dTo>{\rho(g)}\\
+    V_\rho         & \rTo^{\tau_g(\phi)}  & V_\sigma
+    \end{diagram}
+  \]
+
+
+\begin{myprop}
+  Esiste un isomorfismo canonico tra $\Hom (V_\rho,V_\sigma)$ e $V_\rho^* \tensor V_\sigma$ (se $V_\rho, V_\sigma$ hanno dimensione finita, altrimenti è falso).
+\end{myprop}
+
+\begin{proof}
+  \`E una verifica.
+\end{proof}
+
+Noi abbiamo costruito una rappresentazione su $\Hom(V_\rho,V_\sigma)$, ma non tutti sono omomorfismi di rappresentazioni: lo sono infatti solo quelli fissati da $G$ (basta guardare il diagramma). Dato che $\chi_\tau = \conj{\chi_\rho}\chi_\sigma$ per le proprietà del prodotto tensore e della rappresentazione duale, allora vale per il lemma precedente
+\[
+  \dim \Hom(\rho,\sigma) = \dim \Hom(V_\rho,V_\sigma)^G = \herm {\chi_\tau}\id = \herm{\chi_\sigma}{\chi_\rho}
+\]
+
+Notiamo che visto che è un numero intero, allora posso scambiare i due fattori nel prodotto hermitiano, e ottengo
+\[
+  \herm{\chi_\rho}{\chi_\sigma} = \dim \Hom(\rho,\sigma)
+\]
+
+
+
+
+
+
+
+\subsection{Relazioni di ortogonalità}
+\begin{mytheorem}[Teorema di ortogonalità dei caratteri]
+  Siano $\rho,\sigma$ due rappresentazioni irriducibili. Allora
+  \[
+  \herm {\chi_\rho} {\chi_\sigma} = \begin{cases}
+			1 \mbox{ se } \rho \isom \sigma \\
+			0 \mbox{ se } \rho \not\isom \sigma
+		      \end{cases}
+  \]
+\end{mytheorem}
+\begin{proof}
+  \[
+  \herm {\chi_\rho}{\chi_\sigma}=\dim \Hom(\rho,\sigma)
+  \]
+  e quindi con il lemma di Schur ho la tesi.
+\end{proof}
+
+\begin{myprop}\label{pr:IrrCount}
+  Sia $\rho$ una rappresentazione decomposta in irriducibili. Allora il numero di addendi isomorfi a $\sigma$, con $\sigma$ irriducibile, è pari a $\herm{\chi_\rho}{\chi_\sigma}$.
+\end{myprop}
+
+In particolare, da questo deriva che due rappresentazioni con lo stesso carattere sono isomorfe.
+
+\begin{mytheorem}[Criterio di irriducibilità]
+  Una rappresentazione $\sigma$ è irriducibile se e solo se $\herm\sigma\sigma=1$.
+\end{mytheorem}
+
+\subsection{Carattere della rappresentazione regolare}
+Sia $G$ un gruppo e sia $\Reg$ la sua rappresentazione regolare. Vogliamo indagare come si decompone $\Reg$ in somma di irriducibili. Sia quindi
+\[
+  \Reg = \sum_i n_i \rho_i
+\]
+con $n_i \in \mathbb N$. Sia inoltre $\chi_R$ il carattere di $\Reg$ e $\chi_i$ il carattere dei $\rho_i$.
+  
+\begin{myprop}
+  Il carattere della rappresentazione regolare è
+  \[
+  \chi_R(g) = \abs G \cdot \delta_{ge}
+  \]
+  dove $\delta_{ij}$ è la \myname{delta di Kronecker}.
+\end{myprop}
+
+\begin{proof}
+  Sappiamo che la matrice associata a $\Reg_g$ è una matrice di permutazione, e gli elementi sulla diagonale sono $1$ se $g=e$, $0$ altrimenti. Visto che il carattere è la somma degli elementi sulla diagonale, segue la tesi.
+\end{proof}
+
+
+
+Sorprendentemente, siamo in grado di determinare esplicitamente gli $n_i$.
+\begin{myprop}
+  Ogni rappresentazione irriducibile $\rho_i$ di $G$ è contenuta $n_i$ volte in $\Reg$.
+\end{myprop}
+
+\begin{proof}
+  Basta applicare la Proposizione \ref{pr:IrrCount}:
+  \[
+  \herm{\chi_R}{\chi_i} = \frac1{\abs G}\sum_{g\in G} \chi_R(g)\conj{\chi_i(g)} = \frac1{\abs G}\chi_R(e)\conj{\chi_i(e)} = n_i
+  \]
+
+\end{proof}
+
+Vediamo anche una dimostrazione alternativa, che si basa sul seguente lemma:
+\begin{mylemma}
+  Sia $G$ un gruppo, e sia $\rho$ una rappresentazione, e $\Reg$ la sua rappresentazione regolare. Allora, fissato $v\in V_\rho$, esiste un unico omomorfismo di rappresentazioni $\phi: \Reg \rightarrow \rho$ tale che $\phi(e_1)=v$.
+\end{mylemma}
+\begin{proof}
+  Se $\phi$ è un omomorfismo di rappresentazione, allora deve valere 
+  \[
+  \phi(e_g)=\phi \circ \Reg_g (e_1) = \rho_g \circ \phi (e_1) = \rho_g(v)
+  \]
+  e quindi se esiste è unica. \`E facile verificare che questo omomorfismo rispetta le ipotesi.
+\end{proof}
+
+La dimostazione diventa ora immediata:
+\begin{proof}
+  Per quanto visto nel lemma, vale $\dim \Hom(R,\rho_i) = \dim V_{\rho_i}$. Quindi
+  \[
+  \herm{\chi_R}{\chi_i}= \dim \Hom(R,\rho_i) = \dim V_{\rho_i} = n_i
+  \]
+  e ottengo la tesi.
+\end{proof}
+
+Questo teorema ha importantissime conseguenze, la cui più evidente è la seguente:
+\begin{myprop}
+  Con le notazioni precedenti vale $\sum_i n_i^2 = \abs G$ e, se $g\ne e$, $\sum_i n_i \chi_i(g)=0$
+\end{myprop}
+\begin{proof}
+  Per definizione vale $\sum n_i \chi_i(g) = \chi_R(g)$. Prendendo $g=e$ ottengo la prima proposizione, per $g\ne e$ ottengo invece la seconda.
+\end{proof}
+
+\begin{mytheorem}
+  I caratteri delle rappresentazioni irriducibili di $G$ formano una base ortonormale delle funzioni classe $\class G$.
+\end{mytheorem}
+
+\begin{proof}
+  C'è un po' da faticare.
+\end{proof}
+
+
+\begin{mytheorem}
+  Le rappresentazioni irriducibili di $G$ sono tante quante le classi di coniugio.
+\end{mytheorem}
+
+\begin{proof}
+  Visto che sulle funzioni di classe ho la base canonica costruita sulle classi di coniugio, ma ho anche la base formata dalle rappresentazioni irriducibili, come basi di uno spazio vettroriale devono avere la stessa cardinalità.
+\end{proof}
+
+
+
+
+
+

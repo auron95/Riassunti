@@ -1,0 +1,71 @@
+\section{Potenza simmetrica ed esterna}
+
+\begin{mydef}[Quadrato simmetrico e alternante]
+  Sia $\rho$ una rappresentazione su $V$. Prendiamo lo spazio $V\otimes V$, e consideriamo l'automorfismo $\theta$ tale che 
+  \[
+  \theta(e_i \tensor e_j) = e_j \tensor e_i
+  \]
+  
+  $V\otimes V$ si decompone quindi nella somma del quadrato simmetrico $S^2V$ dei vettori fissati da $\theta$, e nel quadrato alternante $\Lambda^2V$ dei vettori tali che $\theta(z) = -z$. Poichè essi sono $G$-invarianti (tramite la rappresentazione $\sigma^2$) allora essi definiscono due sottorappresentazioni.
+\end{mydef}
+
+\begin{myexample}
+  Sia $V=\mathbb C^n$. Possiamo pensare $V\otimes V$ come $\mathcal M_n(\mathbb C)$, dove $v \tensor w = v\trasp w$. In questo caso, i quadrati simmetrici e alternanti coincidono con le matrici simmetriche e antisimmetriche rispettivamente.
+\end{myexample}
+
+\begin{mydef}[Potenza esterna]
+  Si dice potenza esterna $n$-esima $\Lambda^nV$  di uno spazio vettroriale $V$ lo spazio $V^{\tensor n}$ quozientato per il sottospazio generato dai $v_1 \tensor v_2 \tensor \dots \tensor v_n$ con $v_i=v_j$ per qualche $i\ne j$.  
+\end{mydef}
+
+Detto in maniera più comprensibile, è l'insieme generato dagli elementi scritti come $v_1 \wedge v_2 \wedge \dots \wedge v_n$ dove scambiando una coppia di componenti l'intero prodotto cambia segno.
+
+\begin{Achtung}
+  Il prodotto $v_1 \wedge v_2 \wedge v_3$ non va pensato in maniera ``associativa'' (come $(v_1 \wedge v_2) \wedge v_3$), perché non ha senso!
+\end{Achtung}
+
+Data una base $v_1,v_2,\dots,v_n$ di $V$, possiamo prender come base di $\Lambda^mV$ gli elementi della forma $v_{i_1},v_{i_2},\dots,v_{i_m}$ con $i_1<i_2<\dots<i_m$. \`E quindi evidente che $\dim \Lambda^mV=\binom nm$.    
+  
+\begin{mydef}[Potenza simmetrica]
+  Si dice potenza simmetrica $n$-esima $S^nV$  di uno spazio vettroriale $V$ lo spazio $V^{\tensor n}$ quozientato per il sottospazio generato dai $v_1 \tensor v_2 \tensor \dots \tensor v_n - v_{\sigma(1)} \tensor v_{\sigma(2)} \tensor \dots \tensor v_{\sigma(n)}$, dove $\sigma$ è una qualsiasi permutazione degli indici $\{1,2,\dots,n\}$.  
+\end{mydef}
+
+Anche qui, possiamo pensare la potenza simmetrica come il prodotto tensore in cui scambiando le componenti il prodotto rimane invariato.
+
+Analogamente a prima, una base per $S^mV$, con $\dim V=n$, sono i vettori della forma  $v_{i_1},v_{i_2},\dots,v_{i_m}$ con $i_1\le i_2\le \dots \le i_m$. Il conto combinatorico ci dice che $\dim S^mV = \binom{n+m-1}m$.
+
+
+Ora siamo pronti e mettere una rappresentazione su potenza esterna e simmetrica.
+
+
+
+\begin{mydef}
+  Si dice potenza esterna di una rappresentazione $\rho$ la rappresentazione su $\Lambda^m V_\rho$ dove
+  \[
+  \Lambda^m\rho_g: v_1 \wedge v_2 \wedge \dots \wedge v_n \mapsto \rho_g(v_1) \wedge \rho_g(v_2) \wedge \dots \wedge \rho_g(v_n)
+  \]
+  
+  In modo completamente analogo si definisce la potenza simmetrica.
+
+\end{mydef}
+
+Precedentemente abbiamo definito potenza esterna e simmetrica in modo astratto, ma si possono anche vedere come sottospazi della potenza tensoriale, e le relative rappresentazioni come sue sottorappresentazioni.
+
+\begin{myprop}
+  Sia $\rho$ una rappresentazione su $V_\rho$, e sia $\rho^m$ la rappresentazione su $V_\rho^{\tensor m}$. Allora valgono le seguenti: 
+  \begin{eqnarray*}
+  &S^m\rho \isom \Span{\left\{\sum_\sigma v_{\sigma(1)}\tensor v_{\sigma(2)} \tensor \dots \tensor v_{\sigma(m)}:v_i \in V\right\}}\\
+  &\Lambda^m\rho \isom \Span{\left\{\sum_\sigma \sgn(\sigma) v_{\sigma(1)}\tensor v_{\sigma(2)} \tensor \dots \tensor v_{\sigma(m)}:v_i \in V\right\}} 
+  \end{eqnarray*}
+
+\end{myprop}
+
+\begin{proof}
+  Basta far vedere che, per $S^m\rho$, l'applicazione
+  \[
+  v_1 \tensor \dots \tensor v_m \mapsto \frac1{m!} \sum_\sigma v_{\sigma(1)}\tensor v_{\sigma(2)} \tensor \dots \tensor v_{\sigma(m)}
+  \]
+  e, per $\Lambda^m\rho$, l'applicazione
+  \[
+  v_1 \tensor \dots \tensor v_m \mapsto \frac1{m!} \sum_\sigma \sgn(\sigma) v_{\sigma(1)}\tensor v_{\sigma(2)} \tensor \dots \tensor v_{\sigma(m)}
+  \] sono ben definite, sono suriettive e hanno il nucleo giusto, e poi si può concludere per il teorema di omomorfismo. 
+\end{proof}

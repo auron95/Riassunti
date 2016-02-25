@@ -1,0 +1,62 @@
+\section{Tabella dei caratteri}
+
+Dato un gruppo $G$, possiamo costruire la sua \myname{tabella dei caratteri} fatta come segue:
+\begin{itemize}
+  \item Su ogni colonna mettiamo una classe di coniugio del gruppo;
+  \item su ogni riga mettiamo una rappresentazione irriducibile del gruppo;
+  \item all'incrocio tra la rappresentazione $\rho$ e la classe di coniugio $C$ inseriamo il valore di $\chi_\rho(g)$ con $g\in C$ (sto usando il fatto che il carattere è invariante di coniugio).
+\end{itemize}
+
+Per quanto abbiamo visto la tabella è \emph{quadrata} (ho tante classi di coniugio quante rappresentazioni irriducibili).
+
+Per le relazioni di ortogonalità dei caratteri, sappiamo che le righe sono tutte \emph{ortonormali} (dove bisogna sempre ricordarsi di fare la media pesata sulla cardinalità della classe di coniugio quando si effettua il prodotto hermitiano).
+
+Inoltre vale anche la seguente:
+\begin{myprop}[Ortogonalità delle colonne]
+  Se $\chi_i$ sono le rappresentazioni irriducibili di $G$, e $g,h\in G$ non coniugati, e $c(g)$ la cardinalità della classe di coniugio di $g$, allora 
+  \begin{align*}
+    \sum_i \abs{\chi_i(g)}^2 = \frac {\abs G}{c(g)}\\
+    \sum_i \chi_i(g)\conj{\chi_i(h)} = 0
+  \end{align*}
+\end{myprop}
+
+\begin{myexample} [Tabella dei caratteri di $Q_8$]
+  \[
+  \begin{array}{|c|ccccc|}
+  \hline
+    Q_8    & \{1\} & \{-1\} & \{\pm i\} & \{\pm j\} & \{\pm k\} \\ \hline
+    Id     &   1   &    1   &     1     &     1     &     1     \\ 
+    \rho_i &   1   &    1   &     1     &    -1     &    -1     \\
+    \rho_j &   1   &    1   &    -1     &     1     &    -1     \\
+    \rho_k &   1   &    1   &    -1     &    -1     &     1     \\
+    \rho_2 &   2   &   -2   &     0     &     0     &     0     \\ \hline
+  \end{array}
+  \]
+  
+  
+\end{myexample}
+
+
+\iffalse 
+\section{Forma hermitiana, ortogonalità, rappresentazioni irriducibili}
+Sia $h_0$ un prodotto interno (forma hermitiana definita positiva) in $V\times V$, e definiamo 
+\[
+  h(v,w)=\frac1{\abs G}\sum_{g\in G}h_0\left(\rho_g(v),\rho_g(w)\right) 
+\]
+In questo modo in $\rho_g$ sono tutte applicazioni lineari unitarie.
+
+\begin{myexample}
+  Data una rappresentazione $\rho$ su $V$, indichiamo con $V^G$ il sottospazio dei punti lasciati fissi da tutti i $\rho_g$. In particolare $V^G$ è $G$-invariante e quindi ho ottenuto una sottorappresentazione (banale). 
+\end{myexample}
+\begin{myexample}
+  Sia $\lambda$ un omomorfismo da $G$ in $C^*$. Possiamo definire, generalizzando la nozione di autospazio vista ad Algebra lineare, l'autospazio relativo a $\lambda$ come il sottospazio di $V_\rho$ costituito dai vettori $v$ che soddisfano 
+  \[
+  \rho_g(v)=\lambda(g)\cdot v
+  \]
+
+  Notiamo che se $\lambda \equiv 1$, allora $V_\lambda=V^G$. Inoltre, se pensiamo a $\lambda$ come una rappresentazione di grado 1, allora 
+  \[	
+  \restr\rho{V_\lambda}= \overbrace{\lambda + \lambda + \lambda + \dots + \lambda}^{\mbox{\tiny come somme di rappresentazioni!}}=\dim V_\lambda \cdot \lambda
+  \]     
+\end{myexample}
+\fi

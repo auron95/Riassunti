@@ -1,0 +1,99 @@
+  \section{Rappresentazioni di gruppi particolari}
+   Per costruire la tabella dei caratteri, dobbiamo costruire delle rappresentazioni da cui estrarre le irriducibili. Ci sono sostanzialmente due modi: il primo è inferendo sulla struttura del gruppo, la seconda è costruendo rappresentazioni su spazi vettroiali diversi (come le potenze esterne). In questa sezione ci occuperemo del primo metodo.
+  
+  \subsection{Gruppi abeliani}
+   Le rappresentazioni dei gruppi abeliani sono particolarmente semplici. Vale infatti la seguente proposizione:
+   \begin{myprop}
+    Sia $G$ un gruppo, e siano $\rho_i$ le sue rappresentazioni irriducibili. Allora G è abeliano se e solo se tutte le $\rho_i$ hanno grado 1.
+   \end{myprop}
+    
+   \begin{proof}
+    Supponiamo che $G$ sia abeliano. Allora ho $\abs G$ classi di coniugio e pertanto altrettante rappresentazioni irriducibili. Dato che $\sum_i n_i^2 = \abs G$ segue $n_i = 1$.
+    
+    Viceversa, supponiamo che $G$ sia un gruppo le cui rappresentazioni irriducibili hanno grado 1. Consideriamo una rappresentazione $\rho$ fedele di $G$ (ad esempio quella regolare), quindi possiamo decomporla in irriducibili di grado 1. Questo significa che esiste una base in cui tutte le $\rho_g$ sono diagonali, e pertanto commutano. Dunque $\rho_g\rho_h = \rho_h\rho_g \Rightarrow \rho_{gh} = \rho_{hg}$ e per l'iniettività di $\rho$ ho finito.
+   \end{proof}
+  \subsection{Sottogruppi normali}
+    Se il gruppo ha sottogruppi normali, possiamo ottenere gratuitamente delle rappresentazioni del gruppo conoscendo quelle di un gruppo più piccolo.
+    
+    \begin{myprop}
+     Sia $N$ sottogruppo normale di $G$, e sia $\sigma$ una rappresentazione del quoziente $G/N$. Allora $\sigma$ si può estendere in modo naturale a rappresentazione $\rho$ di $G$, e in particolare le rappresentazioni del quoziente sono in relazione biunivoca con quelle di $G$ il cui $\Ker$ contiene $N$. Inoltre le irriducibili in $G/N$ sono irriducibili anche in $G$.
+    \end{myprop}
+    \begin{proof}
+     Basta mandare mappare l'applicazione $\sigma_{gN}$ in $\rho_g$ assicurandosi che sia una buona definizione. E' simile alla corrispondenza biunivoca tra sottogruppi.
+     Per quanto riguarda l'irriducibilità, basta vedere che, se $R\subset G$ è un insieme di rappresentanti delle classi laterali di $N$, allora 
+     \[
+      \frac{\abs{N}}{\abs{G}} \sum_{g\in R}\Tr \sigma_{gN}\conj{\Tr \sigma_{gN}} = \frac1{\abs G} \sum_{g\in R} \abs N \Tr \sigma_{gN}\conj{\Tr \sigma_{gN}} = \frac1{\abs G} \sum_{g\in G} \conj{\Tr \rho_{g}}
+     \]
+     quindi i due caratteri hanno la stessa norma.
+    \end{proof}
+    
+    \begin{myexample} [Tabella dei caratteri di $Q_8$]
+    Voglio costrure la tabella dei caratteri di $Q_8$. Ho 5 classi di coniugio, quindi 5 rappresentazioni. Una è l'identità. Per trovarne altre 3, posso pensare che $\{1,-1\}$ è normale, e quozientando ottengo $\Cyc_2 \times \Cyc_2$, che ha 3 rappresentazioni irriducibili non banali (scelgo quale dei 3 sottogruppi mandare nell'identità, e il resto andrà in $-1$). Sollevandole in $Q_8$, ottengo $\rho_i,\rho_j,\rho_k$. L'ultima rappresentazione, di grado 2, la ottengo per ortogonalità.
+     \[
+      \begin{array}{|c|ccccc|}
+      \hline
+       Q_8    & \{1\} & \{-1\} & \{\pm i\} & \{\pm j\} & \{\pm k\} \\ \hline
+       Id     &   1   &    1   &     1     &     1     &     1     \\ 
+       \rho_i &   1   &    1   &     1     &    -1     &    -1     \\
+       \rho_j &   1   &    1   &    -1     &     1     &    -1     \\
+       \rho_k &   1   &    1   &    -1     &    -1     &     1     \\
+       \rho_2 &   2   &   -2   &     0     &     0     &     0     \\ \hline
+      \end{array}
+     \]
+     
+     
+    \end{myexample}
+
+
+  
+  \subsection{Prodotto diretto}
+   
+   Vogliamo ora indagare come sono fatte le rappresentazioni di un prodotto diretto di gruppi, a partire dalle rappresentazioni sui singoli gruppi.
+   
+   Date due rappresentazioni $\rho$ di $G_1$, $\sigma$ di $G_2$, possiamo generalizzare il prodotto di rappresentazioni.
+   \begin{mydef}
+    Si definisce il \myname{prodotto tensoriale} di rappresentazioni la rappresentazione di $G_1\times G_2$ data da
+    \[
+     (\rho \tensor \sigma)(g_1,g_2) = \rho_{g_1} \tensor \rho_{g_2} 
+    \]
+   \end{mydef}
+
+   \begin{myprop}
+    Il carattere del prodotto tensoriale vale
+    \[
+     \chi_{\rho\tensor\sigma}(g_1,g_2) = \chi_\rho(g_1)\chi_\sigma(g_2)
+    \] 
+   \end{myprop}
+
+   \begin{proof}
+    Per le proprietà del prodotto tensore di spazi vettoriali, vale $\Tr(\rho_{g_1}\tensor \sigma_{g_2})= \Tr{\rho_{g_1}}\Tr{\sigma_{g_2}}$
+   \end{proof}
+   
+   Abbiamo quindi ottenuto una rappresentazione di $G_1\times G_2$, ci chiediamo quando è irriducibile. 
+   \begin{myprop}
+    Le rappresentazioni $\sigma$ e $\rho$ sono irriducibili se e solo se $\rho \tensor \sigma$ è irriducibile.
+    
+    Inoltre tutte le rappresentazioni irriducibili di $G_1\times G_2$ sono della forma $\rho \tensor \sigma$, con $\rho,\sigma$ irriducibili.
+   \end{myprop}
+   \begin{proof}
+    Facciamo il conto con il carattere di $\rho \tensor \sigma$.
+    \begin{align*}
+     \herm{\chi_{\rho\tensor\sigma}}{\chi_{\rho\tensor\sigma}} &= \frac1{\abs {G_1}\abs{G_2}}\sum_{g_1 \in G_1}\sum_{g_2\in G_2} \chi_\rho(g_1)\chi_\sigma(g_2)\conj{\chi_\rho(g_1)\chi_\sigma(g_2)} = \\
+     &= \frac1{\abs {G_1}}\sum_{g_1 \in G_1} \chi_\rho(g_1)\conj{\chi_\rho(g_1)}\cdot\frac1{\abs {G_2}}\sum_{g_2\in G_2}\chi_\sigma(g_2)\conj{\chi_\sigma(g_2)}\\
+     &= \herm{\chi_\rho}{\chi_\rho}\herm{\chi_\sigma}{\chi_\sigma}
+    \end{align*}
+    e ora si ha la tesi per il criterio di irriducibilità.
+    
+    Per il secondo punto invece, mostriamo che un qualsiasi carattere $f$ (funzione di classe) su $G_1\times G_2$, ortogonale a tutti i caratteri della forma $\chi_\rho(g_1)\chi_\sigma(g_2)$, è nullo. Quindi sia
+    \[
+     \sum_{g_1,g_2} f(g_1,g_2) \conj{\chi_\rho(g_1),\chi_\sigma(g_2)}=0
+    \]
+    
+    Fissiamo $\sigma$, e sia $h(g_1)=\sum_{g_2} f(g_1,g_2)\conj{\chi_\sigma(g_2)}$. Allora
+    \[
+     \sum_{g_1}h(g_1)\conj{\chi_\rho(g_1)}=0 \qquad\qquad \forall \rho
+    \]
+    Poichè deve valere per ogni rappresentazione $\rho$, e $h$ è una funzione classe, allora deve essere $h\equiv 0$. Analogamente si conclude che $f \equiv 0$.
+
+
+   \end{proof}

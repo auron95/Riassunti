@@ -181,6 +181,26 @@
 \newcommand{\sse}{\Leftrightarrow}
 \newcommand{\Rar}{\Rightarrow}
 \newcommand{\rar}{\rightarrow}
+\newcommand{\xrar}{\xrightarrow}
+
+\newcommand{\tridiag}[6]{
+	\[
+	  \begin{diagram}
+	  #1 & \rTo^{#2}  & #3        \\
+	     & \rdTo_{#6} & \dTo>{#4}   \\
+	     &          & #5
+	  \end{diagram}
+	\]
+}  
+\newcommand{\quaddiag}[8]{
+      \[
+	\begin{diagram}
+	#1     & \rTo^{#2} & #3 \\
+	\dTo{#6} &         & \dTo{#4} \\
+	#7     & \rTo^{#8} & #5
+	\end{diagram}
+      \]
+}
 
 
 \DeclareMathOperator{\Tr}{Tr}
