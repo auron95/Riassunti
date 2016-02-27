@@ -1,237 +1,270 @@
-  \section{Rappresentazioni}
-    \begin{mydef}
-      Sia $G$ un gruppo finito, e sia $V$ un $\mathbb C$-spazio vettoriale. Si dice \myname{rappresentazione} di $G$ su $V$ un'azione lineare di $G$ su $V$, ovvero un omomorfismo da $G$ in $GL(V)$.
-    \end{mydef}
-    
-    Le rappresentazioni si possono indicare equivalentemente come delle applicazioni $G \times V \rightarrow V$ con $(g,v)\mapsto gv$, con $gv$ lineare, oppure come mappe $g \mapsto \rho(g)$, dove $\rho(g) \in GL(V)$. In generale mi piace di più il secondo modo. A volte userò anche la notazione $g \mapsto \rho_g$, per evitare quintali di parentesi.
-    
-    In alternativa, si possono vedere le rappresentazioni come $\bC[G]$-moduli, dove $\bC[G]$ è l'anello delle combinazioni $\bC$-lineari di elementi di $G$.
-    
-    \begin{mydef}
-     Si definisce \myname{grado} di una rappresentazione $\rho$
-     \[\deg \rho := \dim V_\rho\]
-    \end{mydef}
+\section{Rappresentazioni}
+	\begin{mydef}
+		Sia $G$ un gruppo finito, e sia $V$ un $\mathbb C$-spazio vettoriale. Si dice \myname{rappresentazione} di $G$ su $V$ un'azione lineare di $G$ su $V$, ovvero un omomorfismo da $G$ in $GL(V)$.
+	\end{mydef}
 
-    
-    Sia ora $[\rho_g]_\cB$ la \myname{matrice associata} all'applicazione lineare $\rho_g$ in base $\cB$. Allora $[\rho_g]$ è quadrata, di ordine $\deg \rho$, invertibile ($\det [\rho_g]\ne 0$) e vale $[\rho_g] [\rho_h]=[\rho_{gh}]$. Inoltre, se $[\rho_g]_i^j$ è il coefficiente di $[\rho_g]$ di riga $i$ e colonna $j$, allora vale
-    \[
-     [\rho_{gh}]_i^k=\sum_j [\rho_g]_i^j [\rho_h]_j^k
-    \]
+	Le rappresentazioni si possono indicare equivalentemente come delle applicazioni $G \times V \rightarrow V$ con $(g,v)\mapsto gv$, con $gv$ lineare, oppure come mappe $g \mapsto \rho(g)$, dove $\rho(g) \in GL(V)$. In generale mi piace di più il secondo modo. A volte userò anche la notazione $g \mapsto \rho_g$, per evitare quintali di parentesi.
 
-    Dato che per gruppi finiti $[\rho_g]^n$ deve fare l'identità per $n=\abs G$, allora il suo polinomio minimo divide $x^n-1$, e visto che non ha fattori ripetuti $[\rho_g]$ è diagonalizzabile, con solo radici $n$-esime dell'unità sulla diagonale. 
-    
-    \begin{mydef}
-      Date $\rho,\sigma$ due rappresentazioni di $G$ su $V_\rho,V_\sigma$ rispettivamente, si dice \myname{omomorfismo di rappresentazioni} un omomorfismo $\phi$ di spazi vettoriali $V_\rho \rightarrow V_\sigma$ tale che $\rho(g) \circ \phi = \phi \circ \sigma(g)$. 
-      In altre parole, deve far commutare il seguente diagramma
-      \[
-       \begin{diagram}
+	In alternativa, si possono vedere le rappresentazioni come $\bC[G]$-moduli, dove $\bC[G]$ è l'anello delle combinazioni $\bC$-lineari di elementi di $G$.
+
+	\begin{myobs}
+		Nello studio delle rappresentazioni si usano diverse notazioni. In particolare spesso si chiama rappresentazione sia l'omomorfismo, sia lo spazio vettoriale. Il motivo dietro a questa usanza è che la rappresentazione non è altro che un $\bC[G]$-modulo, che significa moralmente uno ``spazio vettoriale'' dove negli scalari ci sta anche $G$: così come quando pensiamo uno spazio vettoriale non ci riferiamo alla funzione $\bK \times V \rar V$, ma all'insieme in cui è intrinsecamente definita la moltiplicazione per scalari, lo stesso faremo per le rappresentazioni.
+		
+		Quindi quello che faremo in questo riassunto è la seguente cosa: pensando le rappresentazioni come dei $\bC[G]$-moduli, quando non ci sarà ambiguità, chiameremo rappresentazione uno spazio vettoriale $V$ su cui è definita una moltiplicazione a sinistra per gli elementi del gruppo, che quindi indicherò spesso, invece di usare la notazione $\rho_g(v)$, semplicemente con $g\cdot v$. 
+	\end{myobs}
+
+	\begin{mydef}
+		Si definisce \myname{grado} di una rappresentazione $\rho$
+		\[\deg \rho := \dim V_\rho\]
+	\end{mydef}
+
+
+	Sia ora $[\rho_g]_\cB$ la \myname{matrice associata} all'applicazione lineare $\rho_g$ in base $\cB$. Allora $[\rho_g]$ è quadrata, di ordine $\deg \rho$, invertibile ($\det [\rho_g]\ne 0$) e vale $[\rho_g] [\rho_h]=[\rho_{gh}]$. Inoltre, se $[\rho_g]_i^j$ è il coefficiente di $[\rho_g]$ di riga $i$ e colonna $j$, allora vale
+	\[
+		[\rho_{gh}]_i^k=\sum_j [\rho_g]_i^j [\rho_h]_j^k
+	\]
+
+	Dato che per gruppi finiti $[\rho_g]^n$ deve fare l'identità per $n=\abs G$, allora il suo polinomio minimo divide $x^n-1$, e visto che non ha fattori ripetuti $[\rho_g]$ è diagonalizzabile, con solo radici $n$-esime dell'unità sulla diagonale. 
+
+	\begin{mydef}
+		Date $\rho,\sigma$ due rappresentazioni di $G$ su $V_\rho,V_\sigma$ rispettivamente, si dice \myname{omomorfismo di rappresentazioni} un omomorfismo $\phi$ di spazi vettoriali $V_\rho \rightarrow V_\sigma$ tale che $\rho(g) \circ \phi = \phi \circ \sigma(g)$. 
+		In altre parole, deve far commutare il seguente diagramma
+		\[
+			\begin{diagram}
 	V_\rho         & \rTo^{\phi}  & V_\sigma\\
 	\dTo<{\rho(g)} &           	 & \dTo>{\sigma(g)}\\
 	V_\rho         & \rTo^{\phi}  & V_\sigma
-       \end{diagram}
-      \]
-       
-    Analogamente, si definisce \myname{endomorfismo} di $\rho$ un omomorfismo da $\rho$ in $\rho$, e \myname{isomorfismo di rappresentazioni} un omomorfismo che è un isomorfismo di spazi vettoriali.
-    \end{mydef}
-    
-    Pensate come $\bC[G]$-moduli, allora gli omomorfismi di rappresentazioni coincidono con i morfismi di $\bC[G]$-moduli.
-    
-    Come al solito, identificheremo le rappresentazioni isomorfe, senza scrivere tutte le volte \emph{a meno di isomorfismo}.
-    
-    Dette $R_g$ e $S_g$ le matrici associate alle applicazioni lineari $\rho_g$ e $\sigma_g$ rispettivamente, se le due rappresentazioni sono isomorfe, allora esiste una matrice $T$ invertibile tale che
-    \[
-     R_g = T\inv S_g T \qquad \forall g\in G
-    \]
-    Quindi le matrici analoghe sono coniugate attraverso un'unica matrice invertibile.
-        
-    \begin{myexample}[Rappresentazione banale]
-     Dato un qualsiasi gruppo $G$ e un qualsiasi spazio vettoriale $V$, una sua rappresentazione possibile è quella banale $g \mapsto \id$.
-    \end{myexample}
-    \begin{myexample}[Rappresentazione regolare]
-     Sia $G$ un gruppo finito, e sia $V$ uno spazio vettoriale con base indicizzata da $G$ (ci starebbe una digressione sulla definizione di base). La rappresentazione regolare $\Reg$ è quella rappresentazione che associa a ogni elemento del gruppo l'azione di \emph{moltiplicazione a sinistra} sulla base, ossia $\Reg_g: e_h \mapsto e_{gh}$.
-     
-     Alternativamente, posso vedere $V$ come lo spazio $\mathbb C[G]$ delle funzioni da $G$ in $\mathbb C$ (l'indentificazione è quella che manda il vettore $\sum_i a_ie_{g_i}$ nella mappa $g_i \mapsto a_i$). In tal caso la rappresentazione regolare diventa
-     \[
-     \Reg_g(f): x \mapsto  f ( g\inv x) 
-     \]
-     
-     Questa rappresentazione è particolarmente importante perché coincide con $\bC[G]$ visto come $\bC[G]$-modulo, che è sostanzialmente la prima definizione.
-     
-     Vedremo l'importanza di questa rappresentazione.
-     \end{myexample}
-     \begin{myexample}[Rappresentazione per permutazione di un insieme]
-      Più in generale, se ho un'azione di $G$ su un insieme $X$, posso considerare $V$ con $X\rightarrow V$ una base, e costruire la rappresentazione che permuta la base tramite l'azione su $X$. Anch'essa è una rappresentazione.
-    \end{myexample}
-  
-    \begin{myexample}[Rappresentazioni di $\Cyc_n$]
-      Ho esattamente $n$ possibilità per $\chi_\rho$. Infatti, se $g$ genera $\Cyc_n$, posso scegliere $\chi_\rho(g)=\zeta^i$ per $i=0,1\dots n-1$, dove $\zeta$ è una radice primitiva dell'unità.
-     
-      Posso ora scrivere
-      \[
-       V=\bigoplus_{\lambda=\zeta^i}V_\lambda
-      \]
-      dove i $V_\lambda$ sono gli autospazi dell'applicazione $\rho_(g)$ relativi all'autovalore $\lambda$.
-      
-      Se $\rho$ è una rappresentazione in $V$, e $\sigma$ in W, allora $\phi$ è un omomorfismo da $\rho$ in $\sigma$ se e solo se $\phi(V_\lambda)\subseteq \phi(W_\lambda)$ per ogni $\lambda$.
-      
-      \begin{proof}
-       Perchè sia un omomorfismo di rappresentazione, chiaramente gli autospazi di $V$ devono andare negli autospazi di $W$. Inoltre, visto che posso scegliere una base di autovettori (le immagini di una rappresentazione di un gruppo finito sono diagonalizzabili), mi basta che soddisfi le proprietà su una base.
-      \end{proof}
+			\end{diagram}
+		\]
+		Nella notazione dei $\bC[G]$-moduli, la stessa condizione si scriverebbe come $g\cdot \phi(v)=\phi(g\cdot v)$, dove il prima moltiplicazione per $g$ è quella su $V_\rho$, la seconda è quella su $V_\sigma$.
+			
+	Analogamente, si definisce \myname{endomorfismo} di $\rho$ un omomorfismo da $\rho$ in $\rho$, e \myname{isomorfismo di rappresentazioni} un omomorfismo che è un isomorfismo di spazi vettoriali.
+	\end{mydef}
+
+	\begin{myobs}
+		La definizione di omomorfismo coincide con quella per moduli generici.
+	\end{myobs}
+
+	\begin{myobs}
+		Con $\Hom(V_\rho,V_\sigma)$ indicheremo gli omomorfismi tra $V_\rho$ e $V_\sigma$ come $\bC$-spazi vettoriali. Quando parliamo di omomorfismi di rappresentazione, scriveremo invece indifferentemente $\Hom(\rho,\sigma)$ oppure $\Hom_G(V_\rho,V_\sigma)$.
+	\end{myobs}
+
+	Come al solito, spesso identificheremo le rappresentazioni isomorfe, senza scrivere tutte le volte \emph{a meno di isomorfismo}.
+
+	Date due rappresentazioni $\rho,\sigma$, con due basi $\cB$ e $cS$ sui relativi spazi vettoriali, se le due rappresentazioni sono isomorfe, allora esiste una matrice $T$ invertibile tale che
+	\[
+		[\rho_g]_\cB = T\inv [\sigma_g]_cS T \qquad \forall g\in G
+	\]
+	La matrice $T$ è quella che induce l'isomorfismo tra $V_\rho$ e $V_\sigma$.
+	Quindi le matrici analoghe (associate allo stesso $g$) sono coniugate attraverso un'unica matrice invertibile.
+			
+	Vediamo ora qualche esempio di rappresentazione.
+
+	\begin{myexample}[Rappresentazione banale]
+		Dato un qualsiasi gruppo $G$ e un qualsiasi spazio vettoriale $V$, una sua rappresentazione possibile è quella banale, ossia  $g\cdot v = v$ per ogni $g\in G$ e per ogni $v\in V$.
+	\end{myexample}
+	\begin{myexample}[Rappresentazione regolare]
+		Così come dato un qualsiasi campo $\bK$ possiamo considerare $\bK$ come spazio vettoriale su se stesso, pensando il prodotto in $\bK$ come prodotto per scalare, lo stesso si può fare con un modulo.
+		
+		Mettiamo quindi su $\bC[G]$ la struttura di $\bC$-modulo. Possiamo vedere $C[G]$ come spazio vettroriale su $\bC$ in due modi:
+		\begin{itemize}
+		 \item $\bC[G]$ è uno spazio vettoriale con una base indicizzata da $G$. Chiameremo i vettori della base $e_g$, oppure semplicemente $g$ (per evitare notazioni come $e_e$). $G$ agisce su $\bC[G]$ per moltiplicazione a sinistra: $g\cdot e_h = e_{gh}$.
+		 \item $\bC[G]$ è lo spazio vettoriale delle funzioni da $G$ in $\bC$. $G$ agisce in questo modo: l'elemento $g$ manda $f(x)$ in $f(g\inv x)$.
+		\end{itemize}
+		
+		\begin{myprop}
+		 Le due rappresentazioni elencate sopra sono effettivamente isomorfe.
+		\end{myprop}
+		\begin{proof}
+		 L'isomorfismo è dato da \[\phi\left(\sum_{g\in G} a_g\cdot g\right)= \left(g\mapsto a_g\right)\]
+		 La verifica che è effettivamente un isomorfismo è lasciata per esercizio.
+		\end{proof}
 
 
-    \end{myexample}
-    
-  \subsection{Operazioni tra rappresentazioni}
-    Vediamo quali operazioni si possono definire tra le rappresentazioni.
-    
-    \begin{mydef}[Somma di rappresentazioni]
-     Siano $\rho, \sigma$ due rappresentazioni di $G$ in $V_\rho,V_\sigma$ rispettivamente. Si definisce la \myname{somma di rappresentazioni} $\rho+\sigma$ come la rappresentazione di $G$ in $V_\rho\oplus V_\sigma$ tale che 
-     \[
-      (\rho+\sigma)_g(u+v)=\rho_g(u)+\sigma_g(v)\qquad \forall u\in V_\rho, v\in V_\sigma
-     \]
-    \end{mydef}
-    
-    Matricialmente $(\rho+\sigma)_g$ si rappresenta come
-    \[
-     \left[\begin{array}{c|c}
-	    \rho_g & 0 \\
-	    \hline
-	    0 & \sigma_g
-           \end{array}
-     \right]
-    \]
-    dove ovviamente si intende che la base ha i primi vettori in $V_\rho$, i secondi in $V_\sigma$.
-    
-    Inoltre per come è definito il grado vale $\deg(\rho+\sigma)=\deg\rho+\deg\sigma$.
-    
-    \begin{mydef}
-     Un sottospazio $W$ di $V_\rho$ si dice $G$-invariante se per ogni $g\in G$ vale $\rho_g(W)\subseteq W$.
-    \end{mydef}
+		\iffalse
+				Sia $G$ un gruppo finito, e sia $V$ uno spazio vettoriale con base indicizzata da $G$ (ci starebbe una digressione sulla definizione di base). La rappresentazione regolare $\Reg$ è quella rappresentazione che associa a ogni elemento del gruppo l'azione di \emph{moltiplicazione a sinistra} sulla base, ossia $\Reg_g: e_h \mapsto e_{gh}$.
+				
+				Alternativamente, posso vedere $V$ come lo spazio $\mathbb C[G]$ delle funzioni da $G$ in $\mathbb C$ (l'indentificazione è quella che manda il vettore $\sum_i a_ie_{g_i}$ nella mappa $g_i \mapsto a_i$). In tal caso la rappresentazione regolare diventa
+			\[
+				\Reg_g(f): x \mapsto  f ( g\inv x) 
+				\]
+				
+				Questa rappresentazione è particolarmente importante perché coincide con $\bC[G]$ visto come $\bC[G]$-modulo, che è sostanzialmente la prima definizione.
+				
+				Vedremo l'importanza di questa rappresentazione.
 
-    \begin{mydef}
-     Si dice \myname{sottorappresentazione} di $\rho$ la restrizione dei $\rho_g$ a un sottospazio vettoriale $G$-invariante. Nel linguaggio dei moduli si parla di sottomodulo.
-    \end{mydef}
-    
-    \begin{myexample}
-      Data la rappresentazione regolare $\Reg$, allora il sottospazio generato da $\sum_{g\in G} e_g$ è $G$-invariante, e la sottorappresentazione indotta è quella banale.
-    \end{myexample}
-       
-    Ora invece, data una rappresentazione su $V$, vediamo come costruirne una sul duale $V^*$.
-    \begin{mydef}
-     Sia $\rho$ una rappresentazione di $G$ su $V$. Dato $f\in V^*$ e $v\in V$, sia ora $\scalar fv$ la dualità (è solo un modo figo per chiamare l'applicazione $\scalar fv \mapsto f(v)$). Definiamo la \myname{rappresentazione duale} $\rho^*$ come l'unica rappresentazione tale che:
-     \[
-      \scalar{\rho^*_g(f)}{\rho_g (v)}=\scalar fv
-     \]
-    \end{mydef}
-    
-    In altre parole, $\rho^*_g$ è l'applicazione \myname{trasposta} di $\rho_g\inv$.
+		\fi
+	\end{myexample}
+	\begin{myexample}[Rappresentazione per permutazione di un insieme]
+		Se ho un'azione di $G$ su un insieme $X$, posso considerare $V$ con $X\rightarrow V$ una base, e costruire la rappresentazione che permuta la base tramite l'azione su $X$. Anch'essa è una rappresentazione.
+		
+		Notiamo che se $X=G$ con l'azione di moltiplicazione a sinistra, otteniamo la rappresntazione regolare.
+	\end{myexample}
 
-    Il fatto che io usi l'inverso è perché l'applicazione trasposta inverte l'ordine delle composizioni, mentre noi vogliamo un isomorfismo: quindi mettendo l'inverso l'ordine torna magicamente a essere quello giusto.
-    
-    Oltre alla somma, abbiamo anche un prodotto tra rappresentazioni. Esso è definito come segue. 
-    
-    \begin{mydef}
-     Si dice prodotto tra due $G$-rappresentazioni $\rho, \sigma$ la $G$-rappresentazione su $V_\rho \tensor V_\sigma$  
-    \end{mydef}
+	\subsection{Operazioni tra rappresentazioni}
+	Vediamo quali operazioni si possono definire tra le rappresentazioni.
 
+	\begin{mydef}[Somma di rappresentazioni]
+		Siano $\rho, \sigma$ due rappresentazioni di $G$ in $V_\rho,V_\sigma$ rispettivamente. Si definisce la \myname{somma di rappresentazioni} $\rho+\sigma$ come la rappresentazione di $G$ in $V_\rho\oplus V_\sigma$ tale che 
+		\[
+		(\rho+\sigma)_g(u+v)=\rho_g(u)+\sigma_g(v)\qquad \forall u\in V_\rho, v\in V_\sigma
+		\]
+		
+		In forma più snella, potremmo anche scrivere
+		\[
+		 g\cdot(u+v) = g\cdot u + g\cdot v
+		\]
 
-    Ora siamo pronti a dare la definizione di prodotto di rappresentazioni.
+	\end{mydef}
 
-    \begin{mydef}[Prodotto di rappresentazioni]
-      Siano $\rho,\sigma$ due rappresentazioni su $V_\rho,V_\sigma$. Si definisce il prodotto $\rho\sigma$ come la rappresentazione su $V_\rho \otimes V_\sigma$ che soddisfa
-      \[
-       (\rho\sigma)_g = \rho_g \otimes \sigma_g
-      \]
-    \end{mydef}
+	Matricialmente $(\rho+\sigma)_g$ si rappresenta come
+	\[
+		[(\rho+\sigma)_g]=\left[
+			\begin{array}{c|c}
+				[\rho_g] & 0 \\
+				\hline
+				0 & [\sigma_g]
+			\end{array}
+		\right]
+	\]
+	dove ovviamente si intende che la base ha i primi vettori in $V_\rho$, i secondi in $V_\sigma$.
 
+	Inoltre per come è definito il grado vale $\deg(\rho+\sigma)=\deg\rho+\deg\sigma$.
 
-  
-  \subsection{Rappresentazioni irriducibili e Schur}
-  
-  Iniziamo con un risultato prelimnare.
-  
-    \begin{mytheorem}\label{Th:SupplInv}
-     Sia $\rho$ una rappresentazione su $V$, e sia $W$ un sottospazio $G$-invariante. Allora esiste un supplementare $W_0$ anch'esso $G$-invariante.
-    \end{mytheorem}
-    
-    \begin{proof}
-     Sia $\pi$ una qualsiasi proiezione di $V$ su $W$, e sia $\pi_0$ la proiezione pesata data da
-     \[
-      \pi_0=\frac1{\abs G} \sum_{g\in G} \rho_g \circ \pi \circ \rho_g\inv
-     \]
-     Dato che $\pi$ lascia fisso $W$ allora anche $\pi_0$ lo lascia fisso (sto usando che $\rho_g$ stabilizza $W$). Inoltre $\pi_0(V) \subseteq W$. Quindi anch'essa è una proiezione con $\Ker \pi_0=W_0$ . Inoltre $\pi_0$ commuta con i $\rho_g$, come si vede calcolando $\rho_g \circ \pi_0 \circ \rho_g\inv$.
-     
-     Quindi se $w\in W_0$, allora $\pi_0 (\rho_g(w))=\rho_g(\pi_0(w))=0$, quindi $W_0$ è $G$-invariante ed è facile verificare che è anche un supplementare.
-    \end{proof}
-    \begin{myobs}
-     Se su $V$ fosse definito un prodotto hermitiano, allora il prodotto hermitiano dato da $\sum_{g\in G}\herm {\rho_g(x)}{\rho_g(y)}$ è invariante per $G$, quindi si può facilmente verificare che $W^\perp$ è $G$-invariante, abbiamo così una dimostrazione alternativa del teorema \ref{Th:SupplInv}.
-     
-     Inoltre, dato che rispetto al prodotto hermitiano $G$ è invariante, significa che i $\rho_g$ sono ortogonali rispetto a una base ortonormale, e quindi sono matrici unitarie.
-    \end{myobs}
+	\begin{mydef}
+		Un sottospazio $W$ di $V_\rho$ si dice $G$-invariante se per ogni $g\in G$ vale $\rho_g(W)\subseteq W$.
+	\end{mydef}
 
-    Ogniqualvolta abbiamo una sottorappresentazione di $\rho$, siamo quindi in grado di spezzare $\rho$ in somma di due sottorappresentazioni più piccole. 
- 
-    Data una rappresentazione, possiamo reiterare il procediemnto finché non è più possibile trovare sottorappresentazioni non banali.
-    
-    \begin{mydef}
-      Una rappresentazione che non ammette sottorappresentazioni non banali si dice irriducibile.
-    \end{mydef}
-    
-    Banalmente, tutte le rappresentazioni di grado 1 sono irriducibili, ma in generale non sono le uniche.
-    
-    Possiamo quindi decomporre una rappresentazione fino a quando gli addendi non sono tutti irriducibili.
-    
-    Ci piacerebbe affermare che la decomposizione in irriducibili è unica (dove unica è inteso come al solito a meno dell'ordine). Tuttavia non è così banale dimostrarlo. Per farlo ci serve che se possiamo immergere una rappresentazione irriducibile in una somma, allora possiamo immergerla in almeno uno dei fattori. (Sì, vogliamo in un qualche senso che irriducibile $\Rightarrow$ primo)
-    
-    Ci viene in aiuto il Lemma di Schur.
-    
-    \begin{mytheorem}[Lemma di Schur]
-     Siano $\rho,\sigma$ due rappresentazioni irriducibili, e sia $\Phi$ un omomorfismo. Allora o $\Phi \equiv 0$ oppure $\Phi$ è un isomorfismo.
-    \end{mytheorem}
-    \begin{proof}
-     Notiamo che $\Ker \Phi$ è banale oppure è tutto $V_\rho$, dato che $\rho$ è irriducibile. Nel secondo caso quindi $\Phi\equiv 0$, altrimenti si vede che analogamente $\Im \Phi$ è tutto $V_\sigma$. Quindi $\Phi$ è un isomorfismo.
-    \end{proof}
-    
-    Ora due facili corollari.
-    
-    \begin{mycor}
-     Sia $\rho$ irriducibile, e sia $\Phi: \rho \rar \rho$ un endomorfismo di rappresentazione. Allora $\Phi$ è una moltiplicazione per uno scalare. 
-    \end{mycor}
-    \begin{proof}
-      Sia $\lambda$ un autovalore di $\Phi$: allora $\Phi-\lambda\id$ ha $\Ker$ non banale e quindi è identicamente nulla.
-    \end{proof}
+	\begin{mydef}
+		Si dice \myname{sottorappresentazione} di $\rho$ la restrizione dei $\rho_g$ a un sottospazio vettoriale $G$-invariante. Nel linguaggio dei moduli si parla di sottomodulo.
+	\end{mydef}
 
-    \begin{mycor}
-     Date $\rho,\sigma$ irriducibili, e $\Phi: V_\rho \rightarrow V_\sigma$ lineare, sia $\bar \Phi = \frac 1{\abs G} \sum_{g\in G} \sigma_g\inv \Phi \rho_g$. Allora
-     \begin{itemize}
-      \item Se $\rho \not \isom \sigma$ allora $\bar \Phi\equiv 0$;
-      \item Se $\rho = \sigma$, allora $\bar \Phi = \frac{\Tr(\Phi)}{\deg \rho}\id$.
-     \end{itemize}
-    \end{mycor}
-    \begin{proof}
-     Deriva tutto dal lemma di Schur. Il fatto che lo scalare si $\frac{\Tr \Phi}{\deg \rho}$ viene dal fatto che $\Tr \bar \Phi = \Tr \Phi$ (basta fare il conto) e che $\Tr \bar \Phi = \lambda \deg \rho$.
-    \end{proof}
+	\begin{myexample}
+		Data la rappresentazione regolare $\Reg$, allora il sottospazio generato da $\sum_{g\in G} e_g$ è $G$-invariante, e la sottorappresentazione indotta è quella banale.
+		
+		Lo stesso vale per una qualsiasi rappresentazione per permutazione.
+	\end{myexample}
+			
+	Ora invece, data una rappresentazione su $V$, vediamo come costruirne una sul duale $V^*$.
+	\begin{mydef}
+		Sia $\rho$ una rappresentazione di $G$ su $V$. Dato $f\in V^*$ e $v\in V$, sia ora $\scalar fv$ la dualità (è solo un modo figo per chiamare l'applicazione $\scalar fv \mapsto f(v)$). Definiamo la \myname{rappresentazione duale} $\rho^*$ come l'unica rappresentazione tale che:
+		\[
+		\scalar{\rho^*_g(f)}{\rho_g (v)}=\scalar fv
+		\]
+	\end{mydef}
+
+	In altre parole, $\rho^*_g$ è l'applicazione \myname{trasposta} di $\rho_g\inv$.
+
+	Il fatto che io usi l'inverso è perché l'applicazione trasposta inverte l'ordine delle composizioni, mentre noi vogliamo un isomorfismo: quindi mettendo l'inverso l'ordine torna magicamente a essere quello giusto.
+
+	Oltre alla somma, abbiamo anche un prodotto tra rappresentazioni. Esso è definito come segue. 
+
+	Ora siamo pronti a dare la definizione di prodotto di rappresentazioni.
+
+	\begin{mydef}[Prodotto di rappresentazioni]
+		Siano $\rho,\sigma$ due rappresentazioni su $V_\rho,V_\sigma$. Si definisce il prodotto $\rho\sigma$ come la rappresentazione su $V_\rho \otimes V_\sigma$ che soddisfa
+		\[
+			(\rho\sigma)_g = \rho_g \otimes \sigma_g
+		\]
+		
+		Ancora, pensando in termini di moduli scriveremmo, se $v\in V_\rho, w\in V_\sigma$, che
+		\[
+		 g\cdot (v\tensor w) = (g\cdot v) \tensor (g\cdot w)
+		\]
+
+	\end{mydef}
 
 
-    Adesso possiamo concludere il claim precedente.
-    \begin{myprop}
-     Ogni rappresentazione si può scrivere in maniera unica come somma di rappresentazioni irriducibili.
-    \end{myprop}
-    \begin{proof}
-     Siano $\rho = \rho_1 + \rho_2 + \dots + \rho_n = \sigma_1 + \dots +\sigma_m$ due decomposizioni in irriducibili della stessa rappresentazione. Prendiamo $\sigma_1$ e la immergiamo in modo canonico in $\rho$. A questo punto, restringendosi ai $\rho_i$, abbiamo degli omomorfismi da $\sigma_1$ in $\rho_i$, che non possono essere tutti banali. Quindi per il lemma di Schur $\sigma_1\isom \rho_i$ per qualche $i$. La conclusione per induzione è immediata. 
-    \end{proof}
-    
-    \begin{mydef}
-     Data una rappresentazione $\rho$, si dice componente isotopica una sottorappresentazione della forma $n_i\rho_i$, con $n_i$ massimo possibile e $\rho_i$ irriducibile.
-    \end{mydef}
 
-    Le componenti isotopiche sono importanti perché sono caratteristiche.
-    
-    \begin{myprop}
-     Sia $\rho$ una rappresentazione, e sia $\sigma$ una sua componente isotopica. Sia inoltre $\phi$ un automorfismo di $\rho$. Allora $\phi(\sigma)=\sigma$.
-    \end{myprop}
+	\subsection{Rappresentazioni irriducibili e Schur}
 
-    \begin{proof}
-     Considero $\phi(\sigma)$. Poiché sulle altre rappresentazioni irriducubili deve essere l'applicazione nulla per il lemma di Schur, allora per questioni di dimensione deve essere mandata in $\sigma$.
-    \end{proof}
+	Iniziamo con un risultato prelimnare.
+
+	\begin{mytheorem}[Maschke]\label{Th:SupplInv}
+		Sia $\rho$ una rappresentazione su $V$, e sia $W$ un sottospazio $G$-invariante. Allora esiste un supplementare $W_0$ anch'esso $G$-invariante.
+	\end{mytheorem}
+	
+	Ci sono molte dimostrazioni di questo teorema. Dato che il campo è $\bC$, possiamo utilizzare la seguente:
+	\begin{proof}
+		Dato un qualsiasi prodotto hermitiano su $V$, allora il prodotto hermitiano dato da $\sum_{g\in G}\herm {\rho_g(x)}{\rho_g(y)}$ è invariante per $G$, quindi si può facilmente verificare che $W^\perp$ è $G$-invariante.
+		
+		Inoltre, dato che rispetto al prodotto hermitiano $G$ è invariante, significa che i $\rho_g$ sono ortogonali rispetto a una base ortonormale, e quindi sono appplicazioni unitarie.
+	\end{proof}
+
+	In un campo generico, vale la dimostrazione seguente.
+	\begin{proof}
+		Sia $\pi$ una qualsiasi proiezione di $V$ su $W$, e sia $\pi_0$ la proiezione pesata data da
+		\[
+		\pi_0=\frac1{\abs G} \sum_{g\in G} \rho_g \circ \pi \circ \rho_g\inv
+		\]
+		Dato che $\pi$ lascia fisso $W$ allora anche $\pi_0$ lo lascia fisso (sto usando che $\rho_g$ stabilizza $W$). Inoltre $\pi_0(V) \subseteq W$. Quindi anch'essa è una proiezione con $\Ker \pi_0=W_0$ . Inoltre $\pi_0$ commuta con i $\rho_g$, come si vede calcolando $\rho_g \circ \pi_0 \circ \rho_g\inv$.
+		
+		Quindi se $w\in W_0$, allora $\pi_0 (\rho_g(w))=\rho_g(\pi_0(w))=0$, quindi $W_0$ è $G$-invariante ed è facile verificare che è anche un supplementare.
+	\end{proof}
+
+	Ogniqualvolta abbiamo una sottorappresentazione di $\rho$, siamo quindi in grado di spezzare $\rho$ in somma di due sottorappresentazioni più piccole. 
+
+	Data una rappresentazione, possiamo reiterare il procediemnto finché non è più possibile trovare sottorappresentazioni non banali.
+
+	\begin{mydef}
+		Una rappresentazione che non ammette sottorappresentazioni non banali si dice irriducibile.
+	\end{mydef}
+
+	Banalmente, tutte le rappresentazioni di grado 1 sono irriducibili, ma in generale non sono le uniche.
+
+	Possiamo quindi decomporre una rappresentazione fino a quando gli addendi non sono tutti irriducibili.
+
+	Ci piacerebbe affermare che la decomposizione in irriducibili è unica (dove unica è inteso come al solito a meno dell'ordine). Tuttavia non è così banale dimostrarlo. Per farlo ci serve che se possiamo immergere una rappresentazione irriducibile in una somma, allora possiamo immergerla in almeno uno dei fattori. (Sì, vogliamo in un qualche senso che irriducibile $\Rightarrow$ primo)
+
+	Ci viene in aiuto il Lemma di Schur.
+
+	\begin{mytheorem}[Lemma di Schur]
+		Siano $\rho,\sigma$ due rappresentazioni irriducibili, e sia $\Phi$ un omomorfismo. Allora o $\Phi \equiv 0$ oppure $\Phi$ è un isomorfismo.
+	\end{mytheorem}
+	\begin{proof}
+		Notiamo che $\Ker \Phi$ è banale oppure è tutto $V_\rho$, dato che $\rho$ è irriducibile. Nel secondo caso quindi $\Phi\equiv 0$, altrimenti si vede che analogamente $\Im \Phi$ è tutto $V_\sigma$. Quindi $\Phi$ è un isomorfismo.
+	\end{proof}
+
+	Questo Ora due facili corollari.
+
+	\begin{mycor}
+		Sia $\rho$ irriducibile, e sia $\Phi: \rho \rar \rho$ un endomorfismo di rappresentazione. Allora $\Phi$ è una moltiplicazione per uno scalare. 
+	\end{mycor}
+	\begin{proof}
+		Sia $\lambda$ un autovalore di $\Phi$: allora $\Phi-\lambda\id$ ha $\Ker$ non banale e quindi è identicamente nulla.
+	\end{proof}
+
+	\begin{mycor}
+		Date $\rho,\sigma$ irriducibili, e $\Phi: V_\rho \rightarrow V_\sigma$ lineare, sia $\bar \Phi = \frac 1{\abs G} \sum_{g\in G} \sigma_g\inv \Phi \rho_g$. Allora
+		\begin{itemize}
+		\item Se $\rho \not \isom \sigma$ allora $\bar \Phi\equiv 0$;
+		\item Se $\rho = \sigma$, allora $\bar \Phi = \frac{\Tr(\Phi)}{\deg \rho}\id$.
+		\end{itemize}
+	\end{mycor}
+	\begin{proof}
+		Deriva tutto dal lemma di Schur. Il fatto che lo scalare si $\frac{\Tr \Phi}{\deg \rho}$ viene dal fatto che $\Tr \bar \Phi = \Tr \Phi$ (basta fare il conto) e che $\Tr \bar \Phi = \lambda \deg \rho$.
+	\end{proof}
+
+
+	Adesso possiamo concludere il claim precedente.
+	\begin{myprop}
+		Ogni rappresentazione si può scrivere in maniera unica come somma di rappresentazioni irriducibili.
+	\end{myprop}
+	\begin{proof}
+		Siano $\rho = \rho_1 + \rho_2 + \dots + \rho_n = \sigma_1 + \dots +\sigma_m$ due decomposizioni in irriducibili della stessa rappresentazione. Prendiamo $\sigma_1$ e la immergiamo in modo canonico in $\rho$. A questo punto, restringendosi ai $\rho_i$, abbiamo degli omomorfismi da $\sigma_1$ in $\rho_i$, che non possono essere tutti banali. Quindi per il lemma di Schur $\sigma_1\isom \rho_i$ per qualche $i$. La conclusione per induzione è immediata. 
+	\end{proof}
+
+	\begin{mydef}
+		Data una rappresentazione $\rho$, si dice componente isotopica una sottorappresentazione della forma $n_i\rho_i$, con $n_i$ massimo possibile e $\rho_i$ irriducibile.
+	\end{mydef}
+
+	Le componenti isotopiche sono importanti perché sono caratteristiche.
+
+	\begin{myprop}
+		Sia $\rho$ una rappresentazione, e sia $\sigma$ una sua componente isotopica. Sia inoltre $\phi$ un automorfismo di $\rho$. Allora $\phi(\sigma)=\sigma$.
+	\end{myprop}
+
+	\begin{proof}
+		Considero $\phi(\sigma)$. Poiché sulle altre rappresentazioni irriducubili deve essere l'applicazione nulla per il lemma di Schur, allora per questioni di dimensione deve essere mandata in $\sigma$.
+	\end{proof}
   
