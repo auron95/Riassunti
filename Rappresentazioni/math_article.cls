@@ -196,7 +196,7 @@
       \[
 	\begin{diagram}
 	#1     & \rTo^{#2} & #3 \\
-	\dTo{#6} &         & \dTo{#4} \\
+	\dTo<{#6} &         & \dTo>{#4} \\
 	#7     & \rTo^{#8} & #5
 	\end{diagram}
       \]
