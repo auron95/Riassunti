@@ -80,7 +80,8 @@
 		 La verifica che è effettivamente un isomorfismo è lasciata per esercizio.
 		\end{proof}
 
-
+		Anche se sono effettivamente la stessa cosa, quando pensiamo $\bC[G]$ come funzioni da $G$ in $\bC$, scriveremo $\func \bC G$.
+		
 		\iffalse
 				Sia $G$ un gruppo finito, e sia $V$ uno spazio vettoriale con base indicizzata da $G$ (ci starebbe una digressione sulla definizione di base). La rappresentazione regolare $\Reg$ è quella rappresentazione che associa a ogni elemento del gruppo l'azione di \emph{moltiplicazione a sinistra} sulla base, ossia $\Reg_g: e_h \mapsto e_{gh}$.
 				
@@ -186,9 +187,9 @@
 	
 	Ci sono molte dimostrazioni di questo teorema. Dato che il campo è $\bC$, possiamo utilizzare la seguente:
 	\begin{proof}
-		Dato un qualsiasi prodotto hermitiano su $V$, allora il prodotto hermitiano dato da $\sum_{g\in G}\herm {\rho_g(x)}{\rho_g(y)}$ è invariante per $G$, quindi si può facilmente verificare che $W^\perp$ è $G$-invariante.
+		Dato un qualsiasi prodotto hermitiano su $V$, allora il prodotto hermitiano dato da $\sum_{g\in G}\herm {\rho_g(x)}{\rho_g(y)}$ è invariante per $G$ (da notare che sto usando fortemente la finitezza di $G$), quindi si può facilmente verificare che $W^\perp$ è $G$-invariante.
 		
-		Inoltre, dato che rispetto al prodotto hermitiano $G$ è invariante, significa che i $\rho_g$ sono ortogonali rispetto a una base ortonormale, e quindi sono appplicazioni unitarie.
+		Inoltre, dato che rispetto al prodotto hermitiano $G$ è invariante, significa che i $\rho_g$ sono ortogonali rispetto a una base ortonormale, e quindi sono applicazioni unitarie.
 	\end{proof}
 
 	In un campo generico, vale la dimostrazione seguente.
