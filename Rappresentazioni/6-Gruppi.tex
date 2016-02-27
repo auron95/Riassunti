@@ -97,3 +97,49 @@
 
 
    \end{proof}
+   
+  \subsection{Rappresentazioni di $S_n$}
+    Indaghiamo le rappresentazioni del gruppo simmetrico $S_n$, che è complicato dato che ha pochi sottogruppi normali.
+    
+    \begin{myprop}
+     Le uniche rappresentazioni di grado 1 di $S_n$ sono quella banale e il segno.
+    \end{myprop}
+    \begin{proof}
+     Dato che devo immergere $S_n$ in $C^*$ che è abeliano, allora i commutatori devono stare nel $\Ker$. Dato che i commutatori sono $A_n$, le uniche possibilità sono $\sigma \cdot v = v$ o $\sigma \cdot v=\sgn(\sigma)v$.
+    \end{proof}
+    
+    Una rappresentazione naturale per $S_n$ è quella data da $\bC^n$ dove $\sigma \cdot v$ permuta le componenti di $v$. Chiaramente il sottospazio $\Span(1,1,\dots,1)$ è $G$-invariante. Vediamo che la sottorappresentazione supplementare (che chiameremo $\std$) è irriducibile.
+    
+    \begin{myprop}
+     La rappresentazione per permutazioni di $\bC^n$ è somma di due irriducibili.
+    \end{myprop}
+    \begin{proof}
+     Calcoliamo la norma del carattere. Sia quindi $[\sigma]$ la matrice associata all'azione di $\sigma$ rispetto alla base canonica.
+     Dobbiamo quindi calcolare
+     \[
+      \frac1{n!}\sum_{\sigma\in S_n} \left(\sum_i [\sigma]_i^i\right)\conj{\left(\sum_i[\sigma]_i^i\right)}
+     \]
+     Dato che $[\sigma]$ è una matrice di permutazione, in particolare è reale e possiamo scordarci di coniugare. Apro il prodotto e ottengo
+     \[
+      \frac1{n!}\sum_{\sigma\in S_n} \sum_i \sum_j [\sigma]_i^i[\sigma]_j^j
+     \]
+     
+     Adesso posso fare \emph{double-counting} (o forse dovremmo dire \emph{triple-counting}) per scambiare i simboli di sommatoria e ottenere
+     \[
+      \frac1{n!}\sum_i \sum_j\sum_{\sigma\in S_n} [\sigma]_i^i[\sigma]_j^j      
+     \]
+     A $i,j$ fissati, $\sum_{\sigma\in S_n} [\sigma]_i^i[\sigma]_j^j$ conta le permutazioni che fissano sia $i$ che $j$.
+     
+     Quindi divido nei due casi $i=j$ e $i\ne j$ e ottengo
+     \[
+      \frac1{n!}\sum_i (n-1)! +  \frac1{n!}\sum_{i\ne j} (n-2)! = 2
+     \]
+     
+     L'unica possibilità è dunque che la rappresentazione sia somma di due irriducibili distinte.
+    \end{proof}
+  
+
+
+
+
+
