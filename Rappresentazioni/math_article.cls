@@ -205,6 +205,7 @@
 
 \DeclareMathOperator{\Tr}{Tr}
 \DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\Span}{Span}
 \DeclareMathOperator{\sgn}{sgn}

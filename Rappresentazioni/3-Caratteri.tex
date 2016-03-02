@@ -55,7 +55,7 @@ I caratteri godono delle seguenti proprietà:
 \end{proof}
 
 \subsection{Prodotto hermitiano}
-Introduciamo un prodotto interno su $\mathbb C^{(G)}$, dato da 
+Introduciamo un prodotto interno su $\func G$, dato da 
 \[
   \herm fg = \frac 1{\abs G} \sum_{s\in G} f(s)\conj{g(s)}
 \]
@@ -149,21 +149,19 @@ Sia $G$ un gruppo e sia $\Reg$ la sua rappresentazione regolare. Vogliamo indaga
 \[
   \Reg = \sum_i n_i \rho_i
 \]
-con $n_i \in \mathbb N$. Sia inoltre $\chi_R$ il carattere di $\Reg$ e $\chi_i$ il carattere dei $\rho_i$.
+con $n_i \in \mathbb N$. Sia inoltre $\chi_\Reg$ il carattere di $\Reg$ e $\chi_i$ il carattere dei $\rho_i$.
   
 \begin{myprop}
   Il carattere della rappresentazione regolare è
   \[
-  \chi_R(g) = \abs G \cdot \delta_{ge}
+  \chi_\Reg(g) = \abs G \cdot \delta_{ge}
   \]
   dove $\delta_{ij}$ è la \myname{delta di Kronecker}.
 \end{myprop}
 
 \begin{proof}
-  Sappiamo che la matrice associata a $\Reg_g$ è una matrice di permutazione, e gli elementi sulla diagonale sono $1$ se $g=e$, $0$ altrimenti. Visto che il carattere è la somma degli elementi sulla diagonale, segue la tesi.
+  Sappiamo che la matrice associata a $\Reg_g$ è una matrice di permutazione, e gli elementi sulla diagonale sono $1$ se $g=e$, $0$ altrimenti (la moltiplicazione a sinistra non lascia elementi fissi). Visto che il carattere è la somma degli elementi sulla diagonale, segue la tesi.
 \end{proof}
-
-
 
 Sorprendentemente, siamo in grado di determinare esplicitamente gli $n_i$.
 \begin{myprop}
@@ -212,7 +210,9 @@ Questo teorema ha importantissime conseguenze, la cui più evidente è la seguen
 \end{mytheorem}
 
 \begin{proof}
-  C'è un po' da faticare.
+  Sappiamo che i caratteri sono ortonormali, ci manca da dimostrare che generano $\class G$. Facciamo vedere che se $f$ è ortogonale a tutti i caratteri $\chi_i$ allora è nullo.
+  
+  
 \end{proof}
 
 
