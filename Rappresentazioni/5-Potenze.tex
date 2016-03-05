@@ -69,3 +69,22 @@ Precedentemente abbiamo definito potenza esterna e simmetrica in modo astratto, 
   v_1 \tensor \dots \tensor v_m \mapsto \frac1{m!} \sum_\sigma \sgn(\sigma) v_{\sigma(1)}\tensor v_{\sigma(2)} \tensor \dots \tensor v_{\sigma(m)}
   \] sono ben definite, sono suriettive e hanno il nucleo giusto, e poi si può concludere per il teorema di omomorfismo. 
 \end{proof}
+
+\begin{myprop}
+ Sia $\rho$ una rappresentazione su $V$. Allora valgono le seguenti:
+ \begin{itemize}
+  \item $\chi_{\Lambda^2 \rho} = \frac12 (\chi_\rho(g)^2 - \chi_\rho(g^2)) $
+  \item $\chi_{S^2 \rho} = \frac12 (\chi_\rho(g)^2 + \chi_\rho(g^2)) $
+ \end{itemize}
+ 
+ \begin{proof}
+  Fissiamo un $g \in G$, e sia $v_i$ una base di $V$ di autovettrori di $\rho_g$, ossia tali che $\rho_g(v_i)=\lambda_iv_i$. Sappiamo che una base di $\Lambda^2 V$ è fatta dai $v_i \wedge v_j$ per $i<j$. D'altra parte $\Lambda^2\rho_g (v_i\wedge v_j) = \lambda_i\lambda_j (v_i \wedge v_j)$, da cui segue
+  \[
+   \Tr \Lambda^2\rho_g = \sum_{i<j}\lambda_i\lambda_j = \frac12\left(\left(\sum_i \lambda_i\right)^2 - \sum_i \lambda_i^2\right) = \frac12 (\chi_\rho(g)^2 - \chi_\rho(g^2))
+  \]
+  Per $S^2\rho$ la dimostrazione è analoga, oppure si può sfruttare anche che $\chi_{\Lambda^2\rho}+\chi_{S^2\rho}=\chi_{\rho^2}$ perchè $\Lambda^2\rho$ e $S^2\rho$ decompongono il prodotto tensore.
+
+ \end{proof}
+
+
+\end{myprop}
