@@ -1,0 +1,35 @@
+\section{Rappresentazioni su $\bR$}
+	Vediamo ora come sono fatte le rappresentazioni sul campo reale $\bR$. Per la struttura di $\bR$, non è detto che le $\rho_g$ siano diagonalizzabili. Vediamo un esempio.
+	
+	\begin{myexample}
+		Sia $\rho: \Cyc_4 \rar GL(\bR^2)$, data da 
+			\[
+				\rho_g = \left(
+					\begin{matrix}
+						0 	& 	1 	\\
+						-1 	& 	0
+					\end{matrix}
+				\right)
+			\]
+		dove $g$ è un generatore di $\Cyc_4$. Questa applicazione non è diagonalizzabile. Inoltre è irriducibile, dato che se esistesse un sottospazio invariante non banale sarebbe una retta, ma non ho rette invarianti per $\rho_g$.
+	\end{myexample}
+	
+	Questo esempio mostra che molte delle proposizioni vere in $\bC$ non valgono più quando la rappresentazione è su uno spazio vettroriale reale.
+	
+	Il lemma di Schur continua a valere, ma non valgono più i suoi corollari (ovvero che un isomorfismo è dato da una moltiplicazione per scalare). Infatti sempre nell'esempio di prima, 
+	$
+		\left(
+			\begin{matrix}
+				0 	& 	1 	\\
+				-1 	& 	0
+			\end{matrix}
+		\right)
+	$ è un omomorfismo da $\rho$ in se stessa.
+	
+	Ora cercheremo di confrontare le rappresentazioni su $\bC$ con quelle su $\bR$.
+	
+	\begin{mydef}
+	 Una rappresentazione complessa $\rho$ si dice reale se esiste una base di $V$ rispetto alla quale le matrici $[\rho_g]$ sono reali. Equivalentemente, si dice reale se è isomorfa a una rappresentazione su uno spazio vettoriale reale.
+	\end{mydef}
+
+	
