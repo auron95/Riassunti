@@ -1,0 +1,23 @@
+\documentclass[a4paper,10pt,oneside]{math_article}
+
+\newcommand{\rot}{\nabla \times}
+\renewcommand{\div}{\nabla \cdot}
+
+\begin{document}
+	\section{Teoria}
+		\subsection{Equazioni di Maxwell}
+			Le equazioni di Maxwell per l'elettrodinamica sono le seguenti:
+			\begin{align}\label{eq:Maxwell}\displaystyle
+				\div E &= 4\pi \rho \\
+				\div B &= 0 \\
+				\rot E &= -\frac1c \diffp Bt \\
+				\rot B &= \dfrac1c \diffp Et + \dfrac{4\pi}c \vec J 
+			\end{align}
+			
+		\subsection{Potenziali}
+			Possiamo definire un potenziale vettore $\vec A$ tale che
+			\[
+			 \rot A = B
+			\]
+
+\end{document}

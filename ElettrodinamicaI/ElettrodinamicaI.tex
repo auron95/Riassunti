@@ -1,0 +1,30 @@
+\documentclass[a4paper,10pt,oneside]{math_article}
+
+\newcommand{\rot}{\nabla \times}
+\renewcommand{\div}{\nabla \cdot}
+\newcommand{\grad}{\nabla}
+\newcommand{\lapl}{\nabla^2}
+
+\begin{document}
+	\section{Teoria}
+		\subsection{Equazioni di Maxwell}
+			Le equazioni di Maxwell per l'elettrodinamica sono le seguenti:
+			\begin{align}\displaystyle
+				\div E &= 4\pi \rho \label{eq:MaxGauss}\\ 
+				\div B &= 0 \label{eq:MaxMonopole} \\
+				\rot E &= -\frac1c \diffp Bt \label{eq:MaxFaraday}\\
+				\rot B &= \dfrac1c \diffp Et + \dfrac{4\pi}c \vec J \label{eq:MaxAmpere}
+			\end{align}
+			
+		\subsection{Potenziali}
+			Possiamo definire un potenziale vettore $\vec A$ tale che
+			\begin{equation}\label{eq:DefVecPot}
+			 \rot A = B
+			\end{equation}
+
+			Prendo il rotore di \ref{eq:DefVecPot} e sostituisco nella \ref{eq:MaxAmpere} ottenendo
+			\begin{equation}
+				\rot (\rot A) = \grad(\div \vec A) - \lapl \vec A = 
+			\end{equation}
+
+\end{document}
