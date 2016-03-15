@@ -1,30 +1,78 @@
 \documentclass[a4paper,10pt,oneside]{math_article}
-
-\newcommand{\rot}{\nabla \times}
-\renewcommand{\div}{\nabla \cdot}
-\newcommand{\grad}{\nabla}
-\newcommand{\lapl}{\nabla^2}
+\usepackage{bm}
+\newcommand{\rot}{\vec{\nabla} \times}
+\renewcommand{\div}{\vec{\nabla} \cdot}
+\newcommand{\grad}{\vec{\nabla}}
+\newcommand{\lapl}{{\nabla}^2}
 
 \begin{document}
 	\section{Teoria}
+	\subsection{Densità e correnti}
+	La densità di carica $\rho(t,\vec r)$, è {\it l' unica} funzione scalare tale che, per ogni scelta di un volume chiuso $V$ si abbia:
+	$$
+	\int_V  \rho(t,\vec{r}\ ') d^3r'=\mbox{carica netta contenuta dentro $V$ al tempo $t$}
+	$$
+	La definzione di $\vec J(t,\vec r)$ è simile: è {\it l' unico} campo vettoriale tale che, per ogni scelta di superficie $S$, orientata da un versore normale $\hat \nu(\vec r)$, con bordo $\partial S$, si abbia:
+	$$
+	\int_S \vec J(t,\vec{r}\ ')\cdot \hat\nu(\vec{r}\ ')=\mbox{corrente concatenata a $\partial S$ al tempo $t$}
+	$$
+	naturalmente tutte le quantità nell' ultima formula devono essere prese con orientazione destrorsa coerente.\\
+	Dalle definzioni ricaviamo le unità di misura di $\rho$ e $\vec J$:
+	$$
+	[\rho]=[Q][L^{-3}]\qquad \qquad [J]=[Q][L^{-2}][T^{-1}]
+	$$
+	Naturalmente possiamo "concentrare" le nostre distribuzioni di sorgenti su insiemi bidimensionali o monodimensionali, aiutandoci con delle Delte. Ad esempio una densità lineare lungo $\hat z$ si può scrivere formalmente come (per quanto sia tipicamente inutile):
+	$$
+	\rho(x,y,z)=\delta(x)\delta(y)\lambda
+	$$
+	con $\lambda$ che ha dimensioni $[Q][L^{-1}]$ e le delta hanno dimensioni $[L^{-1}]$.\\
+	Oppure una distribuzione di corrente uniforme sul piano $x=0$ si scrive come:
+	$$
+	\vec J(x,y,z)=\delta(x)\vec\chi
+	$$
+	con ovvie dimensioni.\\
+	Tra $\rho$ e $J$ intercorre una fondamentale relazione di continuità che si esprime nella formula:
+	$$
+	\diffp \rho t +\div \vec J=0\label{eq:continuita}
+	$$
+	nel formalismo relativistico si ha che la seguente quantità è un quadrivettore:
+	$$
+	j^\mu=\left(c\rho,\vec J\right)
+	$$
+	e l' equazione di continuità si scrive compattamente come:
+	$$
+	\partial_\mu j^\mu=0
+	$$
+	Supponiamo ora $S$ superficie orientata da $\hat\nu$ e supponiamo di avere dei campi interni ed esterni. Fissato un punto $p$ della superficie operiamo una misura dei campi in quel punto prima avvicinandoci dall' interno e poi dall esterno, misureremo quattro vettori:
+	$$
+	E^{in}\qquad B^{in}\qquad E^{out}\qquad B^{out}
+	$$
+	tra di essi intercorrono delle relazioni ben precise che ci dicono, fra l' altro, se ci sono e quanto valgono eventuali correnti, cariche superficiali nel punto $p$:
+	$$
+	E^{in}_\parallel=E^{out}_\parallel\qquad E^{out}_\nu-E^{in}_\nu=4\pi \sigma
+	$$
+	$$
+	B^{out}_\parallel-B^{in}_\parallel=\frac{4\pi}{c}\vec\chi\qquad B^{out}_\nu=B^{in}_\nu
+	$$
+	dove le componenti parallele sono parallele al tangente ad S in $p$, e quelle marcate con $\nu$ sono quelle lungo la normale.
 		\subsection{Equazioni di Maxwell}
 			Le equazioni di Maxwell per l'elettrodinamica sono le seguenti:
 			\begin{align}\displaystyle
-				\div E &= 4\pi \rho \label{eq:MaxGauss}\\ 
-				\div B &= 0 \label{eq:MaxMonopole} \\
-				\rot E &= -\frac1c \diffp Bt \label{eq:MaxFaraday}\\
-				\rot B &= \dfrac1c \diffp Et + \dfrac{4\pi}c \vec J \label{eq:MaxAmpere}
+				\div \vec E &= 4\pi \rho \label{eq:MaxGauss}\\ 
+				\div \vec B &= 0 \label{eq:MaxMonopole} \\
+				\rot \vec E &= -\frac1c \diffp \vec{B}t \label{eq:MaxFaraday}\\
+				\rot \vec B &= \dfrac1c \diffp \vec{E}t + \dfrac{4\pi}c \vec J \label{eq:MaxAmpere}
 			\end{align}
-			
+			Da osservare che gli operatori differenziali col $\vec \nabla$ agiscono solo sulle coordinate spaziali.
 		\subsection{Potenziali}
 			Possiamo definire un potenziale vettore $\vec A$ tale che
 			\begin{equation}\label{eq:DefVecPot}
-			 \rot A = B
+			 \rot \vec A = \vec B
 			\end{equation}
 
 			Prendo il rotore di \ref{eq:DefVecPot} e sostituisco nella \ref{eq:MaxAmpere} ottenendo
 			\begin{equation}
-				\rot (\rot A) = \grad(\div \vec A) - \lapl \vec A = 
+				\rot (\rot \vec A) = \grad(\div \vec A) - \lapl \vec A = 
 				%%TODO
 			\end{equation}
 			
