@@ -16,12 +16,12 @@
 	\[
 		\int_S \vec J(t,\vec{r}\ ')\cdot \hat\nu(\vec{r}\ ')=\mbox{corrente concatenata a $\partial S$ al tempo $t$}
 	\]
-	naturalmente tutte le quantità nell' ultima formula devono essere prese con orientazione destrorsa coerente.\\
+	naturalmente tutte le quantità nell'ultima formula devono essere prese con orientazione destrorsa coerente.\\
 	Dalle definzioni ricaviamo le unità di misura di $\rho$ e $\vec J$:
 	\[
 		[\rho]=[Q][L^{-3}]\qquad \qquad [J]=[Q][L^{-2}][T^{-1}]
 	\]
-	Naturalmente possiamo "concentrare" le nostre distribuzioni di sorgenti su insiemi bidimensionali o monodimensionali, aiutandoci con delle Delte. Ad esempio una densità lineare lungo $\hat z$ si può scrivere formalmente come (per quanto sia tipicamente inutile):
+	Naturalmente possiamo ``concentrare'' le nostre distribuzioni di sorgenti su insiemi bidimensionali o monodimensionali, aiutandoci con delle Delte. Ad esempio una densità lineare lungo $\hat z$ si può scrivere formalmente come (per quanto sia tipicamente inutile):
 	\[
 		\rho(x,y,z)=\delta(x)\delta(y)\lambda
 	\]
@@ -32,14 +32,15 @@
 	\]
 	con ovvie dimensioni.\\
 	Tra $\rho$ e $J$ intercorre una fondamentale relazione di continuità che si esprime nella formula:
-	\[
+	\begin{equation}
 		\diffp \rho t +\div \vec J=0\label{eq:continuita}
-	\]
-	nel formalismo relativistico si ha che la seguente quantità è un quadrivettore:
+	\end{equation}
+	
+	Nel formalismo relativistico si ha che la seguente quantità è un quadrivettore:
 	\[
 		j^\mu=\left(c\rho,\vec J\right)
 	\]
-	e l' equazione di continuità si scrive compattamente come:
+	e l'equazione di continuità si scrive compattamente come:
 	\[
 		\partial_\mu j^\mu=0
 	\]
@@ -92,6 +93,12 @@
 			%TODO Serivirà aggiungere come si ricava%
 
 			Quindi $\vec E$ e $\vec B$ sono proporzionali a $\sin \theta$; $\vec E$ è diretto lungo $\hat \theta$, $\vec B$ è diretto lungo $\hat \phi$, quindi il vettore di Poynting è diretto lungo $\hat n$.
+			
+			Inoltre, se siamo interessati alla distribuzione angolare della potenza irradiata, vale
+			\[
+			 \de P = \frac c{8\pi} d^2k^4\sin^2\theta  \de\Omega
+			\]
+
 			
 		\subsection{Quantità di moto}
 			Consideriamo una superficie $S$ che racchiude un volume $V$, in cui ho cariche e correnti. I campi esercitano quindi delle forze, che possono produrre quantità di moto. Per scrivere la conservazione della quantità di moto, possiamo provare ad associare una quantità di moto ai campi.
