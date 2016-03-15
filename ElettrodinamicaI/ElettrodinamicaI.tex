@@ -45,7 +45,25 @@
 
 			Quindi $\vec E$ e $\vec B$ sono proporzionali a $\sin \theta$; $\vec E$ è diretto lungo $\hat \theta$, $\vec B$ è diretto lungo $\hat \phi$, quindi il vettore di Poynting è diretto lungo $\hat n$.
 			
+		\subsection{Quantità di moto}
+			Consideriamo una superficie $S$ che racchiude un volume $V$, in cui ho cariche e correnti. I campi esercitano quindi delle forze, che possono produrre quantità di moto. Per scrivere la conservazione della quantità di moto, possiamo provare ad associare una quantità di moto ai campi.
 			
+			Da $\diff {\vec P}t = \vec F$  dopo un po' di conti si ottiene 
+			\begin{equation}
+					\diff {\vec P}t + \frac1{4\pi c}\diff{}t \int_V (\vec E \wedge \vec B) \de\vec r = \int_S T_{ij}n_j \de S
+			\end{equation}
+			dove $T_{ij}$ è il tensore degli sforzi di Maxwell, dato da 
+			\begin{equation}
+				T_{ij} = \frac1{4\pi} \left(E_iE_j+B_iB_j - \frac12 (E^2 + B^2) \delta_{ij}\right)
+			\end{equation}
+			
+			Possiamo quindi associare una quantità di moto per unità di volume data da 
+			\begin{equation}
+				\vec g = \frac1{4	\pi c} \vec E \wedge \vec B.
+			\end{equation}
+			
+			Notiamo inoltre che $\vec S = c^2 \vec g$.			
+
 		
 
 \end{document}

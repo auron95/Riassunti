@@ -177,6 +177,7 @@
 \newcommand{\sY}{\mathscr Y}
 \newcommand{\sZ}{\mathscr Z}
 
+\newcommand{\de}{\, \textrm{d}}
 \newcommand{\sse}{\Leftrightarrow}
 \newcommand{\Rar}{\Rightarrow}
 \newcommand{\rar}{\rightarrow}
