@@ -25,6 +25,27 @@
 			Prendo il rotore di \ref{eq:DefVecPot} e sostituisco nella \ref{eq:MaxAmpere} ottenendo
 			\begin{equation}
 				\rot (\rot A) = \grad(\div \vec A) - \lapl \vec A = 
+				%%TODO
 			\end{equation}
+			
+		\subsection{Irraggiamento di un dipolo}
+			Consideriamo un sistema di sorgenti localizzate (con scala $a$) monocromatiche, ossia la loro dipendenza dal tempo è periodica con frequenza $\omega$. Sia $\lambda=\frac{2\pi c}{\omega}$ la lunghezza d'onda.
+			Supponiamo quindi che $\rho(\vec x, t) = \rho(x)e^{i\omega t}$, e sia $\vec d= \int \rho(x')\vec x' dx'^3$. Calcoliamo i campi in un punto $\vec R = R\cdot \hat n$.
+			
+			In \emph{zona d'onda}, ossia dove $R >> a$, $R >> \lambda$, vale la seguente formula a patto che valga anche $\lambda >> a$:
+			\begin{equation}
+				\begin{cases}
+					\vec B = \frac{k^2}{R} e^{ikR} (\hat n \wedge \vec d)\\
+					\vec E = \vec B \wedge \hat n
+				\end{cases}
+			\end{equation}
+			
+			Potrebbero esserci problemi di segno.
+			%TODO Serivirà aggiungere come si ricava%
+
+			Quindi $\vec E$ e $\vec B$ sono proporzionali a $\sin \theta$; $\vec E$ è diretto lungo $\hat \theta$, $\vec B$ è diretto lungo $\hat \phi$, quindi il vettore di Poynting è diretto lungo $\hat n$.
+			
+			
+		
 
 \end{document}
