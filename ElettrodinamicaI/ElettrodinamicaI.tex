@@ -2,6 +2,7 @@
 \usepackage{bm}
 \newcommand{\rot}{\vec{\nabla} \times}
 \renewcommand{\div}{\vec{\nabla} \cdot}
+\renewcommand{\phi}{\varphi }
 \newcommand{\grad}{\vec{\nabla}}
 \newcommand{\lapl}{{\nabla}^2}
 
@@ -98,6 +99,16 @@
 			\[
 			 \de P = \frac c{8\pi} d^2k^4\sin^2\theta  \de\Omega
 			\]
+		\subsection{Energia elettromagnetica}
+			Si può associare un'energia $u$ ai campi in modo che si conservi l'energia del sistema. Dobbiamo porre
+			\begin{equation}
+				u = \frac {E^2+B^2}{8\pi}
+			\end{equation}
+			La variazione dell'energia all'interno di un volumetto è data dal flusso del \emph{vettore di Poynting} dato da 
+			\begin{equation}
+				\vec S=\frac{c}{4\pi} \vec E \wedge \vec B
+			\end{equation}
+
 
 			
 		\subsection{Quantità di moto}
@@ -119,6 +130,18 @@
 			
 			Notiamo inoltre che $\vec S = c^2 \vec g$.			
 
-		
+		\subsection{Circuiti}
+			La caduta di potenziale associata agli elementi di un circuito è:
+			\begin{itemize}
+			 \item Resistenza: $V=RI$
+			 \item Condensatore: $V=\dfrac QC$
+			 \item Induttore: $V=L\diff It$
+			\end{itemize}
+			
+			Dove $L$ di un solenoide è proporzionale a $\dfrac{n^2S}{l}$, con $n$ numero di spire per unità di lunghezza, l è la lunghezza del solenoide e $S$ la sua sezione. (Controllare che la formula sia vera)
+			
+			Inoltre l'enegia immagazzinata in un induttore vale $U_L=\dfrac12 LI^2$, mentre in un condensatore è $U_C=\dfrac12 \dfrac{Q^2}C$. La potenza dissipata dalle resistenze vale $P=RI^2$. 
+
+
 
 \end{document}
