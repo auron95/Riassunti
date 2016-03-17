@@ -5,6 +5,7 @@
 \renewcommand{\phi}{\varphi }
 \newcommand{\grad}{\vec{\nabla}}
 \newcommand{\lapl}{{\nabla}^2}
+\newcommand{\dalamb}{\square}
 
 \begin{document}
 	\section{Teoria}
@@ -158,36 +159,58 @@
 			Inoltre l'enegia immagazzinata in un induttore vale $U_L=\dfrac12 LI^2$, mentre in un condensatore è $U_C=\dfrac12 \dfrac{Q^2}C$. La potenza dissipata dalle resistenze vale $P=RI^2$. 
 
 		\subsection{Relatività}
-			Alzamento e abbassamento di indici:
+					
+			Le trasformazioni di Lorentz sono matrici $\Lambda_\mu^\nu$ tali che, detto $g_{\mu\nu}$ il tensore diagonale solito (spiegare meglio) vale
+			\[
+				\Lambda^\mu_\alpha \Lambda^\nu_\beta g_{\mu\nu} = g_{\alpha\beta}
+			\]
+			
+			Possiamo alzare e abbassare gli indici nel seguente modo:
 			\[
 				X^\mu=\left(ct,\vec r\ \right)\qquad \Longleftrightarrow\qquad X_\mu=\left(ct,-\vec r\ \right)
 			\]
-			Quadrigradiente:
+			che equivale a dire che $X_\mu=g_{\nu\mu}X^\nu$.
+						
+			Dato un qualsiasi quadrivettore controvariante (indice in alto) $X^\mu$, si trasforma come $X'^\nu= \Lambda_\mu^\nu X^\mu$.
+			%Se invece ha l'indice in basso? (Non mi è chiarissimo come scriverlo in forma tensoriale)
+			
+			
+			Il quadrigradiente si scrive come:
 			\[
 				\partial_\mu =\left(\frac{\partial}{c\, \partial t}\ ,\ \grad\right)
 			\]
 			\begin{Achtung}
 					Il quadrigradiente ha l'indice in basso.		
 			\end{Achtung}
-			Tempo proprio:
-			\begin{equation}
-				\gamma\, \de \tau=\de t
-			\end{equation}						
-			Quadrivelocità:
-			\begin{equation}
-				u^\mu = \diff{x^\mu}\tau = \gamma(c, \vec v)
-			\end{equation}
-
-			Quadriaccelerazione:
-			\begin{equation}
-				a^\mu = \gamma^2\left( \frac{\gamma^2}c \vec v \cdot \vec a, \frac{\gamma^2\vec v \cdot \vec a}{c^2} \vec v + \vec a\right)
-			\end{equation}
-						
-			Quadrimpulso:
-			\begin{equation}
-				P^\mu = mu^\mu = (mc\gamma, \vec P)
-			\end{equation}
-			dove $\vec P = m\gamma \vec v$ è l'impulso relativistico.
+			
+			Quindi se scrivo $\partial_\mu X^\mu = \dfrac1c \diffp {X^0}t + \div \vec x$ è la \emph{quadridivergenza}.
+			
+			Inoltre 
+			\[
+				\partial_\mu\partial^\mu = \left(\frac1{c^2}\diffp[2]{}{t}, -\lapl \right) 
+			\]
+			è il d'Alambertiano, si indica con $\dalamb$ ed è invariante (``non ha indici liberi'').
+			
+			Definiamo ora:
+			\begin{itemize}
+				\item Tempo proprio:
+					\begin{equation}
+						\gamma\, \de \tau=\de t
+					\end{equation}
+				\item Quadrivelocità:
+					\begin{equation}
+						u^\mu = \diff{x^\mu}\tau = \gamma(c, \vec v)
+					\end{equation}
+				\item Quadriaccelerazione:
+					\begin{equation}
+						a^\mu = \gamma^2\left( \frac{\gamma^2}c \vec v \cdot \vec a, \frac{\gamma^2\vec v \cdot \vec a}{c^2} \vec v + \vec a\right)
+					\end{equation}
+				\item Quadrimpulso:
+					\begin{equation}
+						P^\mu = mu^\mu = (mc\gamma, \vec P)
+					\end{equation}
+					dove $\vec P = m\gamma \vec v$ è l'impulso relativistico.	
+			\end{itemize}
 			
 			Possiamo anche scrivere il quadrimpulso come $P^\mu = (\frac Ec, \vec P)$ con $E=m\gamma c^2$ un energia.\\
 			Un importante invariante è:
@@ -200,7 +223,55 @@
 				P^\mu=\left(\frac{\hbar \omega}{c},\frac{\hbar \omega}{c}\hat k\right)
 			\]
 			dove $\omega$ è la frequenza del fotone e $\hat k$ il versore della sua direzione di propagazione.
-			In un certo senso se abbiamo un' onda piana standard essa si può pensare come tanti fotoni che viaggiano, e l'$\omega$ dei fotoni coincide con l'$\omega$ dell' onda, così some il $\hat k$. L' ampiezza dell' onda ha invece a che fare con ''quanti" fotoni ci sono per unità di volume.
+			In un certo senso se abbiamo un'onda piana standard essa si può pensare come tanti fotoni che viaggiano, e l'$\omega$ dei fotoni coincide con l'$\omega$ dell' onda, così some il $\hat k$. L'ampiezza dell'onda ha invece a che fare con ``quanti'' fotoni ci sono per unità di volume.
+			
+			\subsection{Elettrodinamica covariante}
+				La carica elettrica è un invariante di Lorentz.
+				
+				La quadricorrente si indica con $J^\mu$ e vale $(c\rho,\vec J)$. Inoltre possiamo scrivere il quadripotenziale come $A^\mu= (V,\vec A)$
+				
+				Ora scriviamo un po' di equazioni utili in forma covariante:
+				\begin{itemize}
+					\item Equazione di continuità:
+						\[
+							\diffp \rho t + \div J = 0 \quad\Longrightarrow\quad \partial_\mu J^\mu = 0
+						\]
+					\item Equazioni di Maxwell sui potenziali:
+						\[
+							\dalamb A^\mu = 0
+						\]
+						posto che valga la gauge di Lorenz, data da $\partial_\mu A^\mu =0$.
+				\end{itemize}
+				
+				Vogliamo ora indagare come variano i campi. Definiamo quindi il seguente tensore:
+				\[
+					F^{\mu\nu} = \partial^\mu A^\nu - \partial^\nu A^\mu
+				\]
+				Facendo il conto si scopre che 
+				\[
+					F^{\mu\nu} = \left(
+					\begin{array}{c|ccc}
+						0		&	-E_x	& -E_y	& -E_z \\
+						\hline 
+						E_x	&		0		& -B_z	&  B_y \\
+						E_y &  B_z	& 	0		&	-B_x \\
+						E_z & -B_y	&  B_x 	& 	0
+					\end{array}
+					\right)
+				\]
+				
+				Quindi sapendo come si trasforma $F$ so anche come si trasformano $\vec E$ e $\vec B$. Per un boost lungo $x$ vale 
+				\[
+				 \begin{array}{cc}
+					E_x \rar E_x												& B_x \rar B_x											\\
+					E_y \rar \gamma (E_y - \beta B_z) 	& B_y \rar \gamma (B_y + \beta E_z) \\
+					E_z \rar \gamma (E_z + \beta B_y) 	& B_z \rar \gamma (B_z - \beta E_x)
+				 \end{array}
+				\]
+
+
+
+
 
 
 
