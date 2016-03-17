@@ -99,14 +99,17 @@
 			\[
 			 \de P = \frac c{8\pi} d^2k^4\sin^2\theta  \de\Omega
 			\]
-		\subsection{Formula di Larmor} Una carica $q$ con accelerazione $\vec a$ (e velocità non relativistica) emette nella direzione $\hat n$ una potenza per unità di angolo solido pari a:
-		\[
-		\de P=\frac{q^2}{4\pi c^3}a^2\sin^2 \theta
-		\]
-		dove $\theta$ è l' angolo tra $\hat n$ ed $\vec a$. Con un' integrazione si ottiene che la potenza totale emessa è:
-		\[
-		P=\frac{2}{3}\frac{q^2}{c^3} a^2
-		\]
+		\subsection{Formula di Larmor} 
+			Una carica $q$ con accelerazione $\vec a$ (e velocità non relativistica) emette nella direzione $\hat n$ una potenza per unità di angolo solido pari a:
+			\[
+				\de P=\frac{q^2}{4\pi c^3}a^2\sin^2 \theta
+			\]
+			dove $\theta$ è l'angolo tra $\hat n$ ed $\vec a$. Con un' integrazione si ottiene che la potenza totale emessa è:
+			\[
+				P=\frac{2}{3}\frac{q^2}{c^3} a^2
+			\]
+			
+			Da notare che dalla formula di Larmor si può ricavare quella del dipolo imponendo $\vec a = - \omega^2 \vec r$ (compare un fattore $\frac12$ dato dalla media temporale del $\cos^2(\omega t)$.
 		\subsection{Energia elettromagnetica}
 			Si può associare un'energia $u$ ai campi in modo che si conservi l'energia del sistema. Dobbiamo porre
 			\begin{equation}
@@ -163,7 +166,9 @@
 			\[
 				\partial_\mu =\left(\frac{\partial}{c\, \partial t}\ ,\ \grad\right)
 			\]
-			Attenzione!!!: Ha l' indice in basso.\\			
+			\begin{Achtung}
+					Il quadrigradiente ha l'indice in basso.		
+			\end{Achtung}
 			Tempo proprio:
 			\begin{equation}
 				\gamma\, \de \tau=\de t
@@ -192,7 +197,7 @@
 			Una particella ha {\it massa nulla} se e solo se viaggia alla velocità della luce se e solo se la quadrinorma del suo quadrimpulso è identicamente nulla.\\
 			Un caso particolare di particelle a massa nulla sono i fotoni; il loro quadrimpulso è:
 			\[	
-				P^\mu=\left(\frac{\hslash \omega}{c},\frac{\hslash \omega}{c}\hat k\right)
+				P^\mu=\left(\frac{\hbar \omega}{c},\frac{\hbar \omega}{c}\hat k\right)
 			\]
 			dove $\omega$ è la frequenza del fotone e $\hat k$ il versore della sua direzione di propagazione.
 			In un certo senso se abbiamo un' onda piana standard essa si può pensare come tanti fotoni che viaggiano, e l'$\omega$ dei fotoni coincide con l'$\omega$ dell' onda, così some il $\hat k$. L' ampiezza dell' onda ha invece a che fare con ''quanti" fotoni ci sono per unità di volume.
