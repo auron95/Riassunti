@@ -232,6 +232,7 @@
 \newtheorem{myex}{Esercizio}
 \newtheorem{mycor}[mytheorem]{Corollario}
 \newtheorem{myexample}[mytheorem]{Esempio}
+\newtheorem*{sol}{Soluzione}
 
 \theoremstyle{dotless}
 \newtheorem*{Achtung}{Achtung!\texttrademark}

@@ -1,11 +1,39 @@
 \section{Esercizi}
 	\subsection{Campi dentro a una corona cilindrica}
-	Nella regione di spazio $a^2 < x^2 + y^2 < 9 a^2$, infinitamente estesa lungo $\hat z$, priva di cariche e correnti, è presente il seguente campo elettrico:
-	\[
-		\vec E(x,y,z,t)=\frac{x\hat x+y\hat y}{x^2+y^2}E_0ae^{i(kz-\omega t)}
-	\]
+		Nella regione di spazio $a^2 < x^2 + y^2 < 9 a^2$, infinitamente estesa lungo $\hat z$, priva di cariche e correnti, è presente il seguente campo elettrico:
+		\[
+			\vec E(x,y,z,t)=\frac{x\hat x+y\hat y}{x^2+y^2}E_0ae^{i(kz-\omega t)}
+		\]
+		
+		Si determini il campo magnetico ad esso associato e la relazione che lega $k$ e $\omega$. Sapendo che nelle
+		regioni $a^2 > x^2 + y^2$ e $x^2 + y^2 > 9 a^2$ non vi sono sorgenti né campi, si determinino correnti e/o
+		cariche superficiali presenti sulle superfici $x^2 + y^2 = a^2$ e $x^2 + y^2 = 9 a^2$. Si determini la media
+		temporale della forza per unità di area esercitata dai campi su tali superfici.
+
+	\subsection{Ruota collegata ad un circuito}
+		Come non mostrato in figura, una ruota costituita da numerosi raggi conduttori può ruotare in modo tale che una spazzola mantenga sempre il contatto elettrico con un solo raggio alla volta. In presenza di un campo magnetico esterno $\vec B$ costante ed uniforme, diretto lungo l'asse della ruota, si chiude il circuito che collega la ruota in serie ad un induttanza $L$ e ad una pila di voltaggio $V$. La ruota, inizialmente ferma, ha raggio $R$ e momento d'inerzia $K$. Trascurando resistenze meccaniche ed elettriche, si calcolino in funzione del tempo la corrente nel circuito e la velocità angolare della ruota. Si discuta il bilancio energetico del sistema.
+		
+		\begin{sol}
+		 Qui la soluzione.
+		\end{sol}
 	
-	Si determini il campo magnetico ad esso associato e la relazione che lega $k$ e $\omega$. Sapendo che nelle
-	regioni $a^2 > x^2 + y^2$ e $x^2 + y^2 > 9 a^2$ non vi sono sorgenti né campi, si determinino correnti e/o
-	cariche superficiali presenti sulle superfici $x^2 + y^2 = a^2$ e $x^2 + y^2 = 9 a^2$. Si determini la media
-	temporale della forza per unità di area esercitata dai campi su tali superfici.
+	\subsection{Campo magnetico iperbolico}
+		Nella regione $\abs z<a$ priva di cariche e correnti è presente il seguente campo magnetico rapidamente variabile:
+		\[
+		 \vec B = (0,B_0,0) \cosh(\kappa z)e^{i(qz-\omega t)}
+		\]
+		Si determinino il campo elettrico $\vec E$ associato a $\vec B$ e la relazione che lega le grandezze reali $\kappa, q$ e $\omega$. Si calcolino la media temporale del vettore di Poynting in questa striscia e la media temporale della pressione esercitata dai campi sulla superficie $z=a$.
+		
+	\subsection{Un dipolo lineare e uno circolare}
+		Si consideri il sistema irraggiante non relativistico dato da una carica $q_1$ in moto non relativistico con legge ${\vec r}_1(t)=(0,0,a\cos(\omega t))$ e da una carica $q_2$ in moto con legge oraria ${\vec r}_2(t)=(l\cos(\omega t),l\sin(\omega t),0)$, con $q_1a=q_2l=d$. Si determinino polarizzazione ed intensità della luce emessa a grande distanza rispettivamente nelle direzioni $\hat x,\hat y,\hat z$.
+	
+	\subsection{Trasformazione di potenziali}
+		Nel sistema di laboratorio sono presenti dei campi elettromagnetici indipendenti dal tempo descritti dai seguenti potenziali elettrodinamici:
+		\[
+		 V(\vec r)= -V_0 \frac{\abs y}l, \qquad \vec A(\vec r)=A_0(0,0,\frac{\abs y}l)
+		\]
+		
+		Si discuta al variare del rapporto $\frac{V_0}{A_0}$ se esiste un sistema di riferimento in cui si annulli il potenziale scalare ovvero il potenziale vettore, e si determini il valore dei potenziali elettrodinamici in tale sistema.
+		
+	\subsection{Decadimento a tre}
+		Una particella instabile di massa $M$ ferma decade in due particelle di massa $m_1$ e $m_2$ ovvero in tre particelle di massa $m_a,m_b$ e $m_c$. Nel primo caso, si dimostri che la cinematica del decadimento non ha gradi di libertà rilevanti (la scelta della direzione lungo la quale si allontanano i due prodotti è irrilevante data l'isotropia dello spazio). Quanti sono invece i gradi di liberta rilevanti per il decadimento a tre corpi? In questo secondo caso, si sospetta tuttavia che il decadimento avvenga in due stadi: prima la particella $M$ decade nella particella di massa $m_a$ e in una di massa $m_x$, quindi quest'ultima decade a sua volta nelle due particelle di massa $m_b$ e $m_c$, ma data la risoluzione spaziale e temporale del rilevatore non è possibile distinguere i due decadimenti successivi perché il tempo di vita della particella $x$ è troppo breve. Misurando solo i quadrivettori energia-impulso dei prodotti finali di massa $m_a,m_b$ e $m_c$, come fareste ad accertare se il decadimento avviene in due stadi con la produzione della particella di massa $m_x$ ovvero direttamente tramite un unico decadimento a tre corpi? 

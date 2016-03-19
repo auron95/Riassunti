@@ -225,56 +225,48 @@
 			dove $\omega$ è la frequenza del fotone e $\hat k$ il versore della sua direzione di propagazione.
 			In un certo senso se abbiamo un'onda piana standard essa si può pensare come tanti fotoni che viaggiano, e l'$\omega$ dei fotoni coincide con l'$\omega$ dell' onda, così some il $\hat k$. L'ampiezza dell'onda ha invece a che fare con ``quanti'' fotoni ci sono per unità di volume.
 			
-			\subsection{Elettrodinamica covariante}
-				La carica elettrica è un invariante di Lorentz.
-				
-				La quadricorrente si indica con $J^\mu$ e vale $(c\rho,\vec J)$. Inoltre possiamo scrivere il quadripotenziale come $A^\mu= (V,\vec A)$
-				
-				Ora scriviamo un po' di equazioni utili in forma covariante:
-				\begin{itemize}
-					\item Equazione di continuità:
-						\[
-							\diffp \rho t + \div J = 0 \quad\Longrightarrow\quad \partial_\mu J^\mu = 0
-						\]
-					\item Equazioni di Maxwell sui potenziali:
-						\[
-							\dalamb A^\mu = 0
-						\]
-						posto che valga la gauge di Lorenz, data da $\partial_\mu A^\mu =0$.
-				\end{itemize}
-				
-				Vogliamo ora indagare come variano i campi. Definiamo quindi il seguente tensore:
-				\[
-					F^{\mu\nu} = \partial^\mu A^\nu - \partial^\nu A^\mu
-				\]
-				Facendo il conto si scopre che 
-				\[
-					F^{\mu\nu} = \left(
-					\begin{array}{c|ccc}
-						0		&	-E_x	& -E_y	& -E_z \\
-						\hline 
-						E_x	&		0		& -B_z	&  B_y \\
-						E_y &  B_z	& 	0		&	-B_x \\
-						E_z & -B_y	&  B_x 	& 	0
-					\end{array}
-					\right)
-				\]
-				
-				Quindi sapendo come si trasforma $F$ so anche come si trasformano $\vec E$ e $\vec B$. Per un boost lungo $x$ vale 
-				\[
-				 \begin{array}{cc}
-					E_x \rar E_x												& B_x \rar B_x											\\
-					E_y \rar \gamma (E_y - \beta B_z) 	& B_y \rar \gamma (B_y + \beta E_z) \\
-					E_z \rar \gamma (E_z + \beta B_y) 	& B_z \rar \gamma (B_z - \beta E_x)
-				 \end{array}
-				\]
-
-
-
-
-
-
-
-
+		\subsection{Elettrodinamica covariante}
+			La carica elettrica è un invariante di Lorentz.
+			
+			La quadricorrente si indica con $J^\mu$ e vale $(c\rho,\vec J)$. Inoltre possiamo scrivere il quadripotenziale come $A^\mu= (V,\vec A)$
+			
+			Ora scriviamo un po' di equazioni utili in forma covariante:
+			\begin{itemize}
+				\item Equazione di continuità:
+					\[
+						\diffp \rho t + \div J = 0 \quad\Longrightarrow\quad \partial_\mu J^\mu = 0
+					\]
+				\item Equazioni di Maxwell sui potenziali:
+					\[
+						\dalamb A^\mu = 0
+					\]
+					posto che valga la gauge di Lorenz, data da $\partial_\mu A^\mu =0$.
+			\end{itemize}
+			
+			Vogliamo ora indagare come variano i campi. Definiamo quindi il seguente tensore:
+			\[
+				F^{\mu\nu} = \partial^\mu A^\nu - \partial^\nu A^\mu
+			\]
+			Facendo il conto si scopre che 
+			\[
+				F^{\mu\nu} = \left(
+				\begin{array}{c|ccc}
+					0		&	-E_x	& -E_y	& -E_z \\
+					\hline 
+					E_x	&		0		& -B_z	&  B_y \\
+					E_y &  B_z	& 	0		&	-B_x \\
+					E_z & -B_y	&  B_x 	& 	0
+				\end{array}
+				\right)
+			\]
+			
+			Quindi sapendo come si trasforma $F$ so anche come si trasformano $\vec E$ e $\vec B$. Per un boost lungo $x$ vale 
+			\[
+			 \begin{array}{cc}
+				E_x \rar E_x												& B_x \rar B_x											\\
+				E_y \rar \gamma (E_y - \beta B_z) 	& B_y \rar \gamma (B_y + \beta E_z) \\
+				E_z \rar \gamma (E_z + \beta B_y) 	& B_z \rar \gamma (B_z - \beta E_x)
+			 \end{array}
+			\]
 	\input{Esercizi.tex}
 \end{document}
