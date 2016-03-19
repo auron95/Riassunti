@@ -1,5 +1,8 @@
 \documentclass[a4paper,10pt,oneside]{math_article}
 
+\usepackage[nohug,small]{diagrams}
+
+
 \newcommand{\Cyc}{\mathbb Z}
 \renewcommand{\phi}{\varphi}
 %\renewcommand{\Phi}{\varPhi}
@@ -12,7 +15,9 @@
 
 
 \newcommand{\Reg}{\cR}
+\DeclareMathOperator{\BReg}{Reg}
 \DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Res}{Res}
 \DeclareMathOperator{\std}{std}
 
 \let\conj\overline
@@ -39,64 +44,13 @@
  \input{4-Tabelle.tex}
  \input{5-Potenze.tex}
  \input{6-Gruppi.tex}
+ \input{7-Matriciali.tex}
  \input{7-RapprReali.tex}
+ \input{8-Compatti.tex}
 
-  \section{Coefficienti matriciali}
-    \begin{mydef}
-     Sia $\rho$ una rappresentazione di $G$ su $V_\rho$. Sia $\mathcal B$ una base di $V_\rho$, e sia $[\rho_g]$ la matrice associata a $\rho_g$ in base $\cB$.
-     
-     Si dice \myname{coefficiente matriciale} di posto $i,j$ l'applicazione da $G$ in $\mathbb C$ che associa a un elemento del gruppo la componente $[\rho_g]_i^j$.
-     
-     Lo spazio generato da queste funzioni si dice \myname{spazio dei coefficienti matriciali} e si indica con $\mathcal M(\rho)$.
-    \end{mydef}
-    
-    Per come sono definiti, lo spazio dei coefficienti matriciali dipende dalla base, ma vedremo che in realtà non è così.
-    
-    Sia ora $\rho$ una rappresentazione su $V$, e consideriamo lo spazio degli endomorfismi da $V$ in $V$. Su di esso sappiamo che possiamo far agire $G$ come abbiamo fatto sugli omomorfismi, ossia moltiplicando per $g\inv$ sullo spazio di partenza e per $g$ in quello di arrivo. Possiamo più in generale far agire $G\times G$ nel seguente modo:
-    \[
-     \tau_{(g,h)} (\phi) = \rho_g \circ \phi \circ \rho_h\inv
-    \]
-		Cioè moltiplico per $h\inv$ in partenza e per $g$ in arrivo. \`E un caso particolare del prodotto tensore tra rappresentazioni (definizione \ref{def:TensProdRepr}).
 		
-		Definiamo l'applicazione $\mu: \End \rar \func G$ che manda un endomorfismo $\xi$ nella mappa $g\mapsto \Tr(\xi\circ\rho_g)$.
-
-		Chi è l'immagine? Scrivendo in base ottengo che sono gli elementi della forma
-		\[
-			\sum_{i,j} [C]_i^j[\rho_g]_j^i
-		\]
-		che non sono nient'altro che le combinazioni lineari dei $[\rho_g]_i^j$, cioè $\cM(\rho)$. Quindi $\mu$ è un omomorfismo suriettivo tra $\End(V)$ e $\cM(\rho)$.
 		
-		Dato che su $\End (V)$ abbiamo messo una rappresentazione di $G\times G$, ne mettiamo una anche su $\func G$ definita da 
-		\[
-		 (h_1,h_2) \cdot f= \left( g \mapsto f(h_2\inv g h_1)\right)
-		\]
-		\begin{myprop}
-			$\mu$ è un omomorfismo di rappresentazioni tra $\End (V)$ e $M(\rho)$.		 
-		\end{myprop}
-
-		\begin{proof}
-		 Applico la definizione e ottengo
-		 \begin{eqnarray*}
-		  (h_1,h_2)\cdot \mu (\xi) = \Tr(\xi \circ \rho_{h_2gh_1\inv})\\
-		  \mu((h_1,h_2)\cdot \xi) = \Tr(\rho_{h_1} \circ \xi \circ \rho_{h_2}\circ \rho_g)
-		 \end{eqnarray*}
-		 E ora basta usare che $\Tr(AB)=\Tr(BA)$ per concludere l'uguaglianza.
-
-		\end{proof}
-		
-		\begin{mycor}
-		 Supponiamo che $\rho$ sia irriducibile. Allora $\mu$ è un isomorfismo tra $\End(V)$ e $\cM(\rho)$. 
-		\end{mycor}
-		\begin{proof}
-		 Sappiamo che $\End (V_\rho)$ è il prodotto tensoriale di due rappresentazioni irriducibili, e quindi è irriducibile. Quindi per un lemma di Schur indebolito $\mu$ deve essere iniettiva (dato che non può essere nulla perché è anche suriettiva).
-		\end{proof}
-		
-		A questo punto sappiamo che, come $\bC[G]$-moduli, vale
-		
-		%FINIRE
-		
-
-
+	
 
 		
   
