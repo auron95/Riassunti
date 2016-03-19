@@ -1,0 +1,108 @@
+\section{Coefficienti matriciali}
+	\begin{mydef}
+		Sia $\rho$ una rappresentazione di $G$ su $V_\rho$. Sia $\mathcal B$ una base di $V_\rho$, e sia $[\rho_g]$ la matrice associata a $\rho_g$ in base $\cB$.
+		
+		Si dice \myname{coefficiente matriciale} di posto $i,j$ l'applicazione da $G$ in $\mathbb C$ che associa a un elemento del gruppo la componente $[\rho_g]_i^j$.
+		
+		Lo spazio generato da queste funzioni si dice \myname{spazio dei coefficienti matriciali} e si indica con $\mathcal M(\rho)$.
+	\end{mydef}
+	
+	Per come sono definiti, lo spazio dei coefficienti matriciali dipende dalla base, ma vedremo che in realtà non è così.
+	
+	Innanzitutto $\cM(\rho) \subseteq \func G$, quindi potremmo farci agire $G$ come per la rappresentazione regolare. Quello che invece faremo sarà usare una rappresentazione di $G\times G$:
+	
+	\begin{mydef}
+		Si dice rappresentazione regolare \emph{bilatera} di $G$ la rappresentazione di $G \times G$ su $\func G$ data da
+		\[
+			\BReg_{(h_1,h_2)}f = g \mapsto f(h_2\inv g h_1)
+		\]
+		
+		Alternativamente, se pensassimo $\func G$ come $\bC[G]$, scriveremmo
+		\[
+			(h_1,h_2)\cdot g = h_2gh_1\inv
+		\]
+
+	\end{mydef}
+	Per convincersi che bisogna definirla così basta prendere $f\in\func G$ che vale $1$ applicata a $g$ e $0$ altrove, applicare $(h_1,h_2)$, e scoprire che ho ottenuto una funzione che vale $1$ solo in $h_2gh_1\inv$.
+	
+	Quindi, sappiamo che $cM(\rho)$ è un sottospazio di $\func G$: sarà anche $G\times G$-invariante (ossia una sottorappresentazione)? La risposta sarà sì, e lo dimostreremo tra poco
+
+	Sia ora $\rho$ una rappresentazione su $V$, e consideriamo lo spazio degli endomorfismi da $V$ in $V$. Su di esso sappiamo che possiamo far agire $G$ come abbiamo fatto sugli omomorfismi, ossia moltiplicando per $g\inv$ sullo spazio di partenza e per $g$ in quello di arrivo. Tuttavia anche qui ci facciamo agire $G\times G$ e otteniamo una rappresentazione $\tau$ data da
+	\[
+		\tau_{(g,h)} (\phi) = \rho_g \circ \phi \circ \rho_h\inv
+	\]
+	Cioè moltiplico per $h\inv$ in partenza e per $g$ in arrivo. \`E un caso particolare del prodotto tensore tra rappresentazioni (definizione \ref{def:TensProdRepr}).
+	
+	Definiamo l'applicazione $\mu: \End \rar \func G$ che manda un endomorfismo $\xi$ nella mappa $g\mapsto \Tr(\xi\circ\rho_g)$.
+
+	Chi è l'immagine? Scrivendo in base ottengo che sono gli elementi della forma
+	\[
+		\sum_{i,j} [C]_i^j[\rho_g]_j^i
+	\]
+	che non sono nient'altro che le combinazioni lineari dei $[\rho_g]_i^j$, cioè $\cM(\rho)$. Quindi $\mu$ è un omomorfismo suriettivo tra $\End(V)$ e $\cM(\rho)$.
+	
+	\begin{myprop}
+		$\cM(\rho)$ è una sottorappresentazione di $\BReg$ (ossia è stabile per $G\times G$). Inoltre $\mu$ è un omomorfismo di rappresentazioni tra $\End (V)$ e $\cM(\rho)$ (sempre con l'azione bilatera).		 
+	\end{myprop}
+
+	\begin{proof}
+		Prendiamo un generico elemento di $\cM(\rho)$, che sappiamo che si può scirvere come $\mu(\xi)$ per qualche $\xi\in\End(V)$. Applico la definizione e ottengo
+		\begin{align*}
+			(h_1,h_2)\cdot \mu (\xi) &= \Tr(\xi \circ \rho_{h_2\inv gh_1})\\
+															&= \Tr(\rho_{h_1} \circ \xi \circ \rho_{h_2} \circ \rho_g)\\
+															&= \Tr((h_1,h_2)\cdot \xi)\rho)
+															&= \mu((h_1,h_2)\cdot \xi)
+		\end{align*}
+		Dove come al solito la prima moltiplicazione per $(h_1,h_2)$ è quella data dall'azione di $\BReg$, mentre quella finale è data dalla rappresentazione bilatera sugli endomorfismi. Nel conto ho anche usato che $\Tr(AB)=\Tr(BA)$.
+		
+		Quindi abbiamo scoperto che ogni elemento della forma $\mu(\xi)$ viene mandato in un altro elemento della medesima forma, che significa per quanto abbiamo appena visto che $\cM(\rho)$ è $G\times G$-invariante. Inoltre la formula che abbiamo ottenuto ci dice esattamente che $\mu$ è un omomorfismo di rappresentazioni tra $\End$ e $\cM(\rho)$.
+	\end{proof}
+	
+	\begin{mycor}
+		Supponiamo che $\rho$ sia irriducibile. Allora $\mu$ è un isomorfismo tra $\End(V)$ e $\cM(\rho)$, e inoltre $\cM(\rho)$ è anch'essa irriducibile. 
+	\end{mycor}
+	\begin{proof}
+		Sappiamo che $\End (V)$ è il prodotto tensoriale di due rappresentazioni irriducibili ($\rho \tensor \rho^*$), e quindi è irriducibile. Quindi per un lemma di Schur indebolito $\mu$ deve essere iniettiva (dato che non può essere nulla perché è anche suriettiva).
+		
+		La seconda parte della tesi è ora ovvia.
+	\end{proof}
+	
+	Quindi ora conosciamo un po' di rappresentazioni irriducibili di $\BReg$. Vediamo di indagare meglio come sono fatte.
+	
+	\begin{myprop}
+		Sia $\rho$ una rappresentazione su $V$, e sia $\rho^*$ la corrispondente rappresentazione su $V^*$. Allora
+		\begin{itemize}
+		 \item $\Res_{G\times \{e\}}^{G\times G}\cM(\rho) \isom n\rho$
+		 \item $\Res_{\{e\}\times G}^{G\times G}\cM(\rho) \isom n\rho^*$
+		\end{itemize}
+
+	 
+	\end{myprop}
+
+	\begin{proof}
+		Sia $I$ la rappresentazione banale su $V$, e sia $I^*$ la sua duale. 
+
+		Consideriamo il prodotto di rappresentazioni (non quello tensoriale, ma quello definito in \ref{def:RapprProd}) dato da $\rho I^*$. Per definizione, questa è la $G$-rappresentazione su $V\tensor V*$ dove $G$ agisce solo su $V$ (perché su $V^*$ l'azione è quella banale). Quindi se noi restringiamo l'azione bilatera di $\rho \tensor \rho^*$ a $G \times \{e\}$, otteniamo precisamente $\rho I^*$, che è ovviamente isomorfa a $n\rho$. Per l'isomorfismo tra $\rho \tensor \rho^*$ e $\cM(\rho)$ concludiamo.
+		
+		L'altro punto è analogo.
+	\end{proof}		
+	
+	\begin{myprop}
+	 Siano $\rho$, $\sigma$ due $G$-rappresentazioni irriducibili non isomorfe. Allora le $G\times G$-rappresentazioni $\cM(\rho)$ e $\cM(\sigma)$ sono anch'esse non isomorfe.
+	\end{myprop}
+	
+	\begin{proof}
+	 Se fossero isomorfe, allora lo stesso varrebbe per le loro restrizioni a $G \times \{e\}$. Ma abbiamo visto che queste sono $n\rho \not\isom n\sigma$, assurdo.
+	\end{proof}
+	
+	Quindi sappiamo che gli $\cM(\rho_i)$ al variare di $\rho_i$ tra le rappresentazioni irriducibili di $G$ sono linearmente indipendenti, ci rimane da sapere che generano effettivamente $\func G$. Possiamo procedere in due modi:
+	
+	\begin{itemize}
+	 \item Nell'ordine seguito da questo riassunto, ora il fatto è banale: sappiamo che $\cM(\rho_i)$ ha dimensione $n_i^2$ (per l'isomorfismo con $\rho_i \tensor \rho_i^*$), e sappiamo che $\sum_i n_i^2 = \abs G$, e quindi per dimensioni abbiamo concluso.
+	 \item Se invece non vogliamo usare la teoria sui caratteri, si può dare una dimostrazione alternativa. %TODO
+	\end{itemize}
+	
+	
+
+
+

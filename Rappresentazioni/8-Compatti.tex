@@ -1,0 +1,75 @@
+\section{Rappresentazioni di gruppi compatti (bozza)}
+
+\begin{myprop}
+ $SO_3$ è isomorfo a $SU_2$ quozientato per ${\pm I}$.
+\end{myprop}
+\begin{proof}
+	Sia $\bE=\left\{\left(
+		\begin{matrix}
+			x_1	& x_2+ix_3 \\
+			x_2-ix_3 & -x_1 
+		\end{matrix}
+	\right): (x_1,x_2,x_3) \in \bR^3\right\}$.
+
+	Considero l'azione di coniugio di $SU_2$ su $\bE$. 
+\end{proof}
+
+Consideriamo il sottoinsieme di $SU_2$ delle matrici diagonali.
+\[
+	A(z) = \left(
+		\begin{matrix}
+		z & 0 \\
+		0 & -z
+		\end{matrix}
+	\right), \qquad \abs z=1
+\]
+
+Se $X$ è una matrice, ottengo
+\[
+	p(A(z))\cdot X = \left( 
+	\begin{matrix}
+		x_1 & z^2(x_2+ix_3) \\
+		z^{-2}(x_2-ix_3) & -x_1
+	\end{matrix}
+	\right)
+\]
+
+Pensando $\bE = \bR \oplus \bC$ vengono cose belle.
+
+\subsection{Rappresentazioni di $SU_2$}
+	Sia $g \in SU_2$. $g$ agisce naturalmente su $\bC^2$.
+	
+	Considero la sua azione su $\bC[x,y]_n$ (polinomi di grado $n$). Sia $u \in \bC^2$, $f \in \bC[x,y]_n$, allora 
+	\[
+	 (gf)(u) = f(g\inv u)
+	\]
+	
+	Chiamiamo $V_n$ la rappresentazione così definita.
+
+	Studiamo innanzitutto $V_m$ come rappresentazione sul sottogruppo diagonale $T$.
+	Ottengo che 
+	\[
+		A(z) \cdot (x^i y^{n-i}) = z^{m-2i}x^iy^{m-i}
+	\]
+	quindi i polinomi della forma $x^iy^{n-i}$ sono tutti autovettori. Quindi ho ottenuto la decomposizione in irriducibili, e inoltre sono tutti non isomorfi.
+	
+	\begin{mylemma}
+	 Sia $W\subseteq V_n$ un sottospazio $T$-invariante. Allora è somma di rette della forma $\Span(x^iy^{n-i})$
+	\end{mylemma}
+	\begin{proof}
+		Viene dal fatto che le sottorappresentazioni sono tutte non isomorfe.
+	\end{proof}
+
+	Dimostriamo ora la seguente proposizione.
+	\begin{myprop}
+	 $V_n$ è irriducibile.
+	\end{myprop}
+	\begin{proof}
+	 Se $W$ è stabile per $SU_2$, allora è stabile per $T$, e quindi sarà somma diretta di rette della base dei monomi. Ora dal conto si vede che l'azione è transitiva sui monomi. 
+	\end{proof}
+
+
+	
+
+
+
