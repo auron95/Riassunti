@@ -14,7 +14,7 @@
 \end{myexample}
 
 \begin{mydef}[Potenza esterna]
-  Si dice potenza esterna $n$-esima $\Lambda^nV$  di uno spazio vettroriale $V$ lo spazio $V^{\tensor n}$ quozientato per il sottospazio generato dai $v_1 \tensor v_2 \tensor \dots \tensor v_n$ con $v_i=v_j$ per qualche $i\ne j$.  
+  Si dice potenza esterna $n$-esima $\Lambda^nV$  di uno spazio vettoriale $V$ lo spazio $V^{\tensor n}$ quozientato per il sottospazio generato dai $v_1 \tensor v_2 \tensor \dots \tensor v_n$ con $v_i=v_j$ per qualche $i\ne j$.  
 \end{mydef}
 
 Detto in maniera più comprensibile, è l'insieme generato dagli elementi scritti come $v_1 \wedge v_2 \wedge \dots \wedge v_n$ dove scambiando una coppia di componenti l'intero prodotto cambia segno.
@@ -26,7 +26,7 @@ Detto in maniera più comprensibile, è l'insieme generato dagli elementi scritt
 Data una base $v_1,v_2,\dots,v_n$ di $V$, possiamo prender come base di $\Lambda^mV$ gli elementi della forma $v_{i_1},v_{i_2},\dots,v_{i_m}$ con $i_1<i_2<\dots<i_m$. \`E quindi evidente che $\dim \Lambda^mV=\binom nm$.    
   
 \begin{mydef}[Potenza simmetrica]
-  Si dice potenza simmetrica $n$-esima $S^nV$  di uno spazio vettroriale $V$ lo spazio $V^{\tensor n}$ quozientato per il sottospazio generato dai $v_1 \tensor v_2 \tensor \dots \tensor v_n - v_{\sigma(1)} \tensor v_{\sigma(2)} \tensor \dots \tensor v_{\sigma(n)}$, dove $\sigma$ è una qualsiasi permutazione degli indici $\{1,2,\dots,n\}$.  
+  Si dice potenza simmetrica $n$-esima $S^nV$  di uno spazio vettoriale $V$ lo spazio $V^{\tensor n}$ quozientato per il sottospazio generato dai $v_1 \tensor v_2 \tensor \dots \tensor v_n - v_{\sigma(1)} \tensor v_{\sigma(2)} \tensor \dots \tensor v_{\sigma(n)}$, dove $\sigma$ è una qualsiasi permutazione degli indici $\{1,2,\dots,n\}$.  
 \end{mydef}
 
 Anche qui, possiamo pensare la potenza simmetrica come il prodotto tensore in cui scambiando le componenti il prodotto rimane invariato.
@@ -78,7 +78,7 @@ Precedentemente abbiamo definito potenza esterna e simmetrica in modo astratto, 
  \end{itemize}
  
  \begin{proof}
-  Fissiamo un $g \in G$, e sia $v_i$ una base di $V$ di autovettrori di $\rho_g$, ossia tali che $\rho_g(v_i)=\lambda_iv_i$. Sappiamo che una base di $\Lambda^2 V$ è fatta dai $v_i \wedge v_j$ per $i<j$. D'altra parte $\Lambda^2\rho_g (v_i\wedge v_j) = \lambda_i\lambda_j (v_i \wedge v_j)$, da cui segue
+  Fissiamo un $g \in G$, e sia $v_i$ una base di $V$ di autovettori di $\rho_g$, ossia tali che $\rho_g(v_i)=\lambda_iv_i$. Sappiamo che una base di $\Lambda^2 V$ è fatta dai $v_i \wedge v_j$ per $i<j$. D'altra parte $\Lambda^2\rho_g (v_i\wedge v_j) = \lambda_i\lambda_j (v_i \wedge v_j)$, da cui segue
   \[
    \Tr \Lambda^2\rho_g = \sum_{i<j}\lambda_i\lambda_j = \frac12\left(\left(\sum_i \lambda_i\right)^2 - \sum_i \lambda_i^2\right) = \frac12 (\chi_\rho(g)^2 - \chi_\rho(g^2))
   \]

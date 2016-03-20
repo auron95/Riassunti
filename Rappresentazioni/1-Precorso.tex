@@ -3,7 +3,7 @@
 \subsection{Base di uno spazio vettoriale}
   Oltre alla definizione solita data in algebra lineare, esiste una definizione più astratta di base di uno spazio vettoriale.
   \begin{mydef}
-    Sia $V$ uno spazio vettoriale. Si dice \emph{base} di $V$ un insieme di indici $I$ con un'applicazione $e: I \rar V$ se per ogni $W$ spazio vettroriale e per ogni $f: I \rar W$, esiste un unica $\phi: V \rar W$ lineare tale che il seguente diagramma commuta
+    Sia $V$ uno spazio vettoriale. Si dice \emph{base} di $V$ un insieme di indici $I$ con un'applicazione $e: I \rar V$ se per ogni $W$ spazio vettoriale e per ogni $f: I \rar W$, esiste un unica $\phi: V \rar W$ lineare tale che il seguente diagramma commuta
 
     	\tridiag IeV\phi Wf
 
@@ -38,14 +38,14 @@
     Sia $A$ un anello commutativo con identità. Si dice $A$-modulo un gruppo abeliano additivo $(M,+)$ con un operazione $\cdot: A\times M \rar M$ distributiva da entrambe le parti, associativa e tale che $1_A \cdot x = x$.
   \end{mydef}
   
-  Un modulo non è altro che la generalizzazione di uno spazio vettroriale, dove gli scalari non sono più un campo ma bensì un anello.
+  Un modulo non è altro che la generalizzazione di uno spazio vettoriale, dove gli scalari non sono più un campo ma bensì un anello.
   
   In questo corso la nozione di modulo sarà data solo su anelli della seguente forma.
   \begin{mydef}
     Sia $G$ un gruppo. Si indica con $\bC[G]$ l'anello formato dalle combinazioni lineari formali a coefficienti complessi degli elementi di $G$, ossia gli elementi della forma $\sum_i a_ig_i$ dove la somma è deifinita in modo ovvio e il prodotto coincide con quello del gruppo, esteso in modo che sia distributivo. 
   \end{mydef}
   
-  Un $\bC[G]$-modulo lo possiamo quindi pensare moralmente come un $\bC$-spazio vettoriale dove oltre a una moltiplicazione per uno scalare complesso posso anche moltiplicare per un elemento del gruppo $G$ (sarà tutto più chiaro -- forse -- quando introduceremo il concetto di rappresentazione).
+  Un $\bC[G]$-modulo lo possiamo quindi pensare moralmente come un $\bC$-spazio vettoriale dove oltre a una moltiplicazione per uno scalare complesso posso anche moltiplicare per un elemento del gruppo $G$ (sarà tutto più chiaro -- forse -- quando introdurremo il concetto di rappresentazione).
 
 \subsection{Prodotto tensore}
   \begin{mydef}[Prodotto tensore]
@@ -91,7 +91,7 @@
   \begin{mydef}[Potenza simmetrica]
    Indichiamo con $V^n$ il prodotto cartesiano $\overbrace{V \times V \times \dots \times V}^{n \textrm{ volte}}$.
    
-   Si dice \emph{potenza simmetrica} $n$-esima di uno spazio vettoriale $V$ uno spazio vettroriale $S^nV$ con un'applicazione multilineare $\sigma$ da $V^n$ a $S^nV$ che sia simmetrica, ossia invariante per permutazione delle entrate, e tale che per ogni altro $Z$ con un'applicazione lineare $\theta: V^n \rar Z$ simmetrica esiste un unica $\phi: S^n \rar Z$ che fa commutare 
+   Si dice \emph{potenza simmetrica} $n$-esima di uno spazio vettoriale $V$ uno spazio vettoriale $S^nV$ con un'applicazione multilineare $\sigma$ da $V^n$ a $S^nV$ che sia simmetrica, ossia invariante per permutazione delle entrate, e tale che per ogni altro $Z$ con un'applicazione lineare $\theta: V^n \rar Z$ simmetrica esiste un unica $\phi: S^n \rar Z$ che fa commutare 
    
       \tridiag{V^n}{\sigma}{S^nV}{\exists!\phi}{Z}{\theta}
   
@@ -106,7 +106,7 @@
   \end{proof}
   
   \begin{mydef}[Potenza alternante]
-   Si dice \emph{potenza esterna} $n$-esima di uno spazio vettoriale $V$ uno spazio vettroriale $\Lambda^nV$ con un'applicazione multilineare $\wedge$ da $V^n$ a $\Lambda^nV$ che sia stavolta alternante, che significa che $\sigma$ deve cambiare segno se scambio due entrate, e tale che per ogni altro $Z$ con un'applicazione lineare $\theta: V^n \rar Z$ alternante esiste un unica $\phi: \Lambda^n \rar Z$ che fa commutare 
+   Si dice \emph{potenza esterna} $n$-esima di uno spazio vettoriale $V$ uno spazio vettoriale $\Lambda^nV$ con un'applicazione multilineare $\wedge$ da $V^n$ a $\Lambda^nV$ che sia stavolta alternante, che significa che $\sigma$ deve cambiare segno se scambio due entrate, e tale che per ogni altro $Z$ con un'applicazione lineare $\theta: V^n \rar Z$ alternante esiste un unica $\phi: \Lambda^n \rar Z$ che fa commutare 
    
       \tridiag{V^n}{\wedge}{\Lambda^nV}{\exists!\phi}{Z}{\theta}
   
