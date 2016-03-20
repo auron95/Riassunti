@@ -80,22 +80,9 @@
 		 La verifica che è effettivamente un isomorfismo è lasciata per esercizio.
 		\end{proof}
 
-		Anche se sono effettivamente la stessa cosa, quando pensiamo $\bC[G]$ come funzioni da $G$ in $\bC$, scriveremo $\func \bC G$.
-		% G.I. TODO Non capisco la notazione: Per cosa stanno le due C dei complessi?
+		Anche se sono effettivamente la stessa cosa, quando pensiamo $\bC[G]$ come funzioni da $G$ in $\bC$, scriveremo $\func G$.
+		% G.I. TODO Non capisco la notazione: Per cosa stanno le due C dei complessi? Significa che non mi ricordavo come avevo definito \func :P
 		
-		\iffalse
-				Sia $G$ un gruppo finito, e sia $V$ uno spazio vettoriale con base indicizzata da $G$ (ci starebbe una digressione sulla definizione di base). La rappresentazione regolare $\Reg$ è quella rappresentazione che associa a ogni elemento del gruppo l'azione di \emph{moltiplicazione a sinistra} sulla base, ossia $\Reg_g: e_h \mapsto e_{gh}$.
-				
-				Alternativamente, posso vedere $V$ come lo spazio $\mathbb C[G]$ delle funzioni da $G$ in $\mathbb C$ (l'indentificazione è quella che manda il vettore $\sum_i a_ie_{g_i}$ nella mappa $g_i \mapsto a_i$). In tal caso la rappresentazione regolare diventa
-			\[
-				\Reg_g(f): x \mapsto  f ( g\inv x) 
-				\]
-				
-				Questa rappresentazione è particolarmente importante perché coincide con $\bC[G]$ visto come $\bC[G]$-modulo, che è sostanzialmente la prima definizione.
-				
-				Vedremo l'importanza di questa rappresentazione.
-
-		\fi
 	\end{myexample}
 	\begin{myexample}[Rappresentazione per permutazione di un insieme]
 		Se ho un'azione di $G$ su un insieme $X$, posso considerare $V$ con $X\rightarrow V$ una base, e costruire la rappresentazione che permuta la base tramite l'azione su $X$. Anch'essa è una rappresentazione.
@@ -157,8 +144,8 @@
 
 	In altre parole, $\rho^*_g$ è l'applicazione \myname{trasposta} di $\rho_g\inv$.
 
-	Il fatto che io usi l'inverso è perché l'applicazione trasposta inverte l'ordine delle composizioni, mentre noi vogliamo un isomorfismo: quindi mettendo l'inverso l'ordine torna magicamente a essere quello giusto.
-	%G.I. TODO Scegli solo una delle due frasi successive (Wow, such repetition)
+	Il motivo di questa definizione è che l'applicazione trasposta inverte l'ordine delle composizioni, mentre noi vogliamo un isomorfismo: quindi mettendo l'inverso l'ordine torna magicamente a essere quello giusto.
+	%G.I. Scegli solo una delle due frasi successive (Wow, such repetition)
 	Oltre alla somma, abbiamo anche un prodotto tra rappresentazioni. Esso è definito come segue. 
 
 	Ora siamo pronti a dare la definizione di prodotto di rappresentazioni.
@@ -223,7 +210,7 @@
 	Ci viene in aiuto il Lemma di Schur.
 
 	\begin{mytheorem}[Lemma di Schur]
-		Siano $\rho,\sigma$ due rappresentazioni irriducibili, e sia $\Phi$ un omomorfismo di rappresentazione. Allora o $\Phi \equiv 0$ oppure $\Phi$ è un isomorfismo.
+		Siano $\rho,\sigma$ due rappresentazioni irriducibili, e sia $\Phi$ un omomorfismo di rappresentazioni. Allora o $\Phi \equiv 0$ oppure $\Phi$ è un isomorfismo.
 	\end{mytheorem}
 	\begin{proof}
 		Notiamo che $\Ker \Phi$ è una sottorappresentazione, quindi è banale oppure è tutto $V_\rho$, dato che $\rho$ è irriducibile. Nel secondo caso quindi $\Phi\equiv 0$, altrimenti si vede che analogamente $\Im \Phi$ è tutto $V_\sigma$. Quindi $\Phi$ è un isomorfismo.
