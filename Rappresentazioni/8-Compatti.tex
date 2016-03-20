@@ -1,4 +1,44 @@
-\section{Rappresentazioni di gruppi compatti (bozza)}
+\section{Rappresentazioni di gruppi compatti}
+	La maggior parte dei teoremi che abbiamo dimostrato non vale più se non si assume la finitezza di $G$. Il problema fondamentale è che non riesco più a fare la media pesata sugli elementi di $G$, operazione che spesso ci veniva in aiuto.
+	
+	Tuttavia, è possibile riciclare buona parte delle dimostrazioni assumendo che $G$ sia compatto. Iniziamo con un po' di definizioni.
+	
+	\begin{mydef}
+		Un \emph{gruppo topologico} è un gruppo $G$ su cui ho una topologia tale che le mappe:
+		\begin{itemize}
+		 \item $(g,h) \mapsto gh$;
+		 \item $g \mapsto g\inv$
+		\end{itemize}
+		sono continue (dove su $G\times G$ ho la topologia prodotto).
+	\end{mydef}
+	
+	\begin{mydef}
+		Un gruppo topologico si dice \emph{compatto} se è uno spazio compatto rispetto alla sua topologia.
+	\end{mydef}
+	
+	\begin{mydef}
+		Si dice \emph{omorfismo continuo} una funzione $\phi: G\rar H$ che è un'omorfismo di gruppi e una mappa continua tra spazi topologici.  
+	\end{mydef}
+
+	Vorremmo ora, dato che non possiamo più fare la somma sugli elementi del gruppo, definire una misura che sia $G$-invariante. 
+	\begin{mydef}
+		Si dice \emph{integrale invariante} una mappa che associa a ogni funzione continua $f: G \rar \bR$ un numero reale $\int_G f(x) \de x$ tale che 
+		\begin{itemize}
+		 \item L'integrazione è lineare;
+		 \item $f(x)\ge 0 \Rar \haar{f(x)} \ge 0$;
+		 \item $f(x)\ge 0 \wedge \haar{f(x)} = 0 \Rar f(x)=0$; 
+		 \item L'integrazione è $G$-invariante, ossia $\haar{f(gx)}=\haar{f(xg)}=\haar{f(x)}$.
+		\end{itemize}
+	\end{mydef}
+	
+	Spesso si rinormalizza l'integrale in modo che $\haar 1=1$.
+	
+	\`E un fatto noto\footnote{Dicesi anche cannone.} che su un gruppo topologico compatto esiste una siffatta integrazione.
+
+
+
+\section{Appunti sparsi}
+
 
 \begin{myprop}
  $SO_3$ è isomorfo a $SU_2$ quozientato per $\{\pm I\}$.
