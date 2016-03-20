@@ -3,7 +3,7 @@
 \subsection{Base di uno spazio vettoriale}
   Oltre alla definizione solita data in algebra lineare, esiste una definizione più astratta di base di uno spazio vettoriale.
   \begin{mydef}
-    Sia $V$ uno spazio vettoriale. Si dice \emph{base} di $V$ un insieme di indici $I$ con un'applicazione $e: I \rar V$ se per ogni $W$ spazio vettoriale e per ogni $f: I \rar W$, esiste un unica $\phi: V \rar W$ lineare tale che il seguente diagramma commuta
+    Sia $V$ uno spazio vettoriale. Si dice \emph{base} di $V$ un insieme di indici $I$ con un'applicazione $e: I \rar V$ se per ogni $W$ spazio vettoriale e per ogni $f: I \rar W$, esiste un'unica $\phi: V \rar W$ lineare tale che il seguente diagramma commuta
 
     	\tridiag IeV\phi Wf
 
@@ -35,21 +35,21 @@
   
 \subsection{Moduli}
   \begin{mydef}
-    Sia $A$ un anello commutativo con identità. Si dice $A$-modulo un gruppo abeliano additivo $(M,+)$ con un operazione $\cdot: A\times M \rar M$ distributiva da entrambe le parti, associativa e tale che $1_A \cdot x = x$.
+    Sia $A$ un anello commutativo con identità. Si dice $A$-modulo un gruppo abeliano additivo $(M,+)$ con un'operazione $\cdot: A\times M \rar M$ distributiva da entrambe le parti, associativa e tale che $1_A \cdot x = x$.
   \end{mydef}
   
   Un modulo non è altro che la generalizzazione di uno spazio vettoriale, dove gli scalari non sono più un campo ma bensì un anello.
   
   In questo corso la nozione di modulo sarà data solo su anelli della seguente forma.
   \begin{mydef}
-    Sia $G$ un gruppo. Si indica con $\bC[G]$ l'anello formato dalle combinazioni lineari formali a coefficienti complessi degli elementi di $G$, ossia gli elementi della forma $\sum_i a_ig_i$ dove la somma è deifinita in modo ovvio e il prodotto coincide con quello del gruppo, esteso in modo che sia distributivo. 
+    Sia $G$ un gruppo. Si indica con $\bC[G]$ l'anello formato dalle combinazioni lineari formali a coefficienti complessi degli elementi di $G$, ossia gli elementi della forma $\sum_i a_ig_i$ dove la somma è definita in modo ovvio e il prodotto coincide con quello del gruppo, esteso in modo che sia distributivo. 
   \end{mydef}
   
   Un $\bC[G]$-modulo lo possiamo quindi pensare moralmente come un $\bC$-spazio vettoriale dove oltre a una moltiplicazione per uno scalare complesso posso anche moltiplicare per un elemento del gruppo $G$ (sarà tutto più chiaro -- forse -- quando introdurremo il concetto di rappresentazione).
 
 \subsection{Prodotto tensore}
   \begin{mydef}[Prodotto tensore]
-    Siano $V, W$ due $\bK$-spazi vettoriali. Si dice \emph{prodotto tensore} di $V$ e $W$, e si indica come $V\tensor W$, uno spazio vettoriale con una funzione bilineare $\tensor: V \times W \rar V\tensor W$ tale che per ogni applicazione bilineare $f: V\times W \rar Z$ esiste un unica applicazione lineare $\phi: V\tensor W \rar Z$ che fa commutare il seguente diagramma:
+    Siano $V, W$ due $\bK$-spazi vettoriali. Si dice \emph{prodotto tensore} di $V$ e $W$, e si indica come $V\tensor W$, uno spazio vettoriale con una funzione bilineare $\tensor: V \times W \rar V\tensor W$ tale che per ogni applicazione bilineare $f: V\times W \rar Z$ esiste un'unica applicazione lineare $\phi: V\tensor W \rar Z$ che fa commutare il seguente diagramma:
     
       \tridiag{V\times W}{ \tensor }{V\tensor W}{\phi}{Z}{f}
   
@@ -91,14 +91,14 @@
   \begin{mydef}[Potenza simmetrica]
    Indichiamo con $V^n$ il prodotto cartesiano $\overbrace{V \times V \times \dots \times V}^{n \textrm{ volte}}$.
    
-   Si dice \emph{potenza simmetrica} $n$-esima di uno spazio vettoriale $V$ uno spazio vettoriale $S^nV$ con un'applicazione multilineare $\sigma$ da $V^n$ a $S^nV$ che sia simmetrica, ossia invariante per permutazione delle entrate, e tale che per ogni altro $Z$ con un'applicazione lineare $\theta: V^n \rar Z$ simmetrica esiste un unica $\phi: S^n \rar Z$ che fa commutare 
+   Si dice \emph{potenza simmetrica} $n$-esima di uno spazio vettoriale $V$ uno spazio vettoriale $S^nV$ con un'applicazione multilineare $\sigma$ da $V^n$ a $S^nV$ che sia simmetrica, ossia invariante per permutazione delle entrate, e tale che per ogni altro $Z$ con un'applicazione lineare $\theta: V^n \rar Z$ simmetrica esiste un'unica $\phi: S^n \rar Z$ che fa commutare 
    
       \tridiag{V^n}{\sigma}{S^nV}{\exists!\phi}{Z}{\theta}
   
   \end{mydef}
 
   \begin{myobs}
-   Possiamo pensare la potenza simmetrica come un sottospazio di $V^{\tensor n}$, e più precisamente come il sottospazio invariante per permutazione delle coordinate. Detto meglio, su $V^{\tensor n}$, su cui possiamo far agire il gruppo simmetrico $S_n$ per permitazione, ossia in modo che $v_1 \tensor \dots \tensor v_n \xmapsto{\sigma} v_{\sigma(1)} \dots v_{\sigma(n)}$. Non l'ho ancora definita ovunque (vedi sopra) ma si estende in un unico modo per linearità. La potenza simmetrica è lo spazio lasciato fisso da $S_n$.
+   Possiamo pensare la potenza simmetrica come un sottospazio di $V^{\tensor n}$, e più precisamente come il sottospazio invariante per permutazione delle coordinate. Detto meglio, su $V^{\tensor n}$ possiamo far agire il gruppo simmetrico $S_n$ per permutazione, ossia in modo che $v_1 \tensor \dots \tensor v_n \xmapsto{\sigma} v_{\sigma(1)} \dots v_{\sigma(n)}$. Non ho ancora definito ovunque l'azione (perché non tutto si scrive nella forma $v \tensor w$) ma si estende in un unico modo per linearità. La potenza simmetrica è lo spazio lasciato fisso da $S_n$.
   \end{myobs}
 
   \begin{proof}
@@ -106,7 +106,7 @@
   \end{proof}
   
   \begin{mydef}[Potenza alternante]
-   Si dice \emph{potenza esterna} $n$-esima di uno spazio vettoriale $V$ uno spazio vettoriale $\Lambda^nV$ con un'applicazione multilineare $\wedge$ da $V^n$ a $\Lambda^nV$ che sia stavolta alternante, che significa che $\sigma$ deve cambiare segno se scambio due entrate, e tale che per ogni altro $Z$ con un'applicazione lineare $\theta: V^n \rar Z$ alternante esiste un unica $\phi: \Lambda^n \rar Z$ che fa commutare 
+   Si dice \emph{potenza esterna} $n$-esima di uno spazio vettoriale $V$ uno spazio vettoriale $\Lambda^nV$ con un'applicazione multilineare $\wedge$ da $V^n$ a $\Lambda^nV$ che sia stavolta alternante, che significa che $\sigma$ deve cambiare segno se scambio due entrate, e tale che per ogni altro $Z$ con un'applicazione lineare $\theta: V^n \rar Z$ alternante esiste un'unica $\phi: \Lambda^n \rar Z$ che fa commutare 
    
       \tridiag{V^n}{\wedge}{\Lambda^nV}{\exists!\phi}{Z}{\theta}
   
@@ -115,9 +115,9 @@
   \begin{myobs}
    Per immaginarci la potenza esterna, possiamo pensare a una sorta di potenza tensoriale in cui usiamo il simbolo $\wedge$ al posto del simbolo $\tensor$, e in cui vale la regola aggiuntiva che scambiando due entrate il prodotto deve cambiare segno. Ad esempio, $\Lambda^3V$ sarà formato dalle combinazioni lineari di vettori della forma $a\wedge b \wedge c$. 
    
-   Notiamo inoltre che per la regola sopra citata, se un prodotto ha due componenti uguali allora deve essere nullo. Questo  un modo alternativo per definire la potenza esterna.
+   Notiamo inoltre che per la regola sopra citata, se un prodotto ha due componenti uguali allora deve essere nullo. Questo è un modo alternativo per definire la potenza esterna.
   \end{myobs}
   
   \begin{myprop}
-   La potenza esterna $\Lambda^nV$ è isomorfa a $V^\tensor n/W$, dove $W=\Span\{v_1 \tensor \dots \tensor v_n: \exists i,j\quad v_i=v_j\}$.
+   La potenza esterna $\Lambda^nV$ è isomorfa a $V^{\tensor n}/W$, dove $W=\Span\{v_1 \tensor \dots \tensor v_n: \exists i,j\quad v_i=v_j\}$.
   \end{myprop}

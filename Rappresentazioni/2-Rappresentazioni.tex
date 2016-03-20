@@ -14,7 +14,7 @@
 	\end{myobs}
 
 	\begin{mydef}
-		Si definisce \myname{grado} di una rappresentazione $\rho$
+		Si definisce \myname{grado} di una rappresentazione $\rho:G \rightarrow GL(V_\rho)$
 		\[\deg \rho := \dim V_\rho\]
 	\end{mydef}
 
@@ -51,9 +51,9 @@
 
 	Come al solito, spesso identificheremo le rappresentazioni isomorfe, senza scrivere tutte le volte \emph{a meno di isomorfismo}.
 
-	Date due rappresentazioni $\rho,\sigma$, con due basi $\cB$ e $cS$ sui relativi spazi vettoriali, se le due rappresentazioni sono isomorfe, allora esiste una matrice $T$ invertibile tale che
+	Date due rappresentazioni $\rho,\sigma$, con due basi $\cB$ e $\cS$ sui relativi spazi vettoriali, se le due rappresentazioni sono isomorfe, allora esiste una matrice $T$ invertibile tale che
 	\[
-		[\rho_g]_\cB = T\inv [\sigma_g]_cS T \qquad \forall g\in G
+		[\rho_g]_\cB = T\inv [\sigma_g]_\cS T \qquad \forall g\in G
 	\]
 	La matrice $T$ è quella che induce l'isomorfismo tra $V_\rho$ e $V_\sigma$.
 	Quindi le matrici analoghe (associate allo stesso $g$) sono coniugate attraverso un'unica matrice invertibile.
@@ -81,6 +81,7 @@
 		\end{proof}
 
 		Anche se sono effettivamente la stessa cosa, quando pensiamo $\bC[G]$ come funzioni da $G$ in $\bC$, scriveremo $\func \bC G$.
+		% G.I. TODO Non capisco la notazione: Per cosa stanno le due C dei complessi?
 		
 		\iffalse
 				Sia $G$ un gruppo finito, e sia $V$ uno spazio vettoriale con base indicizzata da $G$ (ci starebbe una digressione sulla definizione di base). La rappresentazione regolare $\Reg$ è quella rappresentazione che associa a ogni elemento del gruppo l'azione di \emph{moltiplicazione a sinistra} sulla base, ossia $\Reg_g: e_h \mapsto e_{gh}$.
@@ -157,7 +158,7 @@
 	In altre parole, $\rho^*_g$ è l'applicazione \myname{trasposta} di $\rho_g\inv$.
 
 	Il fatto che io usi l'inverso è perché l'applicazione trasposta inverte l'ordine delle composizioni, mentre noi vogliamo un isomorfismo: quindi mettendo l'inverso l'ordine torna magicamente a essere quello giusto.
-
+	%G.I. TODO Scegli solo una delle due frasi successive (Wow, such repetition)
 	Oltre alla somma, abbiamo anche un prodotto tra rappresentazioni. Esso è definito come segue. 
 
 	Ora siamo pronti a dare la definizione di prodotto di rappresentazioni.
@@ -181,7 +182,7 @@
 
 	\subsection{Rappresentazioni irriducibili e Schur}
 
-	Iniziamo con un risultato prelimnare.
+	Iniziamo con un risultato preliminare.
 
 	\begin{mytheorem}[Maschke]\label{Th:SupplInv}
 		Sia $\rho$ una rappresentazione su $V$, e sia $W$ un sottospazio $G$-invariante. Allora esiste un supplementare $W_0$ anch'esso $G$-invariante.
@@ -207,7 +208,7 @@
 
 	Ogniqualvolta abbiamo una sottorappresentazione di $\rho$, siamo quindi in grado di spezzare $\rho$ in somma di due sottorappresentazioni più piccole. 
 
-	Data una rappresentazione, possiamo reiterare il procediemnto finché non è più possibile trovare sottorappresentazioni non banali.
+	Data una rappresentazione (di dimensione finita), possiamo reiterare il procedimento finché non è più possibile trovare sottorappresentazioni non banali.
 
 	\begin{mydef}
 		Una rappresentazione che non ammette sottorappresentazioni non banali si dice irriducibile.
@@ -222,10 +223,10 @@
 	Ci viene in aiuto il Lemma di Schur.
 
 	\begin{mytheorem}[Lemma di Schur]
-		Siano $\rho,\sigma$ due rappresentazioni irriducibili, e sia $\Phi$ un omomorfismo. Allora o $\Phi \equiv 0$ oppure $\Phi$ è un isomorfismo.
+		Siano $\rho,\sigma$ due rappresentazioni irriducibili, e sia $\Phi$ un omomorfismo di rappresentazione. Allora o $\Phi \equiv 0$ oppure $\Phi$ è un isomorfismo.
 	\end{mytheorem}
 	\begin{proof}
-		Notiamo che $\Ker \Phi$ è banale oppure è tutto $V_\rho$, dato che $\rho$ è irriducibile. Nel secondo caso quindi $\Phi\equiv 0$, altrimenti si vede che analogamente $\Im \Phi$ è tutto $V_\sigma$. Quindi $\Phi$ è un isomorfismo.
+		Notiamo che $\Ker \Phi$ è una sottorappresentazione, quindi è banale oppure è tutto $V_\rho$, dato che $\rho$ è irriducibile. Nel secondo caso quindi $\Phi\equiv 0$, altrimenti si vede che analogamente $\Im \Phi$ è tutto $V_\sigma$. Quindi $\Phi$ è un isomorfismo.
 	\end{proof}
 
 	Questo vale per qualsiasi campo.
@@ -236,18 +237,18 @@
 		Sia $\rho$ irriducibile, e sia $\Phi: \rho \rar \rho$ un endomorfismo di rappresentazione. Allora $\Phi$ è una moltiplicazione per uno scalare. 
 	\end{mycor}
 	\begin{proof}
-		Sia $\lambda$ un autovalore di $\Phi$ (esiste sempre perché siamo su $\bC$: allora $\Phi-\lambda\id$ ha $\Ker$ non banale e quindi è identicamente nulla.
+		Sia $\lambda$ un autovalore di $\Phi$ (esiste sempre perché siamo su $\bC$): allora $\Phi-\lambda\id$ ha $\Ker$ non banale e quindi è identicamente nulla.
 	\end{proof}
 
 	\begin{mycor}
 		Date $\rho,\sigma$ irriducibili, e $\Phi: V_\rho \rightarrow V_\sigma$ lineare, sia $\bar \Phi = \frac 1{\abs G} \sum_{g\in G} \sigma_g\inv \Phi \rho_g$. Allora
 		\begin{itemize}
 		\item Se $\rho \not \isom \sigma$ allora $\bar \Phi\equiv 0$;
-		\item Se $\rho = \sigma$, allora $\bar \Phi = \frac{\Tr(\Phi)}{\deg \rho}\id$.
+		\item Se $\rho \isom \sigma$, allora $\bar \Phi = \frac{\Tr(\Phi)}{\deg \rho}\id$.
 		\end{itemize}
 	\end{mycor}
 	\begin{proof}
-		Deriva tutto dal lemma di Schur. Il fatto che lo scalare si $\frac{\Tr \Phi}{\deg \rho}$ viene dal fatto che $\Tr \bar \Phi = \Tr \Phi$ (basta fare il conto) e che $\Tr \bar \Phi = \lambda \deg \rho$.
+		Deriva tutto dal lemma di Schur. Il fatto che lo scalare sia $\frac{\Tr \Phi}{\deg \rho}$ viene dal fatto che $\Tr \bar \Phi = \Tr \Phi$ (basta fare il conto) e che $\Tr \bar \Phi = \lambda \deg \rho$.
 	\end{proof}
 
 	Adesso possiamo concludere il claim precedente.
@@ -269,6 +270,6 @@
 	\end{myprop}
 
 	\begin{proof}
-		Considero $\phi(\sigma)$. Poiché sulle altre rappresentazioni irriducubili deve essere l'applicazione nulla per il lemma di Schur, allora per questioni di dimensione deve essere mandata in $\sigma$.
+		Considero $\phi(\sigma)$. Poiché sulle altre rappresentazioni irriducibili deve essere l'applicazione nulla per il lemma di Schur, allora per questioni di dimensione deve essere mandata in $\sigma$.
 	\end{proof}
   
