@@ -1,4 +1,6 @@
-\section{Coefficienti matriciali}
+\section{Coefficienti matriciali}\label{sec:MatEl}
+	In questa sezione ridimostreremo molti fatti senza utilizzare la teoria dei caratteri, ma utilizzando i coefficienti matriciali.
+	
 	\begin{mydef}
 		Sia $\rho$ una rappresentazione di $G$ su $V_\rho$. Sia $\mathcal B$ una base di $V_\rho$, e sia $[\rho_g]$ la matrice associata a $\rho_g$ in base $\cB$.
 		
@@ -25,7 +27,7 @@
 	\end{mydef}
 	Per convincersi che bisogna definirla così basta prendere $f\in\func G$ che vale $1$ applicata a $g$ e $0$ altrove, applicare $(h_1,h_2)$, e scoprire che ho ottenuto una funzione che vale $1$ solo in $h_2gh_1\inv$.
 	
-	Quindi, sappiamo che $cM(\rho)$ è un sottospazio di $\func G$: sarà anche $G\times G$-invariante (ossia una sottorappresentazione)? La risposta sarà sì, e lo dimostreremo tra poco
+	Quindi, sappiamo che $\cM(\rho)$ è un sottospazio di $\func G$: sarà anche $G\times G$-invariante (ossia una sottorappresentazione)? La risposta sarà sì, e lo dimostreremo tra poco
 
 	Sia ora $\rho$ una rappresentazione su $V$, e consideriamo lo spazio degli endomorfismi da $V$ in $V$. Su di esso sappiamo che possiamo far agire $G$ come abbiamo fatto sugli omomorfismi, ossia moltiplicando per $g\inv$ sullo spazio di partenza e per $g$ in quello di arrivo. Tuttavia anche qui ci facciamo agire $G\times G$ e otteniamo una rappresentazione $\tau$ data da
 	\[
@@ -99,8 +101,65 @@
 	
 	\begin{itemize}
 	 \item Nell'ordine seguito da questo riassunto, ora il fatto è banale: sappiamo che $\cM(\rho_i)$ ha dimensione $n_i^2$ (per l'isomorfismo con $\rho_i \tensor \rho_i^*$), e sappiamo che $\sum_i n_i^2 = \abs G$, e quindi per dimensioni abbiamo concluso.
-	 \item Se invece non vogliamo usare la teoria sui caratteri, si può dare una dimostrazione alternativa. %TODO
+	 \item Se invece non vogliamo usare la teoria sui caratteri, si può dare una dimostrazione alternativa.
 	\end{itemize}
+	
+	\begin{myprop}\label{prop:MatElDirSum}
+		Vale
+		\[
+			\bigoplus_i \cM(\rho_i) = \func G
+		\]
+		al variare di $\rho_i$ tra le rappresentazioni irriducibili di $G$.
+	\end{myprop}
+	\begin{proof}
+		L'inclusione $\subseteq$ è ovvia.
+		
+		Consideriamo la rappresentazione regolare unilatera $\Reg$ (insomma, la $G$-rappresentazione solita). Consideriamo la base canonica di $\func G$ fatta dalle funzioni $f_g$ che valgono $1$ valutate in $g$ e $0$ altrove. Com'è fatto $[\Reg_h]_i^j$? Questo vale $1$ se e solo se $g_i\cdot h = g_j$: se fissiamo $g_i=e$ allora scopriamo che è esattamente $f_h$, ma per definizione questo è un coefficiente matriciale. Quindi $f_h\in \cM(\Reg)$. Ora chiaramente $\cM(\Reg) \subseteq \bigoplus_i \cM(\rho_i)$ (sto usando $\cM(\rho)+\cM(\sigma)=\cM(\rho+\sigma)$), e poiché abbiamo fatto federe che gli elementi della base di $\func G$ stanno nella somma, allora abbiamo dimostrato anche la $\supseteq$.
+	\end{proof}
+	
+	\subsection{Funzioni classe}
+		\begin{mydef}
+			Chiamiamo $\cD$ la rappresentazione regolare diagonale, ossia la restrizione della regolare bilatera agli elementi di $G\times G$ della forma $(g,g)$.
+		\end{mydef}
+		Per definizione quindi le funzioni classe $\class G$ sono quelle funzioni in $\func G$ che vengono lasciate fisse dall'azione della \emph{diagonale}. 
+		
+		Siamo ora pronti per dimostrare che le rappresentazioni irriducibili sono tante quante le classi di coniugio.
+		
+		\begin{myprop}
+			Sia $\class G$ lo spazio vettoriale delle funzioni classe, e sia $n$ il numero di rappresentazioni irriducibili di $G$. Allora $\dim \class G = n$.
+		\end{myprop}
+		\begin{proof}
+			
+			Prendiamo ora $f\in \class G$. In particolare $f$ sta in $\func G$, e quindi per la proposizione \ref{prop:MatElDirSum} possiamo scriverla come
+			\[
+			f= \sum_i f_i\qquad f_i \in \cM(\rho_i)
+			\]
+			dove al solito le $\rho_i$ sono le rappresentazioni irriducibili di $G$. Poiché $\cM(\rho_i)$ è stabile per $\BReg$, a maggior ragione lo sarà per $\cD$, e quindi $f$ è stabile per l'azione diagonale se e solo se sono stabili le $f_i$. Se indichiamo con $\cM(\rho)^\cD$ il sottospazio di $\cM(\rho)$ stabile per $\cD$, abbiamo quindi che
+			\[
+				\dim \class G = \sum_i \dim \cM(\rho_i)^\cD
+			\]
+			
+			Indaghiamo ora come è fatto $\cM(\rho_i)^\cD$. Noi abbiamo dimostrato che $\cM(\rho_i)\isom \End(V_i)$ come spazio vettoriale: se ora mettiamo l'azione diagonale, gli endomorfismi stabili per $\cD$ sono precisamente gli endomorfismi di rappresentazione! Infatti, la rappresentazione $\cD$ su $\End(V_i)$ coincide precisamente con quella definita in $\ref{def:HomRepr}$, e avevamo visto che gli omomorfismi lasciati fissi da $G$ sono quelli di rappresentazione. Quindi, per il lemma di Schur, $\cM(\rho_i)^\cD$ ha dimensione $1$ (gli endomorfismi di rappresentazione di un'irriducibile differiscono per la moltiplicazione per uno scalare).
+			
+			Dunque
+			\[
+				\dim \class G = \sum_i 1 = n
+			\]
+
+		\end{proof}
+		
+		Dato che chiaramente la dimensione di $\class G$ è data dal numero di classi di coniugio di $G$, deduciamo che il numero di classi di coniugio di $G$ è uguale al numero di rapresentazioni irriducibili.
+		
+		\begin{myobs}
+			Notiamo che il carattere $\chi_i$ di $\rho_i$ appartiene evidentemente a $\cM(\rho_i)$, dato che $\chi_i = \Tr(\Id\rho_i)$ per definizione. Quindi la retta di $\cM(\rho_i)$ stabile per $\cD$ è formata dai multipli di $\chi_i$.
+		\end{myobs}
+
+
+		
+		
+
+
+
 	
 	
 
