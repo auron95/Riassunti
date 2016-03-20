@@ -183,6 +183,7 @@
 \newcommand{\rar}{\rightarrow}
 \newcommand{\xrar}{\xrightarrow}
 
+\newcommand{\de}{\, \textrm{d}}
 \newcommand{\tridiag}[6]{
 	\[
 	  \begin{diagram}
@@ -219,7 +220,7 @@
 \newtheorem{mydef}[mytheorem]{Definizione}
 \newtheorem{mylemma}[mytheorem]{Lemma}
 \newtheorem{myprop}[mytheorem]{Proposizione}
-
+\newtheorem{cannon}[mytheorem]{Cannone}
 \newtheorem{myax}[mytheorem]{Assioma}
 
 
