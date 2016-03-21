@@ -31,9 +31,33 @@
 		\end{itemize}
 	\end{mydef}
 	
-	Spesso si rinormalizza l'integrale in modo che $\haar 1=1$.
+	Spesso si rinormalizza l'integrale in modo che $\haar 1=1$. Un integrazione $G$-invariante si dice integrazione di Haar.
 	
-	\`E un fatto noto\footnote{Dicesi anche cannone.} che su un gruppo topologico compatto esiste una siffatta integrazione.
+	\`E un fatto noto\footnote{Dicesi anche cannone.} che ogni gruppo topologico compatto ammette un integrazione di Haar.
+	
+	In realtà per i gruppi di cui ci interesseremo, l'integrale sarà definito in maniera abbastanza ovvia.
+	
+	\begin{myexample}
+		Consideriamo il gruppo unitario $S^1$, dato dal sottogruppo moltiplicativo di $\bC^*$ dato dai complessi di norma $1$, che possiamo anche pensare come il gruppo delle rotazioni del piano.
+		
+		L'integrale di Haar di $f$ viene definito come $\haar{f(z)} = \frac1{2\pi}\int_0^{2\pi} f\left(e^{i\theta}\right) \de \theta$.
+	\end{myexample}
+
+	Vediamo ora come si può riadattare il teorema di Maschke per un gruppo compatto.
+	
+	\begin{mytheorem}
+		Sia $G$ un gruppo compatto, e sia $\rho$ una sua rappresentazione di dimensione finita su uno spazio vettoriale complesso $V$. Sia inoltre $U \subseteq V$ un suo sottospazio $G$-invariante. Allora $U$ ammette un supplementare $W$ che sia $G$-invariante.
+	\end{mytheorem}
+	\begin{proof}
+		Sia $h(u,v)$ una forma hermitiana su $V$. Allora $h_0=\int_{S^1} h(g\cdot u, g\cdot v)\de g$ è una forma $G$-invariante, e adesso possiamo concludere facilmente come nel teorema \ref{Th:SupplInv}, ottenendo così anche che le $\rho(g)$ sono unitarie.  
+	\end{proof}
+	
+	Grazie all'integrale di Haar, possiamo mettere anche una forma hermitiana su $\func G$, come per i gruppi finiti. La forma sarà data da
+	\[
+		\herm {f_1}{f_2} = \int_G f_1(g)\conj{f_2(g)} \de g 
+	\]	
+
+
 
 
 
