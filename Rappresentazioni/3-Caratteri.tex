@@ -165,13 +165,13 @@ con $n_i \in \mathbb N$. Sia inoltre $\chi_\Reg$ il carattere di $\Reg$ e $\chi_
 
 Sorprendentemente, siamo in grado di determinare esplicitamente gli $n_i$.
 \begin{myprop}
-  Ogni rappresentazione irriducibile $\rho_i$ di $G$ è contenuta $n_i$ volte in $\Reg$.
+  Ogni rappresentazione irriducibile $\rho_i$ di $G$ è contenuta $\deg \rho_i$ volte in $\Reg$.
 \end{myprop}
 
 \begin{proof}
   Basta applicare la Proposizione \ref{pr:IrrCount}:
   \[
-  \herm{\chi_R}{\chi_i} = \frac1{\abs G}\sum_{g\in G} \chi_R(g)\conj{\chi_i(g)} = \frac1{\abs G}\chi_R(e)\conj{\chi_i(e)} = n_i
+  n_i=\herm{\chi_R}{\chi_i} = \frac1{\abs G}\sum_{g\in G} \chi_R(g)\conj{\chi_i(g)} = \frac1{\abs G}\chi_R(e)\conj{\chi_i(e)} = \deg \rho_i
   \]
 
 \end{proof}
@@ -192,7 +192,7 @@ La dimostazione diventa ora immediata:
 \begin{proof}
   Per quanto visto nel lemma, vale $\dim \Hom(R,\rho_i) = \dim V_{\rho_i}$. Quindi
   \[
-  \herm{\chi_R}{\chi_i}= \dim \Hom(R,\rho_i) = \dim V_{\rho_i} = n_i
+		n_i = \herm{\chi_R}{\chi_i}= \dim \Hom(R,\rho_i) = \dim V_{\rho_i}
   \]
   e ottengo la tesi.
 \end{proof}

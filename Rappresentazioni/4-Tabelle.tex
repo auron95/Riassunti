@@ -22,9 +22,13 @@ Inoltre vale anche la seguente:
 
 \begin{proof}
 	Consideriamo la funzione $f_g: G \rar \bC$ che vale $1$ sulla classe di coniugio di $g$ e $0$ altrove.
-	Allora, dato che $f_g$ sta in $\class G$, è la combinazione lineare di caratteri $\sum_i \herm{f_g}{\chi_i}\chi_i$. Allora
+	Allora, dato che $f_g$ sta in $\class G$, è la combinazione lineare di caratteri $\sum_i \herm{f_g}{\chi_i}\chi_i$. Ricordando che 
 	\[
-			f_g(h) = \frac{c(g)}{\abs G}\conj{\chi_i(g)}\chi_i(h).
+		\herm{f_g}{\chi_i} = \frac1{\abs G}\sum_{x\in G}f_g(x)\conj{\chi_i(x)}=\frac{c(g)}{\abs G}\conj{\chi_i(g)}
+	\]
+	otteniamo
+	\[
+			f_g(h) = \sum_i\frac{c(g)}{\abs G}\conj{\chi_i(g)}\chi_i(h).
 	\]
 	La tesi segue.
 \end{proof}
