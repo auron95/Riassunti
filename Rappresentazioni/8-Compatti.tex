@@ -17,7 +17,7 @@
 	\end{mydef}
 	
 	\begin{mydef}
-		Si dice \emph{omorfismo continuo} una funzione $\phi: G\rar H$ che è un'omorfismo di gruppi e una mappa continua tra spazi topologici.  
+		Si dice \emph{omomorfismo continuo} una funzione $\phi: G\rar H$ che è un'omomorfismo di gruppi e una mappa continua tra spazi topologici.  
 	\end{mydef}
 
 	Vorremmo ora, dato che non possiamo più fare la somma sugli elementi del gruppo, definire una misura che sia $G$-invariante. 
@@ -55,7 +55,21 @@
 	Grazie all'integrale di Haar, possiamo mettere anche una forma hermitiana su $\func G$, come per i gruppi finiti. La forma sarà data da
 	\[
 		\herm {f_1}{f_2} = \int_G f_1(g)\conj{f_2(g)} \de g 
-	\]	
+	\]
+	
+	Vorremmo ora, come abbiamo fatto per i gruppi finiti, trovare tutte le rappresentazioni irriducibili. Il problema è che se noi consideriamo la rappresentazione regolare $\Reg$ su $\bC[G]$, questa ha dimensione infinita, quindi bisogna essere più cauti. Urgono delle definizioni.
+	
+	\begin{Achtung}
+		Non fidatevi troppo di quello che segue, ché non sono sicurissimo di quello che dico.
+	\end{Achtung}
+
+	\begin{mydef}
+		Sia $V$ uno spazio vettoriale, e sia $(V_i)_{i\in I}$ una sua famiglia di sottospazi non necessariamente finita.
+		Si dice che i $V_i$ sono in \emph{somma diretta} se ogni $v\in V$ si può scrivere in modo unico come somma \underline{finita} di $v_{i_1} + \cdots + v_{i_n}$ con gli $i_n$ distinti e con $v_{i_k} \in V_{i_k}$ non nulli.
+		
+		Sia ora invece $V$ uno spazio vettoriale in cui ho una nozione di convergenza (quindi almeno una topologia), e i $(V_i)_{i\in I}$ come sopra. Allora si dice che i $V_i$ sono in somma diretta \emph{topologica} se per ogni $v\in V$ esiste una successione $i_k$ di elementi distinti di $I$ tali che $v=\sum_{k=0}^{+\infty} v_{i_k}$ con $v_{i_k} \in V_{i_k}$.
+	\end{mydef}
+
 
 
 
