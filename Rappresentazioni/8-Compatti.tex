@@ -59,19 +59,29 @@
 	
 	Vorremmo ora, come abbiamo fatto per i gruppi finiti, trovare tutte le rappresentazioni irriducibili. Il problema è che se noi consideriamo la rappresentazione regolare $\Reg$ su $\bC[G]$, questa ha dimensione infinita, quindi bisogna essere più cauti. Urgono delle definizioni.
 	
-	\begin{Achtung}
-		Non fidatevi troppo di quello che segue, ché non sono sicurissimo di quello che dico.
-	\end{Achtung}
-
 	\begin{mydef}
-		Sia $V$ uno spazio vettoriale, e sia $(V_i)_{i\in I}$ una sua famiglia di sottospazi non necessariamente finita.
-		Si dice che i $V_i$ sono in \emph{somma diretta} se ogni $v\in V$ si può scrivere in modo unico come somma \underline{finita} di $v_{i_1} + \cdots + v_{i_n}$ con gli $i_n$ distinti e con $v_{i_k} \in V_{i_k}$ non nulli.
-		
-		Sia ora invece $V$ uno spazio vettoriale in cui ho una nozione di convergenza (quindi almeno una topologia), e i $(V_i)_{i\in I}$ come sopra. Allora si dice che i $V_i$ sono in somma diretta \emph{topologica} se per ogni $v\in V$ esiste una successione $i_k$ di elementi distinti di $I$ tali che $v=\sum_{k=0}^{+\infty} v_{i_k}$ con $v_{i_k} \in V_{i_k}$.
+		Sia $V$ uno spazio vettoriale generalmente con dimensione infinita su cui è definita una forma hermitiana $\scalar\cdot\cdot$. Consideriamo un insieme al più numerabile di vettori $v_1, v_2, \dots$ ortogonali tra loro. Questo insieme si dice \emph{completo} se le combinazioni lineari finite sono dense in $V$. In tal caso, ogni elemento $w\in V$ si può decomporre in serie di Fourier come
+		\[
+			w = \sum_{i=1}^{+\infty} \frac{\scalar w{v_i}}{\scalar{v_i}{v_i}}v_i
+		\]
 	\end{mydef}
 
+	Ora, si potrebbe sviluppare la teoria delle rappresentazioni dei gruppi compatti con i caratteri, ma bisogna essere cauti perché questi non sono definiti per rappresentazioni di grado infinito. Come possiamo ovviare?
+	
+	\subsection{Coefficienti matriciali -- il ritorno}
+		Prendiamo un generico spazio topologico compatto $X$ (che poi sarà il nostro gruppo), su cui abbiamo definito un integrazione. Più precisamente, noi sappiamo integrare una funzione definita su $X$ a valori in $\bR$, e possiamo definire l'integrazioni di funzioni complesse come
+		\[
+		 \int_X f+ig = \int_X f +i\int_X g
+		\]
+		dove $f,g$ sono funzioni reali. Ora possiamo definire la forma hermitiana nel modo solito:
+		\[
+			\herm {f_1}{f_2} = \int_X f_1 \conj{f_2}  
+		\]
+		
+		Abbiamo definito in generale una forma hermitiana su $\func X$. Ora, se prendiamo $X$ un gruppo topologico compatto, e consideriamo l'integrazione di Haar, quello che otteniamo è che $\func G$ ha definita una forma hermitiana invariante per l'azione della rappresentazione regolare bilatera (vedi definizione \ref{def:BilReg}).
+		
 
-
+	
 
 
 
