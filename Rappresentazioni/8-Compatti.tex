@@ -1,4 +1,14 @@
 \section{Rappresentazioni di gruppi compatti}
+	\newcommand{\SU}[1]{SU(#1)}
+	\newcommand{\SO}[1]{SO(#1)}
+	\newcommand{\twomatrix}[4]{
+	\left(
+		\begin{matrix}
+			#1 & #2 \\
+			#3 & #4					
+		\end{matrix}
+	\right)
+	}
 	La maggior parte dei teoremi che abbiamo dimostrato non vale più se non si assume la finitezza di $G$. Il problema fondamentale è che non riesco più a fare la media pesata sugli elementi di $G$, operazione che spesso ci veniva in aiuto.
 	
 	Tuttavia, è possibile riciclare buona parte delle dimostrazioni assumendo che $G$ sia compatto. Iniziamo con un po' di definizioni.
@@ -80,51 +90,102 @@
 		
 		Abbiamo definito in generale una forma hermitiana su $\func X$. Ora, se prendiamo $X$ un gruppo topologico compatto, e consideriamo l'integrazione di Haar, quello che otteniamo è che $\func G$ ha definita una forma hermitiana invariante per l'azione della rappresentazione regolare bilatera (vedi definizione \ref{def:BilReg}).
 		
+		DA FINIRE
+		
+	\subsection{I gruppi $\SU2$ e $\SO3$}
+		Si indica con $\SU2$ il gruppo delle matrici unitarie (ossia tali che $UU\htrasp=U\htrasp U=1$, dove con $U\htrasp$ indico la trasposta coniugata) con determinante $1$.
+		
+		Quindi 
+		\[
+			\SU2 = \left\{
+				\twomatrix{z_1}{z_2}{-\conj{z_2}}{\conj{z_1}} :z_1,z_2 \in \bC, \abs{z_1}^2+\abs{z_2}^2=1
+			\right\}
+		\]
+		
+		Allora io posso considerare
+		\[
+			\bH = \left\{
+				\twomatrix{z_1}{z_2}{-\conj{z_2}}{\conj{z_1}} :z_1,z_2 \in \bC	
+			\right\}
+		\]
+		
+		e considerare la norma data da $\sqrt{\det A}$, e $\SU2$ coincide in tal modo con la sfera unitaria in $\bH$. Inoltre $\bH$ lo posso vedere come un anello di matrici generato dalla base
+		
+		\[
+			\twomatrix1001, \twomatrix i00{-i}, \twomatrix{0}{1}{-1}{0}, \twomatrix 0ii0
+		\]
+		
+		e guardando cosa succede moltiplicandole tra loro si scopre che $\bH$ è l'anello dei quaternioni, con la norma euclidea. Quindi, per definire l'integrale invariante su $\SU2$, posso usare la misura ``solita'' su $\bR^4$. In coordinate ipersferiche, ottengo
+		\begin{align}
+			\int_{\SU2} f \de g &= \frac1{2\pi^2}\int_{\SU2}f(\theta, \phi, \psi)\de^3x \\
+			&= \frac1{2\pi^2}\int_0^\pi \de \theta \int_0^\pi \de \phi \int_0^{2\pi} \de \psi \sin^2 \theta \sin \phi f(\theta, \phi, \psi)
+		\end{align}
+		dove il cambio di variabili rispetto alle cartesiane è dato da 
+		\[
+			\begin{cases}
+			t=r\cos\theta \\
+			z=r\sin\theta \cos\phi \\
+			y=r\sin\theta \sin \phi \sin \psi \\
+			x=r\sin\theta \sin \phi \cos \psi 
+			\end{cases}
+		\]
+		(ovviamente abbiamo messo $r=1$ perché siamo sulla sfera unitaria).
 
-	
+		Vediamo ora come $\SU2$ e $\SO3$ siano collegati.
 
+				
+		
+			Sia \[
+				\bE=\left\{\left(
+					\begin{matrix}
+						x_1	& x_2+ix_3 \\
+						x_2-ix_3 & -x_1 
+					\end{matrix}
+				\right): (x_1,x_2,x_3) \in \bR^3\right\}
+			\] l'insieme delle matrici hermitiane a traccia nulla. Il prodotto interno su $\bE$ è dato da 
+			\[
+			 \herm XX = -\det X = x_1^2+x_2^2+x_3^2
+			\]
+			che grazie alla solita magia coincide con la norma in $\bR^3$. 
+			Considero l'azione di coniugio di $SU_2$ su $\bE$. Chiaramente, se $X\in \bE, A\in \SU2$, allora $XAX\inv$ sta ancora in $\bE$. 
+			
+			Chiamiamo quindi $P(A)$ l'applicazione $X \mapsto AXA\inv$. Questa è un'applicazione lineare nello spazio tridimensionale $\bE$, ed è ortogonale (conserva la norma), quindi $\det P(A)=\pm1$. Ma $\SU2$ è connesso, e l'applicazione $A \mapsto \det P(A)$ è continua, quindi la sua immagine deve essere connessa: deduciamo che $\det P(A)=1$.
+			
+			Abbiamo quindi costruito un omomorfismo $P: \SU2 \rar \SO3$. Vediamo le sue proprietà.
+			
+			\begin{myprop}
+				L'omomorfismo $P$ è suriettivo.
+			\end{myprop}
+			
+			\begin{myprop}
+				Il $\Ker$ di $P$ è costituito solo dai due elementi $\{\pm I\}$.
+			\end{myprop}
 
+		\subsection{Cose a caso da sistemare}
 
-\section{Appunti sparsi}
+		Consideriamo il sottoinsieme di $\SU2$ delle matrici diagonali.
+		\[
+			A(z) = \left(
+				\begin{matrix}
+				z & 0 \\
+				0 & -z
+				\end{matrix}
+			\right), \qquad \abs z=1
+		\]
 
+		Se $X$ è una matrice, ottengo
+		\[
+			p(A(z))\cdot X = \left( 
+			\begin{matrix}
+				x_1 & z^2(x_2+ix_3) \\
+				z^{-2}(x_2-ix_3) & -x_1
+			\end{matrix}
+			\right)
+		\]
 
-\begin{myprop}
- $SO_3$ è isomorfo a $SU_2$ quozientato per $\{\pm I\}$.
-\end{myprop}
-\begin{proof}
-	Sia $\bE=\left\{\left(
-		\begin{matrix}
-			x_1	& x_2+ix_3 \\
-			x_2-ix_3 & -x_1 
-		\end{matrix}
-	\right): (x_1,x_2,x_3) \in \bR^3\right\}$.
+		Pensando $\bE = \bR \oplus \bC$ vengono cose belle.
 
-	Considero l'azione di coniugio di $SU_2$ su $\bE$. 
-\end{proof}
-
-Consideriamo il sottoinsieme di $SU_2$ delle matrici diagonali.
-\[
-	A(z) = \left(
-		\begin{matrix}
-		z & 0 \\
-		0 & -z
-		\end{matrix}
-	\right), \qquad \abs z=1
-\]
-
-Se $X$ è una matrice, ottengo
-\[
-	p(A(z))\cdot X = \left( 
-	\begin{matrix}
-		x_1 & z^2(x_2+ix_3) \\
-		z^{-2}(x_2-ix_3) & -x_1
-	\end{matrix}
-	\right)
-\]
-
-Pensando $\bE = \bR \oplus \bC$ vengono cose belle.
-
-\subsection{Rappresentazioni di $SU_2$}
+\subsection{Rappresentazioni di $\SU2$}
 	Sia $g \in SU_2$. $g$ agisce naturalmente su $\bC^2$.
 	
 	Considero la sua azione su $\bC[x,y]_n$ (polinomi di grado $n$). Sia $u \in \bC^2$, $f \in \bC[x,y]_n$, allora 

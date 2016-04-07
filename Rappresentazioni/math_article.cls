@@ -41,6 +41,7 @@
 \newcommand{\isom}{\cong}
 \newcommand{\inv}{^{-1}}
 \newcommand{\trasp}[1]{\prescript{t}{}{#1}}
+\newcommand{\htrasp}{^\dagger}
 \newcommand{\scalar}[2]{\langle#1 , #2\rangle}
 
 \newcommand{\bA}{\mathbb A}
