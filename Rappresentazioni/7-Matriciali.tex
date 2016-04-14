@@ -27,7 +27,7 @@
 	\end{mydef}
 	Per convincersi che bisogna definirla così basta prendere $f\in\func G$ che vale $1$ applicata a $g$ e $0$ altrove, applicare $(h_1,h_2)$, e scoprire che ho ottenuto una funzione che vale $1$ solo in $h_2gh_1\inv$.
 	
-	Quindi, sappiamo che $\cM(\rho)$ è un sottospazio di $\func G$: sarà anche $G\times G$-invariante (ossia una sottorappresentazione)? La risposta sarà sì, e lo dimostreremo tra poco
+	Quindi, sappiamo che $\cM(\rho)$ è un sottospazio di $\func G$: sarà anche $G\times G$-invariante (ossia una sottorappresentazione)? La risposta sarà sì, e lo dimostreremo tra poco.
 
 	Sia ora $\rho$ una rappresentazione su $V$, e consideriamo lo spazio degli endomorfismi da $V$ in $V$. Su di esso sappiamo che possiamo far agire $G$ come abbiamo fatto sugli omomorfismi, ossia moltiplicando per $g\inv$ sullo spazio di partenza e per $g$ in quello di arrivo. Tuttavia anche qui ci facciamo agire $G\times G$ e otteniamo una rappresentazione $\tau$ data da
 	\[
@@ -48,7 +48,7 @@
 	\end{myprop}
 
 	\begin{proof}
-		Prendiamo un generico elemento di $\cM(\rho)$, che sappiamo che si può scirvere come $\mu(\xi)$ per qualche $\xi\in\End(V)$. Applico la definizione e ottengo
+		Prendiamo un generico elemento di $\cM(\rho)$, che sappiamo che si può scrivere come $\mu(\xi)$ per qualche $\xi\in\End(V)$. Applico la definizione e ottengo
 		\begin{align*}
 			(h_1,h_2)\cdot \mu (\xi) &= \Tr(\xi \circ \rho_{h_2\inv gh_1})\\
 															&= \Tr(\rho_{h_1} \circ \xi \circ \rho_{h_2} \circ \rho_g)\\
@@ -114,7 +114,7 @@
 	\begin{proof}
 		L'inclusione $\subseteq$ è ovvia.
 		
-		Consideriamo la rappresentazione regolare unilatera $\Reg$ (insomma, la $G$-rappresentazione solita). Consideriamo la base canonica di $\func G$ fatta dalle funzioni $f_g$ che valgono $1$ valutate in $g$ e $0$ altrove. Com'è fatto $[\Reg_h]_i^j$? Questo vale $1$ se e solo se $g_i\cdot h = g_j$: se fissiamo $g_i=e$ allora scopriamo che è esattamente $f_h$, ma per definizione questo è un coefficiente matriciale. Quindi $f_h\in \cM(\Reg)$. Ora chiaramente $\cM(\Reg) \subseteq \bigoplus_i \cM(\rho_i)$ (sto usando $\cM(\rho)+\cM(\sigma)=\cM(\rho+\sigma)$), e poiché abbiamo fatto federe che gli elementi della base di $\func G$ stanno nella somma, allora abbiamo dimostrato anche la $\supseteq$.
+		Consideriamo la rappresentazione regolare unilatera $\Reg$ (la $G$-rappresentazione solita). Consideriamo la base canonica di $\func G$ fatta dalle funzioni $f_g$ che valgono $1$ valutate in $g$ e $0$ altrove. Com'è fatto $[\Reg_h]_i^j$? Questo vale $1$ se e solo se $g_i\cdot h = g_j$: se fissiamo $g_i=e$ allora scopriamo che è esattamente $f_h$, ma per definizione questo è un coefficiente matriciale. Quindi $f_h\in \cM(\Reg)$. Ora chiaramente $\cM(\Reg) \subseteq \bigoplus_i \cM(\rho_i)$ (sto usando $\cM(\rho)+\cM(\sigma)=\cM(\rho+\sigma)$), e poiché abbiamo fatto federe che gli elementi della base di $\func G$ stanno nella somma, allora abbiamo dimostrato anche la $\supseteq$.
 	\end{proof}
 	
 	\subsection{Funzioni classe}

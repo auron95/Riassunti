@@ -12,7 +12,7 @@
 			
 			Viceversa, supponiamo che $G$ sia un gruppo le cui rappresentazioni irriducibili hanno grado 1. Consideriamo una rappresentazione $\rho$ fedele di $G$ (ad esempio quella regolare), quindi possiamo decomporla in irriducibili di grado 1. Questo significa che esiste una base in cui tutte le $\rho_g$ sono diagonali, e pertanto commutano. Dunque $\rho_g\rho_h = \rho_h\rho_g \Rightarrow \rho_{gh} = \rho_{hg}$ e per l'iniettività di $\rho$ ho finito.
 		\end{proof}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Non mi pare tu abbia mai definito fedele G.I. (TODO rispondermi)
 	\subsection{Sottogruppi normali}
 		Se il gruppo ha sottogruppi normali, possiamo ottenere gratuitamente delle rappresentazioni del gruppo conoscendo quelle di un gruppo più piccolo.
 		
@@ -124,7 +124,7 @@
 		D'ora in poi, data una $H$-rappresentazione $\rho$, indicheremo come $\Ind_H^G(\rho)$ la sua indotta.
 		
 		Per le rappresentazioni indotte vale il seguente importante teorema.
-		\begin{mytheorem}[di Frobenius]
+		\begin{mytheorem}[di reciprocità di Frobenius]
 			Sia $\rho$ una $H$-rappresentazione. Sia $\sigma$ una rappresentazione qualunque di $G$, e sia inoltre $\sigma_H$ la sua restrizione a $H$-rappresentazione (ossia $\bC[G]$ con l'azione di $H$). Allora ogni omomorfismo di rappresentazione $\phi$ da $\rho$ a $\sigma_H$ si può estendere in modo unico a un omomorfismo da $\tilde\phi$ da $\Ind_H^G(\rho)$ a $\bC[G]$. In particolare vale quindi
 			\[
 				\Hom_H(\rho, \sigma_H) \isom \Hom_G(\Ind_H^G(\rho), \sigma)

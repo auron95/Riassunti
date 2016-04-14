@@ -6,7 +6,7 @@
   \theta(e_i \tensor e_j) = e_j \tensor e_i
   \]
   
-  $V\otimes V$ si decompone quindi nella somma del quadrato simmetrico $S^2V$ dei vettori fissati da $\theta$, e nel quadrato alternante $\Lambda^2V$ dei vettori tali che $\theta(z) = -z$. Poichè essi sono $G$-invarianti (tramite la rappresentazione $\sigma^2$) allora essi definiscono due sottorappresentazioni.
+  $V\otimes V$ si decompone quindi nella somma del quadrato simmetrico $S^2V$ dei vettori fissati da $\theta$, e nel quadrato alternante $\Lambda^2V$ dei vettori tali che $\theta(z) = -z$. Poichè essi sono $G$-invarianti (tramite la rappresentazione $\rho^2$) allora essi definiscono due sottorappresentazioni.
 \end{mydef}
 
 \begin{myexample}
@@ -23,7 +23,8 @@ Detto in maniera più comprensibile, è l'insieme generato dagli elementi scritt
   Il prodotto $v_1 \wedge v_2 \wedge v_3$ non va pensato in maniera ``associativa'' (come $(v_1 \wedge v_2) \wedge v_3$), perché non ha senso!
 \end{Achtung}
 
-Data una base $v_1,v_2,\dots,v_n$ di $V$, possiamo prender come base di $\Lambda^mV$ gli elementi della forma $v_{i_1},v_{i_2},\dots,v_{i_m}$ con $i_1<i_2<\dots<i_m$. \`E quindi evidente che $\dim \Lambda^mV=\binom nm$.    
+Data una base $v_1,v_2,\dots,v_n$ di $V$, possiamo prendere
+come base di $\Lambda^mV$ gli elementi della forma $v_{i_1}\wedge v_{i_2}\wedge\dots\wedge v_{i_m}$ con $i_1<i_2<\dots<i_m$. \`E quindi evidente che $\dim \Lambda^mV=\binom nm$.    
   
 \begin{mydef}[Potenza simmetrica]
   Si dice potenza simmetrica $n$-esima $S^nV$  di uno spazio vettoriale $V$ lo spazio $V^{\tensor n}$ quozientato per il sottospazio generato dai $v_1 \tensor v_2 \tensor \dots \tensor v_n - v_{\sigma(1)} \tensor v_{\sigma(2)} \tensor \dots \tensor v_{\sigma(n)}$, dove $\sigma$ è una qualsiasi permutazione degli indici $\{1,2,\dots,n\}$.  
@@ -32,7 +33,7 @@ Data una base $v_1,v_2,\dots,v_n$ di $V$, possiamo prender come base di $\Lambda
 Anche qui, possiamo pensare la potenza simmetrica come il prodotto tensore in cui scambiando le componenti il prodotto rimane invariato.
 
 Analogamente a prima, una base per $S^mV$, con $\dim V=n$, sono i vettori della forma  $v_{i_1},v_{i_2},\dots,v_{i_m}$ con $i_1\le i_2\le \dots \le i_m$. Il conto combinatorico ci dice che $\dim S^mV = \binom{n+m-1}m$.
-
+%$v_{i_1},v_{i_2},\dots,v_{i_m}$ immagino non ci vadano le virgole G.I. (TODO rispondermi)
 
 Ora siamo pronti a mettere una rappresentazione su potenza esterna e simmetrica.
 
