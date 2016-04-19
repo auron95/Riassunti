@@ -26,27 +26,74 @@
 		\right)
 	$ è un omomorfismo da $\rho$ in se stessa.
 	
-	Ora cercheremo di confrontare le rappresentazioni su $\bC$ con quelle su $\bR$.
+	Ora cercheremo di confrontare le rappresentazioni su $\bC$ con quelle su $\bR$. 
 	
 	\begin{mydef}
-	 Una rappresentazione complessa $\rho$ si dice reale se esiste una base di $V$ rispetto alla quale le matrici $[\rho_g]$ sono reali. Equivalentemente, si dice reale se è isomorfa a una rappresentazione su uno spazio vettoriale reale.
+	 Una rappresentazione complessa $\rho$ si dice reale se esiste una base di $V$ rispetto alla quale tutte le matrici $[\rho_g]$ sono reali. Equivalentemente, si dice reale se è isomorfa a una rappresentazione su uno spazio vettoriale reale.
 	\end{mydef}
 
-	In una generica rappresentazione complessa sappiamo trovare una forma hermitiana $G$-invariante. Purtroppo non sempre riusciamo a trovare anche una forma quadratica invariante non degenere. Prendiamo ad esempio una rappresentazione $\rho$ di grado 1: allora una forma quadratica sarà della forma $\scalar xy = axy$. Quindi dalla condizione di invarianza si ottiene che $\rho_g z = \pm z$, che in generale è falso.
+	È importante notare che se $\rho$ è una rappresentazione reale, anche $\chi_\rho$ è reale.
 	
-	Il problema che quando faccio la media non sono sicuro di ottenere una forma non degenere.
+	In una generica rappresentazione complessa sappiamo trovare una forma hermitiana $G$-invariante. Purtroppo non sempre riusciamo a trovare anche una forma quadratica invariante non degenere.
 	
-	Sia quindi $\rho$ una $G$-rappresentazione su $V$ e consideriamo allora una forma quadratica $\scalar \cdot\cdot: V \times V \rar \bC$.
-	Possiamo anche vederla come una $\phi: V \rar V^*$ tale che $\phi(v) = \scalar v\cdot$. 
+	Prendiamo ad esempio una rappresentazione $\rho$ di grado 1: allora una forma quadratica sarà della forma $\scalar xy = axy$, quindi dalla condizione di invarianza si ottiene che $\rho_g z = \pm z$, che in generale è falso. Il motivo per cui non funziona la dimostrazione usata nel caso delle forme hermitiane è che quando faccio la media non sono sicuro di ottenere una forma non degenere.
+	
+	Se però $\rho$ è una rappresentazione reale, questa ammette una forma quadratica invariante non degenere: basta infatti definirne una su $\bR$ e poi estenderla al caso complesso. %TODO Spiegare bene questa parte
+	
+	Grazie a questa forma, possiamo ridimostrare il teorema di Masche nel caso reale, con la stessa dimostrazione del caso complesso.
+	
+	È chiaro che ammettere una forma quadratica di questo tipo (mi sono stancato di scrivere tutta la pappardella ogni volta) è un fatto importante, e perciò vogliamo cercare condizioni per cui siamo possibile trovarne una.
+	
+	Sia quindi $\rho$ una $G$-rappresentazione su $V$, $\scalar \cdot\cdot: V \times V \rar \bC$ una forma bilineare (non necessariamente simmetrica!) su $V$. 
+	Questa può essere vista anche come una $\phi: V \rar V^*$ tale che $\phi(v) = \scalar v\cdot$. 
 	
 	\begin{myprop}
-		La forma quadratica $\scalar \cdot\cdot$ è non degenere se e solo se $\phi$ è un isomorfismo. Inoltre $\scalar \cdot\cdot $ è invariante se e solo se $\phi$ è un omomorfismo di rappresentazioni tra $\rho$ e $\rho^*$.
+		La forma bilineare $\scalar \cdot\cdot$ è non degenere se e solo se $\phi$ è un isomorfismo. Inoltre $\scalar \cdot\cdot $ è invariante se e solo se $\phi$ è un omomorfismo di rappresentazioni tra $\rho$ e $\rho^*$.
 	\end{myprop}
 	
-	Quindi $\rho$ ammette forme quadratiche invarianti non degeneri se e solo se $\rho \isom \rho^*$, il che equivale a dire che il carattere $\chi_\rho$ è reale.
+	Quindi $\rho$ ammette forme bilineari invarianti non degeneri se e solo se $\rho \isom \rho^*$, il che equivale a dire che il carattere $\chi_\rho$ è reale.
 	
-	Inoltre, se $\rho$ è irriducibile, ogni forma quadratica $G$-invariante non nulla è non degenere (per Schur).
+	Vale inoltre la seguente proposizione:
+	
+	\begin{myprop}
+		Esiste una forma bilineare invariante non degenere $\scalar \cdot\cdot $ se e solo se esiste una funzione lineare non nulla $h: V \tensor V \rar \bC$ omomorfismo di rappresentazioni tra $\rho^2$ e $1$
+	\end{myprop}
+	
+	\begin{proof}
+		Sia $\scalar \cdot\cdot $ una tale forma. Allora, per definizione di prodotto tensore, esiste unica $h$ lineare che fa commutare il diagramma.
+		\begin{itemize}
+		 \item $h$ è non nulla: siano $v,w$ tali che $\scalar vw\neq 0$. Allora $h(v \tensor w )=\scalar vw \neq 0$.
+		 \item $h$ è omomorfismo di rappresentazioni: si ha infatti 
+		 \[
+			h(\rho_g^2(v \tensor w))=h(\rho_g(v) \tensor \rho_g(w))=\scalar{\rho_g(v)}{\rho_g(w)}=\scalar vw=1\cdot h(v,w)
+		 \]
+		\end{itemize}
+		
+		L'altra freccia è lasciata come esercizio al (più volenteroso di me) lettore.
+	\end{proof}
 
+	
+	Sia ora $\rho$ irriducibile. Grazie alla caratterizzazione con la $\phi$, per Schur vale che ogni forma bilineare $G$-invariante non nulla è non degenere.
+	
+	Se in più è vero che $\rho\isom\rho^*$, si ha anche 
+	\[
+		\dim\Hom(\rho^2,1)=\herm{\chi_{\rho^2}}{1} = \herm{\chi_\rho\chi_\rho}{1} = \herm{\chi_\rho}{\conj{\chi_\rho}} = 1
+	\]
+	per cui esiste un omomorfismo di rappresentazioni non nullo, dunque esiste una forma bilineare non degenere invariante. Inoltre, visto che $\rho^2 = S^2\rho \oplus \Lambda^2\rho$, si ottiene
+	\[
+		\Hom(\rho^2,1)=\Hom(S^2\rho,1) \oplus \Hom(\Lambda^2\rho,1)
+	\]
+	
+	e poiché il termine a sinistra ha dimensione $1$, uno dei due pezzi a destra ha dimensione $1$ e l'altro $0$. Questo, ritornando alle forme bilineari, significa che una rappresentazione irriducibile isomorfa alla duale ammette o una forma simmetrica oppure una forma alternante.
+	
+	\begin{myobs}
+		Per distinguere se una rappresentazione irriducibile ammetta una forma quadratica, una forma alternante o nessuna delle due, si può usare il cosiddetto \emph{indicatore di Schur}, cioè il numero
+		\[
+			\dim\Hom(S^2\rho,1)-\dim\Hom(\Lambda^2\rho,1) = \frac{1}{\abs G}\sum_{g\in G}\chi(g^2)
+		\]
+		Questo vale $1$ se e solo se $\rho$ ammette una forma simmetrica, $-1$ se e solo se ammette una forma alternante e $0$ se e solo se non ammette nessuna delle due, cioè se e solo se $\rho\not\isom\rho^*$.
+
+	\end{myobs}
 	
 	
 	
