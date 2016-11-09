@@ -87,13 +87,113 @@
 	e poiché il termine a sinistra ha dimensione $1$, uno dei due pezzi a destra ha dimensione $1$ e l'altro $0$. Questo, ritornando alle forme bilineari, significa che una rappresentazione irriducibile isomorfa alla duale ammette o una forma simmetrica oppure una forma alternante.
 	
 	\begin{myobs}
-		Per distinguere se una rappresentazione irriducibile ammetta una forma quadratica, una forma alternante o nessuna delle due, si può usare il cosiddetto \emph{indicatore di Schur}, cioè il numero
+		Per distinguere se una rappresentazione irriducibile ammetta una forma quadratica, una forma alternante o nessuna delle due, si può usare il cosiddetto \myname{indicatore di Schur}, cioè il numero
 		\[
 			\dim\Hom(S^2\rho,1)-\dim\Hom(\Lambda^2\rho,1) = \frac{1}{\abs G}\sum_{g\in G}\chi(g^2)
 		\]
 		Questo vale $1$ se e solo se $\rho$ ammette una forma simmetrica, $-1$ se e solo se ammette una forma alternante e $0$ se e solo se non ammette nessuna delle due, cioè se e solo se $\rho\not\isom\rho^*$.
 
 	\end{myobs}
+	
+	
+	
+\subsection{Realificazione e complessificazione}
+	
+	\begin{mydef}
+		Sia $W$ uno spazio vettoriale complesso. Si dice \myname{realificazione} di $W$, e si indica con $W_\bR$, $W$ considerato come spazio vettoriale reale. In altre parole, se $\{w_1,\ldots,w_n\}$ è una base complessa di $W$, $W_\bR$ è lo spazio vettoriale reale con base $\{w_1,i w_1,\ldots,w_n,i w_n\}$.
+	\end{mydef}
+	
+	Ovviamente si ha $\dim(W_\bR)=2\dim(W)$. Inoltre $GL(W)\embed GL(W_\bR)$
+	
+	\begin{mydef}
+		Sia $f:W \rar W$ una funzione $\bC$-lineare. Si dice \myname{realificazione} di $f$, e si indica con $f_\bR:W_\bR \rar W_\bR$, la stessa funzione, ma considerata $\bR$-lineare.
+	\end{mydef}
+	
+	\begin{myexample}
+		Prendiamo ad esempio la moltiplicazione per un numero complesso $\alpha=a+ib$ in $\bC$. Allora $\alpha_\bR$ si identifica con la matrice $2\times2$
+		$
+			\left(
+				\begin{matrix}
+					a  & -b  \\
+					b  &  a
+				\end{matrix}
+			\right)
+		$.
+	\end{myexample}
+	
+	Facendo i conti si può osservare che $\Tr(f_\bR)=2\Re(\Tr(f))=\Tr(f)+\conj{\Tr(f)}$
+	
+	\begin{mydef}
+		Sia $\sigma$ una rappresentazione complessa di $G$. Si dice \myname{realificazione} di $\sigma$ la rappresentazione reale $\sigma_\bR$ definita da $\sigma_\bR(g)=(\sigma(g))_\bR$
+	\end{mydef}
+	
+	Si ha $\chi_{\sigma_\bR}=\chi_\sigma + \conj{\chi_\sigma} = \chi_{\sigma+\sigma^*}$
+	
+	\begin{mydef}
+		Sia $V$ uno spazio vettoriale reale. Si dice \myname{complessificazione} di $V$ lo spazio vettoriale complesso $V_\bC=V\tensor_\bR \bC$ con la moltiplicazione per scalari $\alpha \cdot (v\tensor a)= v\tensor (\alpha a)$
+	\end{mydef}
+	
+	Se per ogni $v \in V$ identifico $v\tensor 1$ con $v$, è facile notare che una base di $V$ come spazio vettoriale reale è a tutti gli effetti anche una base $V_\bC$.
+	
+	\begin{mydef}
+		Sia $f:V\rar V$ una funzione $\bR$-lineare. Si dice \myname{complessificazione} di $f$ la funzione $f_\bC:V_\bC \rar V_\bC$ definita da $f_\bC=f\tensor id_\bC$
+	\end{mydef}
+	
+	Se $\cB$ è una base di $V$, si ha che le due matrici $[f]_\cB$ e $[f_\bC]_\cB$ coincidono, dunque in particolare $\Tr(f)=\Tr(f_\bC)$.
+	
+	Analogamente a quanto fatto per le rappresentazioni complesse, definiamo una rappresentazione complessa a partire da una reale:
+	
+	\begin{mydef}
+		Sia $\rho$ una rappresentazione reale di $G$. Si dice \myname{realificazione} di $\rho$ la rappresentazione complessa $\rho_\bC$ definita da $\rho_\bC(g)=(\rho(g))_\bC$.
+	\end{mydef}
+
+	Analogamente a prima (è tutto un dejà-vu ormai) ne sappiamo calcolare il carattere: infatti si ha $\chi_{\rho_\bC}=\chi_\rho$, e in particolare è una funzione a valori reali. Inoltre si ha $\chi_{\rho_{\bC\bR}}=\chi_\rho+\chi_\rho$, $\chi_{\sigma_{\bR\bC}}=\chi_\sigma+\chi_{\sigma^*}$, da cui si ottiene $\rho_{\bC\bR}\isom \rho+\rho$, $\sigma_{\bR\bC}\isom \sigma+\sigma^*$.
+	
+	Il nostro obbiettivo adesso è di studiare le rappresentazioni reali attraverso le rappresentazioni complesse, di cui sappiamo tutto. Per fare ciò abbiamo bisogno di alcuni lemmi, che presentiamo qui sotto.
+	
+	\begin{myprop}
+		Siano $V$ uno spazio vettoriale reale, $W$ uno spazio vettoriale complesso, $\rho$ una rappresentazione reale e $\sigma$ una rappresentazione complessa di $G$.
+		
+		Allora gli spazi $\Hom_\bR(V,W_\bR)$, $\Hom_\bC(V_\bC,W)$ sono isomorfi. Analogamente sono isomorfi gli spazi $\Hom(\rho,\sigma_\bR)$, $\Hom(\rho_\bC,\sigma)$.
+		\label{prop:RealCompl}
+	\end{myprop}
+
+	\begin{proof}
+		Siano $f:\Hom_\bR(V,W_\bR) \rar \Hom_\bC(V_\bC,W)$, $f(\phi)=\phi|_V$ e $g:\Hom_\bC(V_\bC,W) \rar \Hom_\bR(V,W_\bR)$, $g(\psi)=\psi_\bC$. Si mostra facendo i conti che $f$ e $g$ sono una l'inversa dell'altra e che sono omomorfismi di spazi vettoriali o di rappresentazioni (io come al solito non ne ho alcuna voglia).
+	\end{proof}
+	
+	Da questa proposizione se ne ricava un'altra, che ha una conseguenza molto importante sul piano pratico.
+	
+	\begin{mylemma}
+	 	Siano $\rho$ e $\rho'$ due rappresentazioni irriducibili reali tali che $\rho\not\isom\rho'$. Allora $\rho_\bC$ e $\rho'_\bC$ non hanno componenti irriducibili comuni.
+	\end{mylemma}
+
+	\begin{proof}
+	 	Si ha $\Hom(\rho_\bC,\rho'_\bC)\isom\Hom(\rho_{\bC\bR},\rho')\isom\Hom(\rho+\rho,\rho')=\{0\}$ per la proposizione \ref{prop:RealCompl}.
+	\end{proof}
+
+	Conseguenza di questo lemma è che il numero di rappresentazioni reali di un gruppo $G$ è minore o uguale del numero delle sue rappresentazioni complesse. In particolare, poiché $G$ ha un numero finito di rappresentazioni complesse, ha anche un numero finito di rappresentazioni reali.
+	
+	\begin{mylemma}
+	 	Sia $\rho$ una rappresentazione irriducibile reale, e $\sigma$ una componente irriducibile complessa di $\rho_\bC$. Allora $\rho$ è una componente irriducibile reale di $\sigma_\bR$.
+	\end{mylemma}
+
+	\begin{proof}
+	 	Si ha $\Hom(\rho,\sigma_\bR)\isom\Hom(\rho_\bC,\sigma)$ per la proposizione \ref{prop:RealCompl}
+	\end{proof}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
