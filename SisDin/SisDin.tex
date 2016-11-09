@@ -1,0 +1,112 @@
+\documentclass[a4paper,10pt,oneside]{math_article}
+
+\renewcommand{\phi}{\varphi}
+%\renewcommand{\Phi}{\varPhi}
+\newcommand{\herm}[2]{\left(#1 | #2\right)}
+\newcommand{\id}{I}
+\newcommand{\tensor}{\otimes}
+\newcommand{\embed}{\hookrightarrow}
+\renewcommand{\bar}{\overline}
+\renewcommand{\Re}{\operatorname{Re}}
+
+
+\let\conj\overline
+\title{Riassunto di Introduzione alla Teoria delle Rappresentazioni}
+ \author{Matteo Migliorini}
+ 
+\date{}
+ 
+ 
+\begin{document}
+	\section{Definizioni generali}
+	
+	Sia $W \subseteq \bR^n$ un aperto, e $F: W \rar \bR^n$ una funzione di classe $C^1$. Il generico sistema dinamico (continuo) è un'equazione del tipo
+	\[
+		\dot X = F(X)
+	\]
+	dove $X: I \rar W$ è una curva definita su un certo intervallo $I$.
+	
+	\begin{mydef}[Orbita]
+		Ogni curva definita su tutto $\bR$ che soddisfa l'equazione si dice orbita del sistema dinamico. Se è definita solo su un intervallo, si parla genericamente di soluzione.
+	\end{mydef}
+	
+	\begin{mytheorem}[Cauchy-Lipschitz]
+		Nelle ipotesi sopra, esiste un unica soluzione definita localmente per un certa condizione iniziale $X(t_0)=X_0$.
+	\end{mytheorem}
+
+	
+	\begin{mydef}[Flusso integrale]
+		Sia $\gamma_{X}$ la soluzione con condizione iniziale $\gamma_X(0) = X$.
+		Si dice \emph{flusso integrale} la famiglia di applicazioni $\{ \Phi^t: t \in \bR\}$ tali che $\Phi^t: W\rar W$ e che mandano ogni $X \in W$ in $\gamma_{X}(t)$.
+	\end{mydef}
+	
+	\begin{myobs}
+		Non è detto che il flusso integrale sia definito per tutti i tempi.
+	\end{myobs}
+	
+	\begin{mydef}
+		Un sottoinsieme $P$ si dice \emph{invariante} per il flusso se ogni soluzione con condizione iniziale in $P$ è definita globalmente e rimane in $P$ per tutti i tempi.
+	\end{mydef}
+
+	
+	
+	\begin{mydef}[Integrale primo]
+		Una funzione $E: W \rar R^n$ è una funzione differenziabile costante sulle soluzioni.
+	\end{mydef}
+
+	\begin{myobs}
+		Ogni insieme di livello di $E$ è invariante.
+	\end{myobs}
+	
+	
+	\begin{mydef}
+		Si dice che un sistema dinamico è \emph{conservativo} se ogni $\Phi^t$ conserva l'area orientata.
+	\end{mydef}
+	
+	\subsection{Stabilità}
+	\begin{mydef}[Punto di equilibrio]
+		Un punto $s \in W$ si dice di \emph{equilibrio} se soddisfa $F(s)=0$. In questo caso la curva costante è un'orbita.
+	\end{mydef}
+	
+	Cerchiamo di classificare il comportamento intorno ai punti di equilibrio.
+	
+	\begin{mydef}[Punto attrattivo]
+		Un punto $s$ di equilibrio si dice attrattivo se ammette un intorno $U$ tale che le soluzioni con condizione iniziale in $U$ tendono a $s$ (nel futuro).
+	\end{mydef}
+	
+	\begin{mydef}[Bacino di attrazione]
+		Si dice \emph{bacino di attrazione} di un punto di equilibrio $s$ l'insieme dei punti $X$ per cui la soluzione con condizione iniziale in $X$ ha $s$ come limite.
+	\end{mydef}
+	
+	\begin{myobs}
+		Osserviamo che $s$ è attrattivo sta nella parte interna del suo bacino di attrazione. 
+	\end{myobs}
+	
+	\begin{mydef}[Stabilità]
+		Un punto $s$ si dice stabile se per ogni $U$ intorno di $s$ esiste un intorno $V$ per cui $\Phi^t(V) \subseteq U$ per ogni $t>0$, ossia se a patto di partire sufficientemente vicino, rimango a distanza arbitrariamente piccola da $s$. 
+	\end{mydef}
+	
+	\begin{myobs}
+		Attrattivo non implica stabile: moralmente le soluzioni potrebbero allontanarsi e poi tornare per tendere a $s$.
+	\end{myobs}
+	
+	\begin{mydef}
+		Un punto \emph{asintoticamente stabile} è un punto stabile e attrattivo.
+	\end{mydef}
+	
+	\begin{mydef}
+		Un punto si dice \emph{instabile} se non è stabile (chi l'avrebbe mai detto).
+	\end{mydef}
+
+
+
+
+\section{Sistemi Lineari}
+	\subsection{Esponenziale di matrici}
+
+
+
+
+ 
+
+\end{document}
