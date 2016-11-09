@@ -8,10 +8,15 @@
 \newcommand{\embed}{\hookrightarrow}
 \renewcommand{\bar}{\overline}
 \renewcommand{\Re}{\operatorname{Re}}
+\renewcommand{\Im}{\operatorname{Im}}
 
+\newcommand{\twovec}[2]{\begin{pmatrix}#1\\#2\end{pmatrix}}
 
+\newcommand{\cmat}[2]{\begin{pmatrix}#1&-#2\\#2&#1\end{pmatrix}}
+\newcommand{\cmatconj}[2]{\begin{pmatrix}#1&#2\\-#2&#1\end{pmatrix}}
+\newcommand{\scmat}[2]{\left(\begin{smallmatrix}#1&-#2\\#2&#1\end{smallmatrix}\right)}
 \let\conj\overline
-\title{Riassunto di Introduzione alla Teoria delle Rappresentazioni}
+\title{Sistemi dinamici}
  \author{Matteo Migliorini}
  
 \date{}
@@ -27,7 +32,7 @@
 	dove $X: I \rar W$ è una curva definita su un certo intervallo $I$.
 	
 	\begin{mydef}[Orbita]
-		Ogni curva definita su tutto $\bR$ che soddisfa l'equazione si dice orbita del sistema dinamico. Se è definita solo su un intervallo, si parla genericamente di soluzione.
+		Ogni curva definita su tutto $\bR$ che soddisfa l'equazione si dice orbita del sistema dinamico. Se è definita solo su un intervallo, si parla genericamente di soluzione. Si parla invece di traiettoria di una soluzione per indicare la sua immagine in $\bR^n$.
 	\end{mydef}
 	
 	\begin{mytheorem}[Cauchy-Lipschitz]
@@ -103,6 +108,158 @@
 
 \section{Sistemi Lineari}
 	\subsection{Esponenziale di matrici}
+	\begin{mydef}
+		Si indica con $e^{A}$, con $A$ matrice quadrata, la serie
+		\[
+			\sum_{k=0}^{+\infty} \frac{A^kt^k}{k!}
+		\]
+		In particolare, useremo spesso la funzione $e^{At}$, dove $A$ è una matrice e $t\in \bR$.
+	\end{mydef}
+	
+	\begin{mytheorem}[Convergenza dell'esponenziale]
+		Sia $A$ una matrice quadrata, e $t \in \bR$. Allora
+		\begin{itemize}
+		 \item $e^{At}$ converge uniformemente sui compatti per ogni $t$.
+		 \item $e^{At}$ ha come limite una funzione lineare i cui coefficienti sono funzioni continue della $t$.
+		\end{itemize}
+
+	\end{mytheorem}
+	
+	\begin{myprop}[Propretà dell'esponenziale]
+		Valgono le seguenti:
+		\begin{itemize} 
+		 \item Se $AB=BA$, allora $e^A \cdot e^B = e^{A+B}$.
+		 \item $e^{At}$ è derivabile e vale $\dede t e^{At} = Ae^{At}$
+		\end{itemize}
+	\end{myprop}
+	
+	
+	\subsection{Diagonalizzazione}
+		\begin{myprop}
+			Sia $A=MDM\inv$ una matrice diagonalizzabile, con autovalori $\lambda_i$ e autovettori $v_i$ che formano una base. Allora
+			\[
+				M\inv = \left(
+					\begin{array}{c|c|c|c}
+						& & & \\
+						v_1 & v_2 & \dots & v_n \\
+						& & & \\
+					\end{array}
+				\right)
+			\]
+			e ovviamente
+			\[
+				D=\begin{pmatrix}
+					\lambda_1 \\
+					& \lambda_2 \\
+					&& \ddots \\
+					&&& \lambda_n
+				  \end{pmatrix}
+			\]
+		\end{myprop}
+		
+		\begin{myprop}
+			Se una matrice è diagonalizzabile, con $A=MDM\inv$, allora
+			\[
+				e^{At} = Me^{Dt}M\inv = M\begin{pmatrix}
+					e^{\lambda_1} \\
+					& e^{\lambda_2} \\
+					&& \ddots \\
+					&&& e^{\lambda_n}
+				  \end{pmatrix}
+			\]
+
+		\end{myprop}
+	
+	\subsection{Diagonalizzazione complessa}
+		\subsection{Forma matriciale dei numeri complessi}
+		
+		Consideriamo $J=\cmat 01$. Allora $\Span(I,J) \isom \bC$, con l'ovvio isomorfismo di anelli.
+		
+		In particolare vale che 
+		\[
+			\cmat ab \twovec cd = \twovec {ac-bd}{ad+bc} 
+		\]
+
+		ossia, se pensiamo i numeri complessi come vettori in 2-dimensionali reali, la moltiplicazione per numeri complessi funziona bene.
+		
+		Inoltre $\det \scmat ab = \abs{a+bi}^2$, mentre il coniugato si traduce nella trasposizione.
+		
+		Passando in polari, il numero complesso $\rho e^{i\theta}$ è rappesentato dalla matrice
+		\[
+			\cmat {\rho\cos \theta}{\rho\sin \theta}
+		\]
+		
+		Per quanto riguarda l'esponenziale, $e^{a+bi}$ diventa
+		\[
+			\cmat {e^{at} \cos(bt)}{e^{at} \sin(bt)}
+		\]
+
+		
+
+		
+		\begin{mydef}[Matrice semisemplice]
+			Una matrice $A$ si dice semisemplice se è diagonalizzabile in senso complesso.
+		\end{mydef}
+		
+		Possiamo ora portare una matrice semisemplice in una forma normale.
+		Consideriamo $A$ semisemplice, e siano $\lambda_i$ gli autovalori, e $v_i$ i relativi autovettori (in generale complessi).
+		Poichè $A$ è reale, allora gli autovettori relativi a autovalori reali sono reali. Per quanto riguarda gli autovalori complessi, essi sono a due a due coniugati, pertanto si possono scegliere anche i relativi autovettori in modo che siano anch'essi coniugati. A questo punto, dati due autovalori complessi $\lambda_i$ e $\lambda_{i+1}=\conj{\lambda_i}$, sostituiamo $v_i$ e $v_{i+1}$ con $\Im v_i$ e $\Re v_i$ rispettivamente. 
+		
+		A questo punto passando a questa nuova base ho che $A$ è della forma
+		
+		\[
+			A= MDM\inv = M \begin{pmatrix}
+		                 \lambda_1 \\
+		                 & \ddots \\
+		                 && \Re{\lambda_i} & -\Im{\lambda_i} \\
+		                 && \Im{\lambda_i} & \Re{\lambda_i} \\
+		                 &&&& \ddots
+		                \end{pmatrix}
+		\]
+		
+		Cioè, scelgo un autovalore per ogni coppia, ci metto nella base di autovettori parte immaginaria e reale nell'ordine, e la matrice viene diagonale, solo che ho anche le rappresentazioni algebriche degli autovalori complessi selezionati.
+		
+		
+		
+
+		
+		
+
+	
+	
+	\subsection{Sistema lineare}
+		\begin{mydef}
+			Un sistema dinamico continuo si dice lineare se $F$ è una funzione lineare da $\bR^n$ in sè.
+		\end{mydef}
+		
+		\begin{myprop}
+			Sia $\dot X = AX$ un sistema lineare. Allora 
+			\[
+				\Phi^t(X) = e^{At}X
+			\]
+		\end{myprop}
+		
+		Supponiamo per il momento $A$ semisemplice.
+		
+		Per risolvere il sistema dinamico lineare conviene quindi diagonalizzare $A$. A questo punto, nella nuova base, il comportamento qualitativo si può classificare facilmente.
+		
+		Mettiamoci quindi in dimensione 2 e studiamo qualitativamente il comportamento, e diamo definizioni diverse del tipo di equilibrio che ha l'origine (che hanno senso solo nel caso lineare).
+		\begin{mydef}
+		L'origine si dice:
+		\begin{itemize}
+		 \item nodo se gli autovalori sono reali concordi e distinti;
+		 \item sella se gli autovalori sono reali discordi;
+		 \item fuoco se gli autovalori sono complessi con parte reale nonnulla;
+		 \item centro se gli autovalori sono immaginari puri.
+		\end{itemize}
+		\end{mydef}
+
+		
+		
+	
+
+
+
 
 
 

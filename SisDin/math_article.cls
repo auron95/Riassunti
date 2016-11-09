@@ -184,6 +184,7 @@
 \newcommand{\xrar}{\xrightarrow}
 
 \newcommand{\de}{\, \textrm{d}}
+\newcommand{\dede}[1]{\frac{\de}{\de #1}}
 \newcommand{\tridiag}[6]{
 	\[
 	  \begin{diagram}
